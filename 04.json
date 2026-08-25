@@ -1,0 +1,108 @@
+{
+  "id": 4,
+  "title": "Koʻplik: -s",
+  "subtitle": "-lar qoʻshimchasi",
+  "flower": "🌻",
+
+  "words": [
+    { "en": "book",             "pron": "BUK",                  "uz": "kitob" },
+    { "en": "box",              "pron": "BOKS",                 "uz": "quti" },
+    { "en": "watch",            "pron": "UOCH",                 "uz": "qoʻl soati" },
+    { "en": "city",             "pron": "SI-ti",                "uz": "shahar" },
+    { "en": "man / men",        "pron": "MEN / MEN",            "uz": "erkak / erkaklar" },
+    { "en": "woman / women",    "pron": "UU-men / UI-min",      "uz": "ayol / ayollar" },
+    { "en": "child / children", "pron": "CHAYLD / CHIL-dren",   "uz": "bola / bolalar" },
+    { "en": "carrot",           "pron": "KE-ret",               "uz": "sabzi" },
+    { "en": "banana",           "pron": "be-NA-ne",             "uz": "banan" },
+    { "en": "two / three",      "pron": "TU / THRII",           "uz": "ikki / uch" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida · -lar oʻrniga -s",
+      "body": "Odatda oxiriga <b>-s</b> qoʻshiladi:\nbook → book<b>s</b>, chair → chair<b>s</b>\n\n<b>-s, -sh, -ch, -x, -o</b> dan keyin <b>-es</b>:\nbox → box<b>es</b>, watch → watch<b>es</b>\n\nUndoshdan keyingi <b>-y</b> → <b>-ies</b>:\ncity → cit<b>ies</b>, baby → bab<b>ies</b>",
+      "examples": []
+    },
+    {
+      "label": "Qoida · qoidaga boʻysunmaydiganlar",
+      "body": "Bir nechta soʻz butunlay oʻzgaradi. Ularni yodlash kerak:\n\nman → <b>men</b>\nwoman → <b>women</b>  <code>UU-men → UI-min</code>\nchild → <b>children</b>\nfoot → <b>feet</b>",
+      "examples": []
+    }
+  ],
+
+  "examples": [
+    { "en": "two books",           "uz": "ikkita kitob" },
+    { "en": "three apples",        "uz": "uchta olma" },
+    { "en": "The books are here.", "uz": "Kitoblar bu yerda." },
+    { "en": "They are children.",  "uz": "Ular bolalar." }
+  ],
+
+  "warning": {
+    "body": "Oʻzbekchada son bor boʻlsa «-lar» qoʻyilmaydi: «ikkita <b>kitob</b>».\n\nInglizchada esa son bor boʻlsa ham <b>-s</b> shart. Va koʻplik bilan «is» emas, <b>are</b> ishlatiladi.",
+    "pairs": [
+      { "bad": "two book",         "good": "two books" },
+      { "bad": "three carrot",     "good": "three carrots" },
+      { "bad": "The books is here.", "good": "The books are here." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "task": "Koʻplik shaklini tanlang:",
+      "prompt": "one box → three ___",
+      "options": [
+        { "text": "three boxes",  "correct": true },
+        { "text": "three boxs",   "why": "«-x» dan keyin «-es» qoʻshiladi: boxes." },
+        { "text": "three box",    "why": "Son bor boʻlsa ham koʻplik qoʻshimchasi shart." },
+        { "text": "three boxies", "why": "«-ies» faqat undoshdan keyingi «-y» uchun." }
+      ]
+    },
+    {
+      "task": "Koʻplik shaklini tanlang:",
+      "prompt": "one city → two ___",
+      "options": [
+        { "text": "two cities",  "correct": true },
+        { "text": "two citys",   "why": "Undoshdan keyingi «-y» → «-ies»: cities." },
+        { "text": "two cityes",  "why": "«y» tushib, «-ies» qoʻshiladi: cities." },
+        { "text": "two city",    "why": "Koʻplik qoʻshimchasi yoʻq." }
+      ]
+    },
+    {
+      "task": "Koʻplik shaklini tanlang:",
+      "prompt": "one woman → two ___",
+      "options": [
+        { "text": "two women",   "correct": true },
+        { "text": "two womans",  "why": "«woman» qoidaga boʻysunmaydi: woman → women." },
+        { "text": "two womens",  "why": "«women» allaqachon koʻplik. Ustiga «-s» qoʻshilmaydi." },
+        { "text": "two woman",   "why": "Koʻplik shakli kerak: women." }
+      ]
+    },
+    {
+      "prompt": "Uchta olma.",
+      "options": [
+        { "text": "three apples",   "correct": true },
+        { "text": "three apple",    "why": "Oʻzbekchada «uchta olma» — «lar» yoʻq. Inglizchada «-s» shart." },
+        { "text": "three an apple", "why": "«a / an» va son bir vaqtda ishlatilmaydi." },
+        { "text": "apples three",   "why": "Son otdan oldin keladi." }
+      ]
+    },
+    {
+      "prompt": "Kitoblar bu yerda.",
+      "options": [
+        { "text": "The books are here.", "correct": true },
+        { "text": "The books is here.",  "why": "Koʻplik bilan «are» ishlatiladi." },
+        { "text": "The book are here.",  "why": "«book» birlik, «are» koʻplik — mos kelmayapti." },
+        { "text": "The books here.",     "why": "«are» tushib qolgan." }
+      ]
+    },
+    {
+      "prompt": "Ular bolalar.",
+      "options": [
+        { "text": "They are children.",  "correct": true },
+        { "text": "They are childrens.", "why": "«children» allaqachon koʻplik. Ustiga «-s» qoʻshilmaydi." },
+        { "text": "They are childs.",    "why": "«child» qoidaga boʻysunmaydi: child → children." },
+        { "text": "They is children.",   "why": "«they» bilan «are»." }
+      ]
+    }
+  ]
+}

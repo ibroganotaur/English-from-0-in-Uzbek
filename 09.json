@@ -1,0 +1,113 @@
+{
+  "id": 9,
+  "title": "my · your · his · her",
+  "subtitle": "Egalik",
+  "flower": "🍀",
+
+  "words": [
+    { "en": "my",     "pron": "MAY",       "uz": "mening" },
+    { "en": "your",   "pron": "YOR",       "uz": "sening, sizning" },
+    { "en": "his",    "pron": "HIZ",       "uz": "uning (erkak)" },
+    { "en": "her",    "pron": "HOR",       "uz": "uning (ayol)" },
+    { "en": "our",    "pron": "AUER",      "uz": "bizning" },
+    { "en": "their",  "pron": "DHEER",     "uz": "ularning" },
+    { "en": "mother", "pron": "MA-dher",   "uz": "ona" },
+    { "en": "father", "pron": "FA-dher",   "uz": "ota" },
+    { "en": "name",   "pron": "NEYM",      "uz": "ism" },
+    { "en": "family", "pron": "FE-mi-li",  "uz": "oila" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida 1 · alohida soʻz",
+      "body": "Oʻzbekchada egalik otning oxiriga qoʻshiladi: «kitob<b>im</b>», «uy<b>ingiz</b>».\n\nInglizchada esa <b>alohida soʻz otdan oldin</b> turadi:\n\nkitobim → <b>my book</b>\nuyingiz → <b>your house</b>\noilamiz → <b>our family</b>\n\nEgalik soʻzi bor boʻlsa, artikl qoʻyilmaydi: «a my book» emas, shunchaki «my book».",
+      "examples": []
+    },
+    {
+      "label": "Qoida 2 · his yoki her?",
+      "body": "Bu <b>egasiga</b> qarab tanlanadi, narsaga qarab emas.\n\nEga ayol boʻlsa — har doim <b>her</b>, keyin nima kelishidan qatʼi nazar.\nEga erkak boʻlsa — har doim <b>his</b>.",
+      "examples": [
+        { "uz": "Aziza va uning eri",    "en": "Aziza and her husband" },
+        { "uz": "Aziz va uning xotini",  "en": "Aziz and his wife" }
+      ]
+    },
+    {
+      "label": "Qoida 3 · 's",
+      "body": "Odam nomidan keyin <b>'s</b> qoʻyiladi. Tartib oʻzbekchadagidek — egasi oldin, narsa keyin.\n\nAzizaning kitobi → <b>Aziza's book</b>\nakamning mashinasi → <b>my brother's car</b>",
+      "examples": []
+    }
+  ],
+
+  "examples": [
+    { "en": "This is my family.",       "uz": "Bu mening oilam." },
+    { "en": "What is your name?",       "uz": "Sizning ismingiz nima?" },
+    { "en": "Her mother is a teacher.", "uz": "Uning onasi oʻqituvchi." },
+    { "en": "Aziza's house is big.",    "uz": "Azizaning uyi katta." }
+  ],
+
+  "warning": {
+    "body": "<b>his</b> va <b>her</b> egasiga qarab tanlanadi — bu oʻzbek tilida umuman yoʻq farq, shuning uchun eng koʻp shu yerda adashiladi.",
+    "pairs": [
+      { "bad": "Aziza and his husband",   "good": "Aziza and her husband" },
+      { "bad": "the book of my brother",  "good": "my brother's book" },
+      { "bad": "My name Aziza.",          "good": "My name is Aziza." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "prompt": "Bu uning onasi. (erkakning onasi)",
+      "options": [
+        { "text": "This is his mother.",  "correct": true },
+        { "text": "This is her mother.",  "why": "Egasi erkak — «his». «mother» ayol boʻlsa ham, egasi muhim." },
+        { "text": "This is he mother.",   "why": "«he» ega olmoshi. Egalik shakli — «his»." },
+        { "text": "This is his a mother.", "why": "Egalik soʻzi bor boʻlsa artikl qoʻyilmaydi." }
+      ]
+    },
+    {
+      "prompt": "Bu uning eri. (ayolning eri)",
+      "options": [
+        { "text": "This is her husband.",  "correct": true },
+        { "text": "This is his husband.",  "why": "Egasi ayol — «her». Narsa (husband) erkak boʻlsa ham." },
+        { "text": "This is she husband.",  "why": "«she» ega olmoshi. Egalik shakli — «her»." },
+        { "text": "This is hers husband.", "why": "«hers» otsiz ishlatiladi. Otdan oldin — «her»." }
+      ]
+    },
+    {
+      "prompt": "Sizning ismingiz nima?",
+      "options": [
+        { "text": "What is your name?",  "correct": true },
+        { "text": "What is you name?",   "why": "«you» emas, egalik shakli <b>your</b>." },
+        { "text": "What your name?",     "why": "«is» tushib qolgan." },
+        { "text": "Your name is what?",  "why": "Soʻroq soʻzi gapning boshida turadi." }
+      ]
+    },
+    {
+      "prompt": "Azizaning uyi katta.",
+      "options": [
+        { "text": "Aziza's house is big.",      "correct": true },
+        { "text": "The house of Aziza is big.", "why": "Odam nomi bilan «of» emas, «'s» ishlatiladi." },
+        { "text": "Aziza house is big.",        "why": "«'s» tushib qolgan: Aziza's house." },
+        { "text": "House Aziza's is big.",      "why": "Egasi oldin keladi: Aziza's house." }
+      ]
+    },
+    {
+      "prompt": "Bizning bolalarimiz uyda.",
+      "options": [
+        { "text": "Our children are at home.",   "correct": true },
+        { "text": "Our children is at home.",    "why": "«children» koʻplik — «are»." },
+        { "text": "We children are at home.",    "why": "«we» ega olmoshi. Egalik shakli — «our»." },
+        { "text": "Our childrens are at home.",  "why": "«children» allaqachon koʻplik." }
+      ]
+    },
+    {
+      "prompt": "Bu mening oilam.",
+      "options": [
+        { "text": "This is my family.",    "correct": true },
+        { "text": "This is a my family.",  "why": "«my» bor boʻlsa artikl qoʻyilmaydi." },
+        { "text": "This is me family.",    "why": "«me» emas, egalik shakli <b>my</b>." },
+        { "text": "This my family.",       "why": "«is» tushib qolgan." }
+      ]
+    }
+  ]
+}

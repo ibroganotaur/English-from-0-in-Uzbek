@@ -1,0 +1,116 @@
+{
+  "id": 3,
+  "title": "a / an / the",
+  "subtitle": "Oʻzbekchada yoʻq soʻzlar",
+  "flower": "🌺",
+
+  "words": [
+    { "en": "a / an",  "pron": "E / EN",   "uz": "bitta, qandaydir" },
+    { "en": "the",     "pron": "DHE",      "uz": "oʻsha, aniq" },
+    { "en": "apple",   "pron": "E-pl",     "uz": "olma" },
+    { "en": "orange",  "pron": "O-rinj",   "uz": "apelsin" },
+    { "en": "chair",   "pron": "CHEER",    "uz": "stul" },
+    { "en": "shop",    "pron": "SHOP",     "uz": "doʻkon" },
+    { "en": "house",   "pron": "HAUS",     "uz": "uy" },
+    { "en": "car",     "pron": "KAR",      "uz": "mashina" },
+    { "en": "egg",     "pron": "EG",       "uz": "tuxum" },
+    { "en": "old",     "pron": "OULD",     "uz": "eski, qari" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida 1 · a va an",
+      "body": "Sanaladigan <b>bitta</b> narsa haqida birinchi marta gapirsangiz, oldiga <b>a</b> qoʻyiladi. Bu «bitta, qandaydir» degani.\n\nAgar soʻz <b>unli tovush</b> bilan boshlansa — <b>an</b>:\n\n<b>a</b> book · <b>a</b> chair · <b>a</b> shop · <b>a</b> doctor\n<b>an</b> apple · <b>an</b> orange · <b>an</b> egg",
+      "examples": []
+    },
+    {
+      "label": "Qoida 2 · tovush, harf emas",
+      "body": "Muhimi — <b>tovush</b>, yozilishi emas.\n\n<b>an hour</b>  <code>en AUER</code> — «h» aytilmaydi, shuning uchun «an»\n<b>a university</b>  <code>e yu-ni-VOO-si-ti</code> — «yu» tovushi bilan boshlanadi, shuning uchun «a»",
+      "examples": []
+    },
+    {
+      "label": "Qoida 3 · the",
+      "body": "<b>the</b> — «oʻsha». Ikkalamiz ham qaysi narsa haqida gapirayotganimizni bilamiz.\n\nBirinchi marta — <b>a</b>. Ikkinchi marta — <b>the</b>.\n\nVa dunyoda yagona narsalar oldida ham «the»: <b>the sun</b>, <b>the moon</b>.",
+      "examples": [
+        { "uz": "Menda mashina bor. Oʻsha mashina eski.", "en": "I have a car. The car is old." }
+      ]
+    }
+  ],
+
+  "examples": [
+    { "en": "This is a chair.",   "uz": "Bu stul." },
+    { "en": "It is an apple.",    "uz": "Bu olma." },
+    { "en": "She is a doctor.",   "uz": "U shifokor." },
+    { "en": "The shop is here.",  "uz": "Doʻkon bu yerda." }
+  ],
+
+  "warning": {
+    "body": "Kasb aytganda artikl <b>albatta</b> kerak. Bu oʻzbeklarda eng uzoq qoladigan xato.\n\nSanalmaydigan narsalar oldida esa «a» qoʻyilmaydi: <b>water</b>, <b>bread</b>, <b>money</b> — bularni «bitta» deb sanab boʻlmaydi.",
+    "pairs": [
+      { "bad": "I am doctor.",     "good": "I am a doctor." },
+      { "bad": "She is teacher.",  "good": "She is a teacher." },
+      { "bad": "I have a water.",  "good": "I have water." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "task": "Boʻsh joyni toʻldiring:",
+      "prompt": "I am ___ teacher.",
+      "options": [
+        { "text": "I am a teacher.",   "correct": true },
+        { "text": "I am teacher.",     "why": "Kasb oldida artikl shart." },
+        { "text": "I am an teacher.",  "why": "«teacher» undosh tovush bilan boshlanadi — «a»." },
+        { "text": "I am the teacher.", "why": "«the» aniq, maʼlum oʻqituvchi degani. Oddiy tanishuvda «a»." }
+      ]
+    },
+    {
+      "task": "Boʻsh joyni toʻldiring:",
+      "prompt": "This is ___ apple.",
+      "options": [
+        { "text": "This is an apple.",  "correct": true },
+        { "text": "This is a apple.",   "why": "«apple» unli tovush bilan boshlanadi — «an» kerak." },
+        { "text": "This is apple.",     "why": "Artikl tushib qolgan." },
+        { "text": "This is an apples.", "why": "«an» bitta narsa uchun. Koʻplik bilan ishlatilmaydi." }
+      ]
+    },
+    {
+      "task": "Boʻsh joyni toʻldiring:",
+      "prompt": "It is ___ egg.",
+      "options": [
+        { "text": "It is an egg.",  "correct": true },
+        { "text": "It is a egg.",   "why": "«egg» unli tovush bilan boshlanadi — «an»." },
+        { "text": "It is egg.",     "why": "Artikl kerak." },
+        { "text": "It is the egg.", "why": "Birinchi marta aytilayotgan narsa — «an»." }
+      ]
+    },
+    {
+      "prompt": "Menda uy bor. Oʻsha uy eski.",
+      "options": [
+        { "text": "I have a house. The house is old.", "correct": true },
+        { "text": "I have the house. A house is old.", "why": "Teskari. Birinchi marta — «a», ikkinchi marta — «the»." },
+        { "text": "I have a house. A house is old.",   "why": "Ikkinchi gapda allaqachon maʼlum uy — «the»." },
+        { "text": "I have house. House is old.",       "why": "Ikkala gapda ham artikl tushib qolgan." }
+      ]
+    },
+    {
+      "prompt": "Bu doʻkon.",
+      "options": [
+        { "text": "This is a shop.",   "correct": true },
+        { "text": "This is shop.",     "why": "Artikl kerak: a shop." },
+        { "text": "This a shop.",      "why": "«is» tushib qolgan." },
+        { "text": "This is an shop.",  "why": "«shop» undosh bilan boshlanadi — «a»." }
+      ]
+    },
+    {
+      "task": "Toʻgʻrisini tanlang:",
+      "prompt": "«bir soat» — inglizcha qanday?",
+      "options": [
+        { "text": "an hour",  "correct": true },
+        { "text": "a hour",   "why": "«hour» da «h» aytilmaydi — «auer» boʻlib eshitiladi. Unli tovush, demak «an»." },
+        { "text": "the hour", "why": "«the» aniq soatni bildiradi. «bir soat» — «an hour»." },
+        { "text": "hour",     "why": "Artikl tushib qolgan." }
+      ]
+    }
+  ]
+}

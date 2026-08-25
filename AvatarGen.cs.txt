@@ -1,0 +1,133 @@
+using System.Globalization;
+using System.IO;
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+
+namespace Avatar;
+
+/// <summary>
+/// Renders the bot avatar to PNG. Drawn in a 0..100 design space and scaled, so the
+/// same geometry works at 512 or 1024. Telegram masks the square to a circle in most
+/// places but not all, so the background fills the whole square.
+/// </summary>
+public static class Gen
+{
+    private static int Size = 1024;
+
+    private static Color C(string hex) => (Color)ColorConverter.ConvertFromString(hex);
+
+    private sealed class Theme
+    {
+        public string Name;
+        public Color Bg, Bloom, BloomShade, Stem, Ring;
+        public bool Ring2;
+    }
+
+    [STAThread]
+    public static void Main()
+    {
+        var themes = new[]
+        {
+            new Theme { Name = "a-paper",  Bg = C("#F2F3EE"), Bloom = C("#A33A2A"), BloomShade = C("#8A2E20"),
+                        Stem = C("#2E6B4C"), Ring = C("#14568A"), Ring2 = true },
+            new Theme { Name = "b-blue",   Bg = C("#14568A"), Bloom = C("#F2F3EE"), BloomShade = C("#D9DCD2"),
+                        Stem = C("#7FB89A"), Ring = C("#F2F3EE"), Ring2 = true },
+            new Theme { Name = "c-ink",    Bg = C("#191F1D"), Bloom = C("#C9503A"), BloomShade = C("#A33A2A"),
+                        Stem = C("#5E9E78"), Ring = C("#2E6B4C"), Ring2 = true },
+        };
+
+        var outDir = AppContext.BaseDirectory;
+        foreach (var t in themes)
+        {
+            Size = 1024;
+            var path = Path.Combine(outDir, $"avatar-{t.Name}.png");
+            Save(Render(t), path);
+            Console.WriteLine(path);
+
+            // a chat-list-sized copy, purely to check the mark still reads when tiny
+            Size = 96;
+            Save(Render(t), Path.Combine(outDir, $"small-{t.Name}.png"));
+        }
+        Size = 1024;
+    }
+
+    private static Geometry G(string path) =>
+        Geometry.Parse(path);
+
+    private static DrawingVisual Render(Theme t)
+    {
+        var dv = new DrawingVisual();
+        RenderOptions.SetEdgeMode(dv, EdgeMode.Unspecified);
+
+        using (var dc = dv.RenderOpen())
+        {
+            // design space is 0..100; scale everything up to Size
+            var s = Size / 100.0;
+            dc.PushTransform(new ScaleTransform(s, s));
+
+            // full-bleed background so a square crop still looks deliberate
+            dc.DrawRectangle(new SolidColorBrush(t.Bg), null, new Rect(0, 0, 100, 100));
+
+            // thin ring, inset from the edge so Telegram's circular mask never clips it
+            if (t.Ring2)
+            {
+                var ring = new Pen(new SolidColorBrush(t.Ring), 1.9);
+                dc.DrawEllipse(null, ring, new Point(50, 50), 44.0, 44.0);
+            }
+
+            // the flower as a group, scaled up to fill the frame properly
+            dc.PushTransform(new ScaleTransform(1.2, 1.2, 50, 50));
+
+            // ---- stem -------------------------------------------------------
+            var stemBrush = new SolidColorBrush(t.Stem);
+            var stem = G("M 50,54 C 50,63 50,70 50,78");
+            dc.DrawGeometry(null, new Pen(stemBrush, 3.4) { StartLineCap = PenLineCap.Round, EndLineCap = PenLineCap.Round }, stem);
+
+            // ---- leaves -----------------------------------------------------
+            var leafL = G("M 49,74 C 41,73 33,66 30,56 C 39,57 47,64 49,72 Z");
+            var leafR = G("M 51,70 C 58,68 65,61 67,52 C 59,54 52,60 51,68 Z");
+            dc.DrawGeometry(stemBrush, null, leafL);
+            dc.DrawGeometry(stemBrush, null, leafR);
+
+            // ---- tulip bloom ------------------------------------------------
+            var bloom = G(
+                "M 37,50 " +
+                "C 33,42 32,34 34,28 " +
+                "C 35,25 38,25 39,29 " +
+                "C 41,34 43,37 45,37 " +
+                "C 45,31 46,26 50,22 " +
+                "C 54,26 55,31 55,37 " +
+                "C 57,37 59,34 61,29 " +
+                "C 62,25 65,25 66,28 " +
+                "C 68,34 67,42 63,50 " +
+                "C 59,55 41,55 37,50 Z");
+            dc.DrawGeometry(new SolidColorBrush(t.Bloom), null, bloom);
+
+            // right-hand petal shaded, so the cup reads as a form and not a blob
+            var shade = G(
+                "M 55,37 " +
+                "C 57,37 59,34 61,29 " +
+                "C 62,25 65,25 66,28 " +
+                "C 68,34 67,42 63,50 " +
+                "C 61,52.5 57,53.8 52,54 " +
+                "C 54,48 55,42 55,37 Z");
+            dc.DrawGeometry(new SolidColorBrush(t.BloomShade), null, shade);
+
+            dc.Pop();   // flower group
+            dc.Pop();   // design-space scale
+        }
+
+        return dv;
+    }
+
+    private static void Save(DrawingVisual dv, string path)
+    {
+        var rtb = new RenderTargetBitmap(Size, Size, 96, 96, PixelFormats.Pbgra32);
+        rtb.Render(dv);
+        var enc = new PngBitmapEncoder();
+        enc.Frames.Add(BitmapFrame.Create(rtb));
+        using var fs = File.Create(path);
+        enc.Save(fs);
+    }
+}

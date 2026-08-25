@@ -1,0 +1,110 @@
+{
+  "id": 10,
+  "title": "Birinchi suhbat",
+  "subtitle": "Takrorlash",
+  "flower": "🌳",
+
+  "words": [
+    { "en": "hello",             "pron": "he-LOU",         "uz": "salom" },
+    { "en": "please",            "pron": "PLIIZ",          "uz": "iltimos" },
+    { "en": "thank you",         "pron": "THENK-yu",       "uz": "rahmat" },
+    { "en": "sorry",             "pron": "SO-ri",          "uz": "kechirasiz" },
+    { "en": "how much",          "pron": "hau MACH",       "uz": "qancha (narx)" },
+    { "en": "where",             "pron": "UEER",           "uz": "qayerda" },
+    { "en": "nice to meet you",  "pron": "nays tu MIIT yu", "uz": "tanishganimdan xursandman" },
+    { "en": "here you are",      "pron": "HIIR yu ar",     "uz": "mana, oling" },
+    { "en": "goodbye",           "pron": "gud-BAY",        "uz": "xayr" },
+    { "en": "and",               "pron": "END",            "uz": "va" }
+  ],
+
+  "rules": [
+    {
+      "label": "Suhbat 1 · Tanishuv",
+      "body": "Bu suhbatni <b>yod oling</b> va ovoz chiqarib oʻqing. Har bir gap 1–9-darslarda oʻrgangan qoidalardan tuzilgan.\n\n— <b>Hello! My name is Aziza.</b>\n<i>Salom! Mening ismim Aziza.</i>\n\n— <b>Hi, Aziza. I'm Sara. Nice to meet you.</b>\n<i>Salom, Aziza. Men Saraman. Tanishganimdan xursandman.</i>\n\n— <b>Nice to meet you too. Where are you from?</b>\n<i>Men ham. Siz qayerdansiz?</i>\n\n— <b>I'm from England. And you?</b>\n<i>Men Angliyadanman. Siz-chi?</i>\n\n— <b>I'm from Uzbekistan. I'm a teacher.</b>\n<i>Men Oʻzbekistondanman. Men oʻqituvchiman.</i>\n\n— <b>Are you married?</b>\n<i>Turmush qurganmisiz?</i>\n\n— <b>Yes, I am. I have two children.</b>\n<i>Ha. Mening ikkita bolam bor.</i>",
+      "examples": []
+    },
+    {
+      "label": "Suhbat 2 · Doʻkonda",
+      "body": "— <b>Hello. How much is this?</b>\n<i>Salom. Bu qancha turadi?</i>\n\n— <b>It's five dollars.</b>\n<i>Besh dollar.</i>\n\n— <b>That's expensive. How much are these apples?</b>\n<i>Bu qimmat. Bu olmalar qancha?</i>\n\n— <b>They're two dollars.</b>\n<i>Ikki dollar.</i>\n\n— <b>OK. Two apples and one banana, please.</b>\n<i>Yaxshi. Ikkita olma va bitta banan, iltimos.</i>\n\n— <b>Here you are.</b>\n<i>Mana, oling.</i>\n\n— <b>Thank you. Goodbye!</b>\n<i>Rahmat. Xayr!</i>",
+      "examples": []
+    },
+    {
+      "label": "Diqqat · narx soʻrash",
+      "body": "Birlik va koʻplikka eʼtibor bering:\n\n<b>How much is this?</b> — bitta narsa\n<b>How much are these?</b> — bir nechta narsa\n\nBu 6-darsdagi «this / these» qoidasining aynan oʻzi.",
+      "examples": []
+    }
+  ],
+
+  "examples": [
+    { "en": "Hello! My name is Aziza.", "uz": "Salom! Mening ismim Aziza." },
+    { "en": "Where are you from?",      "uz": "Siz qayerdansiz?" },
+    { "en": "How much is this?",        "uz": "Bu qancha turadi?" },
+    { "en": "Two apples, please.",      "uz": "Ikkita olma, iltimos." }
+  ],
+
+  "warning": {
+    "body": "Suhbatda eng koʻp uchraydigan uchta xato — hammasi oldingi darslardan:",
+    "pairs": [
+      { "bad": "My name Aziza.",       "good": "My name is Aziza." },
+      { "bad": "Where you are from?",  "good": "Where are you from?" },
+      { "bad": "How much is these?",   "good": "How much are these?" }
+    ]
+  },
+
+  "quiz": [
+    {
+      "prompt": "Mening ismim Aziza.",
+      "options": [
+        { "text": "My name is Aziza.",  "correct": true },
+        { "text": "My name Aziza.",     "why": "«is» tushib qolgan. Ingliz gapida «be» shart." },
+        { "text": "I name is Aziza.",   "why": "«I» emas, egalik shakli <b>my</b>." },
+        { "text": "Me name is Aziza.",  "why": "«me» emas, <b>my</b>." }
+      ]
+    },
+    {
+      "prompt": "Siz qayerdansiz?",
+      "options": [
+        { "text": "Where are you from?",  "correct": true },
+        { "text": "Where you are from?",  "why": "Savolda «are» egadan oldin keladi." },
+        { "text": "Where are you?",       "why": "«from» tushib qolgan — bu «Qayerdasiz?» degani." },
+        { "text": "From where you are?",  "why": "«from» gapning oxirida qoladi: Where are you from?" }
+      ]
+    },
+    {
+      "prompt": "Bu olmalar qancha?",
+      "options": [
+        { "text": "How much are these apples?",  "correct": true },
+        { "text": "How much is these apples?",   "why": "«these apples» koʻplik — «are» kerak." },
+        { "text": "How much are this apples?",   "why": "«this» birlik. Koʻplik uchun «these»." },
+        { "text": "How much these apples are?",  "why": "Savolda «are» soʻroq soʻzidan keyin darrov keladi." }
+      ]
+    },
+    {
+      "prompt": "Men oʻqituvchiman, shifokor emasman.",
+      "options": [
+        { "text": "I am a teacher, not a doctor.",  "correct": true },
+        { "text": "I am teacher, not doctor.",      "why": "Ikkala kasb oldida ham artikl kerak." },
+        { "text": "I am a teacher, no a doctor.",   "why": "«no» emas, <b>not</b>." },
+        { "text": "Am a teacher, not a doctor.",    "why": "Ega tushib qolgan: I am." }
+      ]
+    },
+    {
+      "prompt": "Uning ikkita bolasi bor. (ayol)",
+      "options": [
+        { "text": "She has two children.",   "correct": true },
+        { "text": "She have two children.",  "why": "«she» bilan «has»." },
+        { "text": "She has two child.",      "why": "Koʻplik kerak: children." },
+        { "text": "Her has two children.",   "why": "Ega «she». «her» — bu «uning»." }
+      ]
+    },
+    {
+      "prompt": "Bizning uyimiz katta va yangi.",
+      "options": [
+        { "text": "Our house is big and new.",   "correct": true },
+        { "text": "Our house is big and news.",  "why": "Sifat hech qachon koʻplik shakliga oʻtmaydi." },
+        { "text": "Our house big and new.",      "why": "«is» tushib qolgan." },
+        { "text": "We house is big and new.",    "why": "«we» emas, egalik shakli <b>our</b>." }
+      ]
+    }
+  ]
+}

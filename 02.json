@@ -1,0 +1,111 @@
+{
+  "id": 2,
+  "title": "He / She / It",
+  "subtitle": "«U» uchta soʻz",
+  "flower": "🌸",
+
+  "words": [
+    { "en": "he",      "pron": "HII",        "uz": "u (erkak)" },
+    { "en": "she",     "pron": "SHII",       "uz": "u (ayol)" },
+    { "en": "it",      "pron": "IT",         "uz": "u (narsa, hayvon)" },
+    { "en": "we",      "pron": "UII",        "uz": "biz" },
+    { "en": "they",    "pron": "DHEY",       "uz": "ular" },
+    { "en": "is",      "pron": "IZ",         "uz": "-dir (he/she/it bilan)" },
+    { "en": "husband", "pron": "HAZ-bend",   "uz": "er" },
+    { "en": "wife",    "pron": "UAYF",       "uz": "xotin" },
+    { "en": "sister",  "pron": "SIS-ter",    "uz": "opa, singil" },
+    { "en": "brother", "pron": "BRA-dher",   "uz": "aka, uka" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida · toʻliq jadval",
+      "body": "«Be» feʼlining uchta shakli bor. Buni yod oling — u ingliz tilining tayanchi.\n\n<b>I</b> → am\n<b>he / she / it</b> → is\n<b>you / we / they</b> → are\n\nQisqargan shakli:\n<b>he's · she's · it's · we're · they're</b>",
+      "examples": []
+    },
+    {
+      "label": "Qoida · «u» boʻlinadi",
+      "body": "Oʻzbekchada erkak ham, ayol ham, narsa ham — hammasi <b>u</b>. Inglizchada esa uchta boshqa soʻz:\n\n<b>he</b> — erkak\n<b>she</b> — ayol\n<b>it</b> — narsa, hayvon",
+      "examples": [
+        { "uz": "U mening erim. U shifokor.",     "en": "He is my husband. He is a doctor." },
+        { "uz": "U mening singlim. U talaba.",    "en": "She is my sister. She is a student." },
+        { "uz": "Bu kitob. U yangi.",             "en": "This is a book. It is new." }
+      ]
+    }
+  ],
+
+  "examples": [
+    { "en": "He is my brother.",        "uz": "U mening akam." },
+    { "en": "She is a teacher.",        "uz": "U oʻqituvchi." },
+    { "en": "We are from Uzbekistan.",  "uz": "Biz Oʻzbekistondanmiz." },
+    { "en": "They are here.",           "uz": "Ular bu yerda." }
+  ],
+
+  "warning": {
+    "body": "Bu — oʻzbeklarning <b>eng koʻp</b> qiladigan xatosi.\n\nGapirishdan oldin bir soniya toʻxtang va oʻzingizdan soʻrang: «kim haqida gapiryapman — erkakmi, ayolmi?»\n\nAyolni «he» desangiz, suhbatdosh toʻxtab qoladi. Shuning uchun birinchi kundan toʻgʻri oʻrganing.",
+    "pairs": [
+      { "bad": "My sister? He is a doctor.", "good": "My sister? She is a doctor." },
+      { "bad": "My husband? She is here.",   "good": "My husband? He is here." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "task": "Toʻgʻri gapni tanlang:",
+      "prompt": "my sister → ___ a teacher.",
+      "options": [
+        { "text": "She is a teacher.", "correct": true },
+        { "text": "He is a teacher.",  "why": "«sister» — ayol. Ayol uchun «she»." },
+        { "text": "It is a teacher.",  "why": "«it» faqat narsa va hayvon uchun, odam uchun emas." },
+        { "text": "She are a teacher.", "why": "«she» bilan har doim «is»." }
+      ]
+    },
+    {
+      "task": "Toʻgʻri gapni tanlang:",
+      "prompt": "my husband → ___ at home.",
+      "options": [
+        { "text": "He is at home.",  "correct": true },
+        { "text": "She is at home.", "why": "«husband» — erkak. Erkak uchun «he»." },
+        { "text": "He are at home.", "why": "«he» bilan har doim «is»." },
+        { "text": "He is home.",     "why": "«at» tushib qolgan. Toʻgʻrisi: at home." }
+      ]
+    },
+    {
+      "prompt": "Biz talabamiz.",
+      "options": [
+        { "text": "We are students.", "correct": true },
+        { "text": "We is students.",  "why": "«is» faqat he / she / it bilan. «we» bilan «are»." },
+        { "text": "We are student.",  "why": "Biz koʻpmiz — koʻplik kerak: students." },
+        { "text": "Us are students.", "why": "«us» ega boʻla olmaydi. Ega — «we»." }
+      ]
+    },
+    {
+      "prompt": "Ular Oʻzbekistondan.",
+      "options": [
+        { "text": "They are from Uzbekistan.", "correct": true },
+        { "text": "They is from Uzbekistan.",  "why": "«they» bilan «are»." },
+        { "text": "They from Uzbekistan.",     "why": "«are» tushib qolgan." },
+        { "text": "They are Uzbekistan from.", "why": "«from» soʻzdan oldin keladi, oxirida emas." }
+      ]
+    },
+    {
+      "task": "Toʻgʻri gapni tanlang:",
+      "prompt": "the book → ___ new.",
+      "options": [
+        { "text": "It is new.",  "correct": true },
+        { "text": "He is new.",  "why": "Kitob — narsa. Narsa uchun «it»." },
+        { "text": "She is new.", "why": "Kitob — narsa. Narsa uchun «it»." },
+        { "text": "Its new.",    "why": "«it is» qisqarsa «it's» boʻladi. «its» — bu «uning»." }
+      ]
+    },
+    {
+      "prompt": "U mening singlim va u shifokor.",
+      "options": [
+        { "text": "She is my sister and she is a doctor.", "correct": true },
+        { "text": "She is my sister and he is a doctor.",  "why": "Ikkala gap ham bitta ayol haqida — ikkalasida ham «she»." },
+        { "text": "He is my sister and he is a doctor.",   "why": "«sister» ayol, «he» emas." },
+        { "text": "She my sister and she a doctor.",       "why": "Ikkala gapda ham «is» tushib qolgan." }
+      ]
+    }
+  ]
+}

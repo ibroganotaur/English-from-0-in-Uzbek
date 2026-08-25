@@ -1,0 +1,12 @@
+bin/
+obj/
+publish/
+
+# Never commit the token
+appsettings.Local.json
+
+# Runtime state + cached audio (now lives in %LOCALAPPDATA%\EnglishBot, but just in case)
+data/
+
+# Local backups
+*.bak

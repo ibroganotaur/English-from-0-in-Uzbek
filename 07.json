@@ -1,0 +1,114 @@
+{
+  "id": 7,
+  "title": "Sifatlar",
+  "subtitle": "katta uy → a big house",
+  "flower": "💐",
+
+  "words": [
+    { "en": "big",        "pron": "BIG",          "uz": "katta" },
+    { "en": "small",      "pron": "SMOOL",        "uz": "kichik" },
+    { "en": "new",        "pron": "NYU",          "uz": "yangi" },
+    { "en": "good",       "pron": "GUD",          "uz": "yaxshi" },
+    { "en": "cold",       "pron": "KOULD",        "uz": "sovuq" },
+    { "en": "hungry",     "pron": "HANG-ri",      "uz": "och" },
+    { "en": "happy",      "pron": "HE-pi",        "uz": "xursand" },
+    { "en": "expensive",  "pron": "iks-PEN-siv",  "uz": "qimmat" },
+    { "en": "beautiful",  "pron": "BYU-ti-ful",   "uz": "chiroyli" },
+    { "en": "very",       "pron": "VE-ri",        "uz": "juda" }
+  ],
+
+  "rules": [
+    {
+      "label": "Yaxshi xabar",
+      "body": "Sifat otdan <b>oldin</b> keladi — xuddi oʻzbekchadagidek. Bu yerda hech narsani oʻzgartirish shart emas.\n\nkatta uy → <b>a big house</b>\nsovuq suv → <b>cold water</b>\nyangi mashina → <b>a new car</b>",
+      "examples": []
+    },
+    {
+      "label": "Qoida · sifat oʻzgarmaydi",
+      "body": "Koʻplikda ham sifatga <b>-s</b> qoʻshilmaydi. Faqat ot oʻzgaradi.\n\n❌ two big<b>s</b> houses\n✅ two <b>big</b> houses",
+      "examples": []
+    },
+    {
+      "label": "Qoida · be + sifat",
+      "body": "Oʻzbekcha «qornim och», «charchadim», «27 yoshdaman» — inglizchada hammasi <b>be</b> bilan aytiladi, «have» bilan emas.",
+      "examples": [
+        { "uz": "Suv sovuq.",       "en": "The water is cold." },
+        { "uz": "Qornim och.",      "en": "I am hungry." },
+        { "uz": "Men 27 yoshdaman.", "en": "I am 27 years old." }
+      ]
+    }
+  ],
+
+  "examples": [
+    { "en": "a big shop",              "uz": "katta doʻkon" },
+    { "en": "This is very expensive.", "uz": "Bu juda qimmat." },
+    { "en": "She is happy.",           "uz": "U xursand." },
+    { "en": "two old books",           "uz": "ikkita eski kitob" }
+  ],
+
+  "warning": {
+    "body": "Holatni «bor» bilan emas, <b>be</b> bilan ayting. Bu oʻzbekcha «qornim och» tuzilishidan qoladigan xato.",
+    "pairs": [
+      { "bad": "I have hungry.",   "good": "I am hungry." },
+      { "bad": "I have 27 years.", "good": "I am 27 years old." },
+      { "bad": "My name Aziza.",   "good": "My name is Aziza." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "prompt": "katta doʻkon",
+      "options": [
+        { "text": "a big shop",   "correct": true },
+        { "text": "a shop big",   "why": "Sifat otdan oldin keladi — xuddi oʻzbekchadagidek." },
+        { "text": "big shop",     "why": "Artikl tushib qolgan: a big shop." },
+        { "text": "a big a shop", "why": "Artikl bir marta, iboraning boshida qoʻyiladi." }
+      ]
+    },
+    {
+      "prompt": "Ikkita eski kitob.",
+      "options": [
+        { "text": "two old books",   "correct": true },
+        { "text": "two olds books",  "why": "Sifat hech qachon koʻplik shakliga oʻtmaydi." },
+        { "text": "two old book",    "why": "Ot koʻplik boʻlishi kerak: books." },
+        { "text": "two books old",   "why": "Sifat otdan oldin keladi." }
+      ]
+    },
+    {
+      "prompt": "Qornim och.",
+      "options": [
+        { "text": "I am hungry.",     "correct": true },
+        { "text": "I have hungry.",   "why": "Holat «have» bilan emas, «be» bilan aytiladi." },
+        { "text": "My stomach hungry.", "why": "Inglizchada oddiy qilib «I am hungry» deyiladi." },
+        { "text": "I hungry.",        "why": "«am» tushib qolgan." }
+      ]
+    },
+    {
+      "prompt": "Men 27 yoshdaman.",
+      "options": [
+        { "text": "I am 27 years old.",  "correct": true },
+        { "text": "I have 27 years.",    "why": "Yosh «have» bilan aytilmaydi. «I am … years old»." },
+        { "text": "I am 27 years.",      "why": "«old» tushib qolgan: 27 years old." },
+        { "text": "My age is 27 years old.", "why": "Bu ortiqcha. Oddiy qilib «I am 27» yoki «I am 27 years old»." }
+      ]
+    },
+    {
+      "prompt": "Bu juda qimmat.",
+      "options": [
+        { "text": "This is very expensive.",  "correct": true },
+        { "text": "This is expensive very.",  "why": "«very» sifatdan oldin keladi." },
+        { "text": "This very expensive.",     "why": "«is» tushib qolgan." },
+        { "text": "This is a very expensive.", "why": "Ot yoʻq — artikl ham kerak emas." }
+      ]
+    },
+    {
+      "prompt": "Suv sovuq.",
+      "options": [
+        { "text": "The water is cold.",    "correct": true },
+        { "text": "The water cold.",       "why": "«is» tushib qolgan." },
+        { "text": "The cold water.",       "why": "Bu gap emas, ibora. Gap uchun «is» kerak." },
+        { "text": "The water is a cold.",  "why": "Sifat oldida artikl qoʻyilmaydi." }
+      ]
+    }
+  ]
+}

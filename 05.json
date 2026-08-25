@@ -1,0 +1,118 @@
+{
+  "id": 5,
+  "title": "Inkor va savol",
+  "subtitle": "not · Are you …?",
+  "flower": "🌼",
+
+  "words": [
+    { "en": "not",      "pron": "NOT",       "uz": "emas" },
+    { "en": "yes",      "pron": "YES",       "uz": "ha" },
+    { "en": "no",       "pron": "NOU",       "uz": "yoʻq" },
+    { "en": "tired",    "pron": "TA-yerd",   "uz": "charchagan" },
+    { "en": "ready",    "pron": "RE-di",     "uz": "tayyor" },
+    { "en": "at home",  "pron": "et HOUM",   "uz": "uyda" },
+    { "en": "at work",  "pron": "et UOOK",   "uz": "ishda" },
+    { "en": "your",     "pron": "YOR",       "uz": "sening, sizning" },
+    { "en": "married",  "pron": "ME-rid",    "uz": "turmush qurgan" },
+    { "en": "busy",     "pron": "BI-zi",     "uz": "band" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida 1 · inkor",
+      "body": "«be» dan keyin <b>not</b> qoʻshiladi. Boshqa hech narsa oʻzgarmaydi.\n\nI am <b>not</b> → <b>I'm not</b>\nHe is <b>not</b> → <b>he isn't</b>\nThey are <b>not</b> → <b>they aren't</b>",
+      "examples": [
+        { "uz": "Men shifokor emasman.", "en": "I'm not a doctor." },
+        { "uz": "U uyda emas.",          "en": "He isn't at home." }
+      ]
+    },
+    {
+      "label": "Qoida 2 · savol",
+      "body": "Oʻzbekchada savol qilish uchun oxiriga <b>-mi</b> qoʻshiladi: «Talabasizmi?»\n\nInglizchada esa <b>soʻz tartibi oʻzgaradi</b> — «be» oldinga chiqadi.",
+      "examples": [
+        { "uz": "Siz talabasiz. → Siz talabamisiz?", "en": "You are a student. → Are you a student?" },
+        { "uz": "U singlingiz. → U singlingizmi?",   "en": "She is your sister. → Is she your sister?" }
+      ]
+    },
+    {
+      "label": "Qoida 3 · qisqa javob",
+      "body": "Inglizchada quruq «Yes» yoki «No» qoʻpol eshitiladi. Har doim shunday javob bering:\n\n<b>Are you a student?</b>\n→ Yes, I <b>am</b>. / No, I'<b>m not</b>.\n\n<b>Is he at home?</b>\n→ Yes, he <b>is</b>. / No, he <b>isn't</b>.\n\nDiqqat: «Yes, I am» qisqartirilmaydi. «Yes, I'm» deyilmaydi.",
+      "examples": []
+    }
+  ],
+
+  "examples": [
+    { "en": "I'm not tired.",            "uz": "Men charchamaganman." },
+    { "en": "Are you busy?",             "uz": "Bandmisiz?" },
+    { "en": "Is she your sister?",       "uz": "U singlingizmi?" },
+    { "en": "No, they aren't ready.",    "uz": "Yoʻq, ular tayyor emas." }
+  ],
+
+  "warning": {
+    "body": "Faqat ohangni koʻtarib savol qilmang — <b>soʻz tartibini</b> oʻzgartiring. Bu oʻzbekcha «-mi» odatidan qoladigan xato.",
+    "pairs": [
+      { "bad": "You are a student?",   "good": "Are you a student?" },
+      { "bad": "She is ready?",        "good": "Is she ready?" },
+      { "bad": "Yes, I'm.",            "good": "Yes, I am." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "prompt": "Men charchamaganman.",
+      "options": [
+        { "text": "I'm not tired.",  "correct": true },
+        { "text": "I not tired.",    "why": "«am» tushib qolgan. Inkorda ham «be» kerak." },
+        { "text": "I don't tired.",  "why": "«don't» feʼllar bilan ishlatiladi. «be» bilan faqat «not»." },
+        { "text": "I'm no tired.",   "why": "«no» emas, <b>not</b>." }
+      ]
+    },
+    {
+      "prompt": "U uyda emas. (erkak)",
+      "options": [
+        { "text": "He isn't at home.",   "correct": true },
+        { "text": "He not at home.",     "why": "«is» tushib qolgan: he isn't." },
+        { "text": "He doesn't at home.", "why": "«be» bilan «doesn't» ishlatilmaydi." },
+        { "text": "He isn't home.",      "why": "«at» kerak: at home." }
+      ]
+    },
+    {
+      "prompt": "Siz oʻqituvchimisiz?",
+      "options": [
+        { "text": "Are you a teacher?",  "correct": true },
+        { "text": "You are a teacher?",  "why": "Savolda «are» oldinga chiqishi kerak." },
+        { "text": "Are you teacher?",    "why": "Artikl tushib qolgan: a teacher." },
+        { "text": "Do you a teacher?",   "why": "«be» bilan savol «do» siz yasaladi." }
+      ]
+    },
+    {
+      "prompt": "U singlingizmi?",
+      "options": [
+        { "text": "Is she your sister?",   "correct": true },
+        { "text": "She is your sister?",   "why": "Savolda «is» birinchi keladi." },
+        { "text": "Is she you sister?",    "why": "«you» emas, egalik shakli <b>your</b>." },
+        { "text": "Is he your sister?",    "why": "«sister» ayol — «she»." }
+      ]
+    },
+    {
+      "task": "Qisqa javobni tanlang:",
+      "prompt": "Are they ready? — Ha.",
+      "options": [
+        { "text": "Yes, they are.",   "correct": true },
+        { "text": "Yes, they're.",    "why": "Qisqa javobda qisqartirilmaydi. Toʻliq: Yes, they are." },
+        { "text": "Yes, they is.",    "why": "«they» bilan «are»." },
+        { "text": "Yes.",             "why": "Quruq «Yes» qoʻpol eshitiladi. Toʻliq javob bering." }
+      ]
+    },
+    {
+      "task": "Qisqa javobni tanlang:",
+      "prompt": "Are you at work? — Yoʻq.",
+      "options": [
+        { "text": "No, I'm not.",   "correct": true },
+        { "text": "No, I amn't.",   "why": "«amn't» degan soʻz yoʻq. Toʻgʻrisi: I'm not." },
+        { "text": "No, I not.",     "why": "«am» tushib qolgan." },
+        { "text": "No, I don't.",   "why": "«be» bilan savolga «don't» bilan javob berilmaydi." }
+      ]
+    }
+  ]
+}

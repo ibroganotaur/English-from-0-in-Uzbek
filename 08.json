@@ -1,0 +1,108 @@
+{
+  "id": 8,
+  "title": "have / has",
+  "subtitle": "Menda … bor",
+  "flower": "🏵️",
+
+  "words": [
+    { "en": "have",     "pron": "HEV",        "uz": "ega boʻlmoq (I, you, we, they)" },
+    { "en": "has",      "pron": "HEZ",        "uz": "ega boʻlmoq (he, she, it)" },
+    { "en": "money",    "pron": "MA-ni",      "uz": "pul" },
+    { "en": "time",     "pron": "TAYM",       "uz": "vaqt" },
+    { "en": "job",      "pron": "JOB",        "uz": "ish" },
+    { "en": "friend",   "pron": "FREND",      "uz": "doʻst" },
+    { "en": "today",    "pron": "te-DEY",     "uz": "bugun" },
+    { "en": "don't",    "pron": "DOUNT",      "uz": "yoʻq (inkor yordamchisi)" },
+    { "en": "doesn't",  "pron": "DAZNT",      "uz": "yoʻq (he/she/it uchun)" },
+    { "en": "children", "pron": "CHIL-dren",  "uz": "bolalar" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida · egasi oldinga chiqadi",
+      "body": "Oʻzbekchada «Men<b>da</b> mashina <b>bor</b>» — egasi «-da» qoʻshimchasi bilan.\n\nInglizchada egasi <b>gapning boshida</b> turadi va «have» feʼli ishlatiladi. «Bor» soʻzi alohida tarjima qilinmaydi — u «have» ning ichida.\n\nFaqat <b>he / she / it</b> bilan «has». Qolgan hammasi bilan «have».",
+      "examples": [
+        { "uz": "Menda mashina bor.",         "en": "I have a car." },
+        { "uz": "Uning ikkita bolasi bor.",   "en": "She has two children." }
+      ]
+    },
+    {
+      "label": "Qoida · inkor va savol",
+      "body": "Bu yerda yangi soʻz paydo boʻladi: <b>do</b> / <b>does</b>. U hech narsani anglatmaydi — faqat inkor va savol yasash uchun kerak boʻlgan <b>yordamchi soʻz</b>.\n\nHozircha shu shakllarni yodlab qoʻying, toʻliq qoida keyingi blokda beriladi.\n\nI <b>don't</b> have a car.\nShe <b>doesn't</b> have a car.\n<b>Do</b> you have a car?\n<b>Does</b> she have a car?\n\nDiqqat: «does» bor boʻlsa, «have» oddiy shaklga qaytadi — «does she <b>has</b>» emas.",
+      "examples": []
+    }
+  ],
+
+  "examples": [
+    { "en": "I have money.",           "uz": "Menda pul bor." },
+    { "en": "He has a job.",           "uz": "Uning ishi bor." },
+    { "en": "I don't have time.",      "uz": "Menda vaqt yoʻq." },
+    { "en": "Do you have a car?",      "uz": "Sizda mashina bormi?" }
+  ],
+
+  "warning": {
+    "body": "«he / she / it» bilan har doim <b>has</b>. Va oʻzbekcha «menda» tuzilishini soʻzma-soʻz tarjima qilmang.",
+    "pairs": [
+      { "bad": "He have a car.",        "good": "He has a car." },
+      { "bad": "In me there is a car.", "good": "I have a car." },
+      { "bad": "Does she has a car?",   "good": "Does she have a car?" }
+    ]
+  },
+
+  "quiz": [
+    {
+      "prompt": "Uning ishi bor. (erkak)",
+      "options": [
+        { "text": "He has a job.",  "correct": true },
+        { "text": "He have a job.", "why": "«he» bilan «has» ishlatiladi." },
+        { "text": "He has job.",    "why": "Artikl tushib qolgan: a job." },
+        { "text": "He is have a job.", "why": "«be» va «have» birga ishlatilmaydi." }
+      ]
+    },
+    {
+      "prompt": "Menda pul bor.",
+      "options": [
+        { "text": "I have money.",       "correct": true },
+        { "text": "I have a money.",     "why": "«money» sanalmaydi — artikl qoʻyilmaydi." },
+        { "text": "In me there is money.", "why": "Bu oʻzbekcha «menda» ning soʻzma-soʻz tarjimasi. Inglizchada «I have»." },
+        { "text": "Me have money.",      "why": "Ega sifatida «I» ishlatiladi, «me» emas." }
+      ]
+    },
+    {
+      "prompt": "Menda vaqt yoʻq.",
+      "options": [
+        { "text": "I don't have time.",     "correct": true },
+        { "text": "I doesn't have time.",   "why": "«doesn't» faqat he / she / it bilan." },
+        { "text": "I don't have a time.",   "why": "«time» bu maʼnoda sanalmaydi — artikl kerak emas." },
+        { "text": "I not have time.",       "why": "«don't» kerak. Feʼl oldida shunchaki «not» qoʻyilmaydi." }
+      ]
+    },
+    {
+      "prompt": "Sizda mashina bormi?",
+      "options": [
+        { "text": "Do you have a car?",  "correct": true },
+        { "text": "You have a car?",     "why": "Savolda «do» oldinga chiqadi." },
+        { "text": "Have you a car?",     "why": "Zamonaviy inglizchada «Do you have …?» deyiladi." },
+        { "text": "Does you have a car?", "why": "«you» bilan «do», «does» emas." }
+      ]
+    },
+    {
+      "prompt": "Uning bolalari bormi? (ayol)",
+      "options": [
+        { "text": "Does she have children?",  "correct": true },
+        { "text": "Does she has children?",   "why": "«does» bor boʻlsa, «have» oddiy shaklda qoladi." },
+        { "text": "Do she have children?",    "why": "«she» bilan «does»." },
+        { "text": "Has she children?",        "why": "Zamonaviy inglizchada «Does she have …?»" }
+      ]
+    },
+    {
+      "prompt": "Bizning uyimiz bor.",
+      "options": [
+        { "text": "We have a house.",   "correct": true },
+        { "text": "We has a house.",    "why": "«we» bilan «have»." },
+        { "text": "We have house.",     "why": "Artikl tushib qolgan: a house." },
+        { "text": "Our have a house.",  "why": "Ega «we». «our» — bu «bizning»." }
+      ]
+    }
+  ]
+}

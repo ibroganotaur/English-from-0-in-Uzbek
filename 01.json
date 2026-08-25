@@ -1,0 +1,108 @@
+{
+  "id": 1,
+  "title": "I am / You are",
+  "subtitle": "Men … man",
+  "flower": "🌷",
+
+  "words": [
+    { "en": "I",           "pron": "AY",             "uz": "men" },
+    { "en": "you",         "pron": "YU",             "uz": "sen / siz" },
+    { "en": "am",          "pron": "EM",             "uz": "-man (faqat I bilan)" },
+    { "en": "are",         "pron": "AR",             "uz": "-san / -siz" },
+    { "en": "student",     "pron": "STYU-dent",      "uz": "talaba" },
+    { "en": "teacher",     "pron": "TII-cher",       "uz": "oʻqituvchi" },
+    { "en": "doctor",      "pron": "DOK-ter",        "uz": "shifokor" },
+    { "en": "from",        "pron": "FROM",           "uz": "-dan" },
+    { "en": "here",        "pron": "HIIR",           "uz": "bu yerda" },
+    { "en": "Uzbekistan",  "pron": "uz-BE-kis-tan",  "uz": "Oʻzbekiston" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Oʻzbekchada «talaba<b>man</b>» — qoʻshimcha soʻzning oxiriga yopishadi.\n\nInglizchada u <b>alohida soʻz</b> boʻlib, egadan keyin turadi:",
+      "examples": [
+        { "uz": "Men talabaman.", "en": "I am a student." },
+        { "uz": "Siz oʻqituvchisiz.", "en": "You are a teacher." }
+      ]
+    },
+    {
+      "label": "Qoida · qisqartirish",
+      "body": "Gapirganda deyarli har doim qisqartiriladi. Yozuvda ham shunday yozish mumkin.\n\n<b>I am</b> → <b>I'm</b>  <code>AYM</code>\n<b>You are</b> → <b>You're</b>  <code>YUR</code>\n\nVa yana: <b>I</b> harfi gapning oʻrtasida ham har doim katta yoziladi. Bu ingliz tilidagi yagona shunday soʻz.",
+      "examples": []
+    }
+  ],
+
+  "examples": [
+    { "en": "I am a student.",        "uz": "Men talabaman." },
+    { "en": "I am from Uzbekistan.",  "uz": "Men Oʻzbekistondanman." },
+    { "en": "You are a teacher.",     "uz": "Siz oʻqituvchisiz." },
+    { "en": "You are here.",          "uz": "Siz bu yerdasiz." }
+  ],
+
+  "warning": {
+    "body": "Egani tushirib qoldirmang. Oʻzbekchada mumkin, inglizchada — <b>hech qachon</b>.",
+    "pairs": [
+      { "bad": "Am a teacher.",        "good": "I am a teacher." },
+      { "bad": "Are from Uzbekistan.", "good": "You are from Uzbekistan." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "prompt": "Men shifokorman.",
+      "options": [
+        { "text": "I am a doctor.", "correct": true },
+        { "text": "Am a doctor.",   "why": "Ega tushib qolgan. Inglizchada «I» har doim yoziladi." },
+        { "text": "I am doctor.",   "why": "Artikl yoʻq. Kasb oldida «a» shart: a doctor." },
+        { "text": "I doctor am.",   "why": "Bu oʻzbekcha soʻz tartibi. Inglizchada: KIM → NIMA → qolgani." }
+      ]
+    },
+    {
+      "prompt": "Siz talabasiz.",
+      "options": [
+        { "text": "You are a student.", "correct": true },
+        { "text": "You is a student.",  "why": "«is» faqat he / she / it bilan. «you» bilan har doim «are»." },
+        { "text": "You are student.",   "why": "Artikl yoʻq: a student." },
+        { "text": "Are you a student.", "why": "Bu savol tartibi. Oddiy gapda ega birinchi keladi." }
+      ]
+    },
+    {
+      "prompt": "Men Oʻzbekistondanman.",
+      "options": [
+        { "text": "I am from Uzbekistan.", "correct": true },
+        { "text": "I from Uzbekistan.",    "why": "«am» tushib qolgan. Inglizchada «be» hech qachon tushmaydi." },
+        { "text": "Am from Uzbekistan.",   "why": "Ega yoʻq. «I» kerak." },
+        { "text": "I am Uzbekistan from.", "why": "«from» oʻzbekcha «-dan» kabi oxirga qoʻyilgan. Inglizchada u soʻzdan oldin keladi." }
+      ]
+    },
+    {
+      "prompt": "Men bu yerdaman.",
+      "options": [
+        { "text": "I am here.", "correct": true },
+        { "text": "I here am.", "why": "Oʻzbekcha tartib. Feʼl egadan keyin darrov keladi." },
+        { "text": "I here.",    "why": "«am» yoʻq. Ingliz gapida «be» shart." },
+        { "text": "Me am here.", "why": "«me» ega boʻla olmaydi. Ega sifatida faqat «I»." }
+      ]
+    },
+    {
+      "prompt": "Siz oʻqituvchisiz.",
+      "options": [
+        { "text": "You are a teacher.", "correct": true },
+        { "text": "You are teacher.",   "why": "Artikl yoʻq: a teacher." },
+        { "text": "You am a teacher.",  "why": "«am» faqat «I» bilan ishlatiladi." },
+        { "text": "Teacher you are.",   "why": "Soʻz tartibi buzilgan." }
+      ]
+    },
+    {
+      "task": "Qisqartirilgan shaklini tanlang:",
+      "prompt": "Men talabaman.",
+      "options": [
+        { "text": "I'm a student.", "correct": true },
+        { "text": "Im a student.",  "why": "Apostrof (') tushib qolgan. «I'm» deb yoziladi." },
+        { "text": "I'm student.",   "why": "Qisqartirilsa ham artikl kerak: a student." },
+        { "text": "Iam a student.", "why": "«I» va «am» qoʻshib yozilmaydi." }
+      ]
+    }
+  ]
+}

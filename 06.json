@@ -1,0 +1,116 @@
+{
+  "id": 6,
+  "title": "This / That · What is this?",
+  "subtitle": "Bu · U",
+  "flower": "🌹",
+
+  "words": [
+    { "en": "this",   "pron": "DHIS",     "uz": "bu (yaqin)" },
+    { "en": "these",  "pron": "DHIIZ",    "uz": "bular (yaqin)" },
+    { "en": "that",   "pron": "DHET",     "uz": "u, ana u (uzoq)" },
+    { "en": "those",  "pron": "DHOUZ",    "uz": "ular (uzoq)" },
+    { "en": "what",   "pron": "UOT",      "uz": "nima" },
+    { "en": "who",    "pron": "HU",       "uz": "kim" },
+    { "en": "table",  "pron": "TEY-bl",   "uz": "stol" },
+    { "en": "water",  "pron": "UO-ter",   "uz": "suv" },
+    { "en": "door",   "pron": "DOR",      "uz": "eshik" },
+    { "en": "window", "pron": "UIN-dou",  "uz": "deraza" }
+  ],
+
+  "rules": [
+    {
+      "label": "Qoida · yaqin va uzoq",
+      "body": "<b>this</b> — bu (yaqin, birlik)\n<b>these</b> — bular (yaqin, koʻplik)\n<b>that</b> — u, ana u (uzoq, birlik)\n<b>those</b> — ular (uzoq, koʻplik)\n\nKoʻplikda «is» emas, <b>are</b>:",
+      "examples": [
+        { "uz": "Bu stul.",      "en": "This is a chair." },
+        { "uz": "Bular stullar.", "en": "These are chairs." }
+      ]
+    },
+    {
+      "label": "Qoida · savol berish",
+      "body": "<b>What is this?</b> — Bu nima?\n<b>What are these?</b> — Bular nima?\n<b>Who is this?</b> — Bu kim?\n\nGapirganda qisqartiriladi: <b>What's this?</b>  <code>UOTS DHIS</code>",
+      "examples": [
+        { "uz": "Bu nima? — Bu telefon.",       "en": "What is this? — It is a phone." },
+        { "uz": "Bu kim? — Bu mening singlim.", "en": "Who is this? — This is my sister." }
+      ]
+    },
+    {
+      "label": "Kunlik mashq",
+      "body": "Uy boʻylab yuring va koʻrgan har bir narsani koʻrsatib ayting:\n\n<b>This is a table.</b>\n<b>That is a window.</b>\n<b>These are chairs.</b>\n\nKuniga 20 ta narsa. Bu — eng tez natija beradigan mashq.",
+      "examples": []
+    }
+  ],
+
+  "examples": [
+    { "en": "This is a door.",        "uz": "Bu eshik." },
+    { "en": "These are books.",       "uz": "Bular kitoblar." },
+    { "en": "That is my house.",      "uz": "Ana u mening uyim." },
+    { "en": "What is this? — Water.", "uz": "Bu nima? — Suv." }
+  ],
+
+  "warning": {
+    "body": "«this» birlik, «these» koʻplik. Ularni almashtirib yubormang — bu juda tez seziladi.",
+    "pairs": [
+      { "bad": "This are books.",  "good": "These are books." },
+      { "bad": "What is these?",   "good": "What are these?" },
+      { "bad": "These is my car.", "good": "This is my car." }
+    ]
+  },
+
+  "quiz": [
+    {
+      "prompt": "Bular kitoblar.",
+      "options": [
+        { "text": "These are books.", "correct": true },
+        { "text": "This are books.",  "why": "«this» birlik. Koʻplik uchun «these»." },
+        { "text": "These is books.",  "why": "Koʻplik bilan «are»." },
+        { "text": "These are book.",  "why": "Koʻplik qoʻshimchasi kerak: books." }
+      ]
+    },
+    {
+      "prompt": "Bu eshik.",
+      "options": [
+        { "text": "This is a door.",  "correct": true },
+        { "text": "This is door.",    "why": "Artikl tushib qolgan: a door." },
+        { "text": "This a door.",     "why": "«is» tushib qolgan." },
+        { "text": "These is a door.", "why": "Bitta eshik — «this»." }
+      ]
+    },
+    {
+      "prompt": "Bu nima? — Bu suv.",
+      "options": [
+        { "text": "What is this? — It is water.",      "correct": true },
+        { "text": "What is this? — It is a water.",    "why": "«water» sanalmaydi — artikl qoʻyilmaydi." },
+        { "text": "What this is? — It is water.",      "why": "Savolda «is» «what» dan keyin darrov keladi." },
+        { "text": "This is what? — It is water.",      "why": "Soʻroq soʻzi gapning boshida turadi." }
+      ]
+    },
+    {
+      "prompt": "Bular nima?",
+      "options": [
+        { "text": "What are these?", "correct": true },
+        { "text": "What is these?",  "why": "«these» koʻplik — «are» kerak." },
+        { "text": "What are this?",  "why": "«this» birlik — «are» bilan mos kelmaydi." },
+        { "text": "These are what?", "why": "Soʻroq soʻzi boshida turadi." }
+      ]
+    },
+    {
+      "prompt": "Bu kim? — Bu mening erim.",
+      "options": [
+        { "text": "Who is this? — This is my husband.",  "correct": true },
+        { "text": "What is this? — This is my husband.", "why": "Odam haqida «what» emas, <b>who</b> soʻraladi." },
+        { "text": "Who is this? — This is my wife.",     "why": "«er» — husband. «wife» — xotin." },
+        { "text": "Who this is? — This is my husband.",  "why": "Savol tartibi buzilgan: Who is this?" }
+      ]
+    },
+    {
+      "prompt": "Ana u (uzoqdagi) mening uyim.",
+      "options": [
+        { "text": "That is my house.",   "correct": true },
+        { "text": "This is my house.",   "why": "«this» yaqin narsa uchun. Uzoq narsa — «that»." },
+        { "text": "Those is my house.",  "why": "«those» koʻplik, «house» birlik." },
+        { "text": "That is my a house.", "why": "«my» bor boʻlsa artikl qoʻyilmaydi." }
+      ]
+    }
+  ]
+}
