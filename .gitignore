@@ -10,3 +10,6 @@ data/
 
 # Local backups
 *.bak
+
+# Runtime log
+bot-log*.txt
