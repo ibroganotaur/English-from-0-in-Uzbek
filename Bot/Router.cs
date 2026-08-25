@@ -333,16 +333,17 @@ public sealed class Router
         if (lesson is null || wi < 0 || wi >= lesson.Words.Count) return;
 
         var word = lesson.Words[wi];
-        var ogg = await _tts.SpeakAsync(word.Speakable, ct);
+        var audio = await _tts.SpeakAsync(word.Speakable, ct);
 
-        if (ogg is null)
+        if (audio is null)
         {
             await AckAsync(callbackId, "Audio hozir ishlamayapti.", ct);
             return;
         }
 
-        await _tg.SendVoiceAsync(chatId, ogg,
-            $"<b>{Deco.Esc(word.En)}</b>  ·  <code>{Deco.Esc(word.Pron)}</code>\n<i>{Deco.Esc(word.Uz)}</i>", ct);
+        await _tg.SendVoiceAsync(chatId, audio,
+            $"<b>{Deco.Esc(word.En)}</b>  ·  <code>{Deco.Esc(word.Pron)}</code>\n<i>{Deco.Esc(word.Uz)}</i>",
+            _tts.Mime, _tts.FileName, ct);
     }
 
     // ---------------------------------------------------------------- review

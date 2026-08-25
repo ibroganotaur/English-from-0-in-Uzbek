@@ -19,6 +19,20 @@ public sealed class BotConfig
     public string AzureVoice { get; set; } = "en-US-AriaNeural";
 
     /// <summary>
+    /// Free local speech. Windows' own engine writes the WAV and VLC converts it to the
+    /// MP3 Telegram needs — no account and no per-word cost. Used whenever no Azure key
+    /// is set. `windowsVoice` must be an American English voice that is actually installed
+    /// (Settings → Time &amp; language → Speech adds more).
+    /// </summary>
+    public string WindowsVoice { get; set; } = "Microsoft Zira Desktop";
+
+    /// <summary>-10..10. Negative is slower, which a beginner needs in order to imitate it.</summary>
+    public int SpeechRate { get; set; } = -2;
+
+    /// <summary>Only needed if VLC is installed somewhere unusual.</summary>
+    public string? VlcPath { get; set; }
+
+    /// <summary>
     /// Optional override for where progress is stored. Leave it unset and the data lands
     /// outside the build output, so a rebuild, a `dotnet clean`, or a publish to a fresh
     /// folder can never take her streak and her garden with it.
@@ -70,6 +84,9 @@ public sealed class BotConfig
             if (!string.IsNullOrWhiteSpace(local.AzureSpeechRegion)) cfg.AzureSpeechRegion = local.AzureSpeechRegion;
             if (!string.IsNullOrWhiteSpace(local.AzureVoice)) cfg.AzureVoice = local.AzureVoice;
             if (!string.IsNullOrWhiteSpace(local.DataPath)) cfg.DataPath = local.DataPath;
+            if (!string.IsNullOrWhiteSpace(local.WindowsVoice)) cfg.WindowsVoice = local.WindowsVoice;
+            if (!string.IsNullOrWhiteSpace(local.VlcPath)) cfg.VlcPath = local.VlcPath;
+            if (local.SpeechRate != -2) cfg.SpeechRate = local.SpeechRate;
         }
 
         // Environment wins — this is how you configure it on a server.
@@ -107,6 +124,4 @@ public sealed class BotConfig
 
     public bool IsAllowed(long userId) =>
         AllowedUserIds.Length == 0 || Array.IndexOf(AllowedUserIds, userId) >= 0;
-
-    public bool TtsEnabled => !string.IsNullOrWhiteSpace(AzureSpeechKey);
 }

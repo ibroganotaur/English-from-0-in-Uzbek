@@ -64,14 +64,44 @@ phone, then put the number it replies with into `appsettings.Local.json`:
 
 ---
 
-## Voice notes (optional but worth it)
+## Voice notes
 
-Without a speech key the bot works fine — it just has no audio, and the 🔊 buttons
-are hidden. This is the biggest gap in the written course: she is reading `UO-ter`
-and guessing.
+**Audio is free and needs no account.** Windows' own speech engine says the word,
+VLC converts it to the MP3 Telegram accepts for voice notes, and the clip is cached
+forever. This closes the biggest gap in the written course: she was reading `UO-ter`
+and guessing at the sound.
 
-To turn audio on, create a **Azure Speech** resource (the free F0 tier is far more
-than this needs) and add:
+Requirements, both of which most Windows machines already have:
+
+- an American English voice — `Microsoft Zira Desktop` ships with Windows
+  (add more under *Settings → Time & language → Speech*)
+- **VLC** — looked for in both `Program Files` folders, or set `vlcPath`
+
+Tune it in `appsettings.Local.json`:
+
+```json
+{
+  "windowsVoice": "Microsoft Zira Desktop",
+  "speechRate": -2
+}
+```
+
+`speechRate` runs −10 to 10; negative is slower. −2 is about right for a beginner
+trying to imitate the sound.
+
+The startup banner tells you which engine is live:
+
+```
+audio      yoqilgan (Windows: Microsoft Zira Desktop)
+```
+
+If it says `oʻchirilgan`, the bot simply runs without audio and the 🔊 buttons are
+hidden — nothing breaks.
+
+### Optional upgrade: Azure
+
+The Windows voice is robotic. If you want a natural neural voice, create an **Azure
+Speech** resource (free F0 tier) and add a key — the bot switches automatically:
 
 ```json
 {
@@ -81,10 +111,9 @@ than this needs) and add:
 }
 ```
 
-Azure returns OGG/Opus directly, which is exactly what Telegram wants for voice
-notes, so there is no ffmpeg step. Speech is slowed to −15% so a beginner can
-actually imitate it, and every clip is cached in `data/audio/` — each word costs one
-synthesis, ever.
+Azure returns OGG/Opus directly, so VLC is not involved. Either way speech is slowed
+for a beginner and every clip is cached — each word costs one synthesis, ever.
+
 
 ---
 

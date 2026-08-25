@@ -81,7 +81,7 @@ Console.WriteLine($"""
     🌷 Noldan Ingliz Tili
        bot        @{me}
        darslar    {lessons.Count} ta
-       audio      {(tts.Enabled ? "yoqilgan" : "oʻchirilgan (Azure kaliti yoʻq)")}
+       audio      {tts.Describe}
        eslatma    har kuni {cfg.RemindHour:00}:00 (UTC+{cfg.TzOffsetMinutes / 60})
        maʼlumot   {cfg.DataDir}
 

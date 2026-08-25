@@ -174,17 +174,22 @@ public sealed class TelegramClient : IDisposable
             show_alert = false
         }, ct);
 
-    /// <summary>Sends an OGG/Opus blob as a Telegram voice note.</summary>
-    public async Task SendVoiceAsync(long chatId, byte[] ogg, string caption, CancellationToken ct)
+    /// <summary>
+    /// Sends audio as a Telegram voice note. Telegram accepts OGG/Opus, MP3 or M4A here;
+    /// the mime type and file name must match what the bytes actually are, or it arrives
+    /// as a file attachment instead of a playable bubble.
+    /// </summary>
+    public async Task SendVoiceAsync(long chatId, byte[] audio, string caption,
+        string mime, string fileName, CancellationToken ct)
     {
         using var form = new MultipartFormDataContent();
         form.Add(new StringContent(chatId.ToString()), "chat_id");
         form.Add(new StringContent(caption), "caption");
         form.Add(new StringContent("HTML"), "parse_mode");
 
-        var file = new ByteArrayContent(ogg);
-        file.Headers.ContentType = new MediaTypeHeaderValue("audio/ogg");
-        form.Add(file, "voice", "word.ogg");
+        var file = new ByteArrayContent(audio);
+        file.Headers.ContentType = new MediaTypeHeaderValue(mime);
+        form.Add(file, "voice", fileName);
 
         using var res = await _http.PostAsync("sendVoice", form, ct);
         if (!res.IsSuccessStatusCode)
