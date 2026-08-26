@@ -1,0 +1,1806 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F2F3EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14181A" media="(prefers-color-scheme: dark)">
+<title>Noldan Ingliz Tili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+
+<style>
+:root{
+  --paper:#F2F3EE;
+  --raised:#FBFBF8;
+  --ink:#191F1D;
+  --ink-2:#4A5551;
+  --ink-3:#78827E;
+  --rule:#D6D9D0;
+  --rule-2:#C2C7BB;
+  --blue:#14568A;
+  --blue-soft:#E4EDF4;
+  --red:#A33A2A;
+  --red-soft:#F7E8E4;
+  --green:#2E6B4C;
+  --green-soft:#E4EFE7;
+
+  --f-display:"Fraunces","Iowan Old Style",Georgia,serif;
+  --f-uz:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-en:"Newsreader","Iowan Old Style",Georgia,serif;
+
+  --col:44rem;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14181A;
+    --raised:#1B2124;
+    --ink:#E7EAE5;
+    --ink-2:#9CA8A4;
+    --ink-3:#7A8783;
+    --rule:#2B3336;
+    --rule-2:#3A4448;
+    --blue:#8CC0E8;
+    --blue-soft:#15293A;
+    --red:#EA9583;
+    --red-soft:#33201C;
+    --green:#83C89E;
+    --green-soft:#182C22;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14181A;
+  --raised:#1B2124;
+  --ink:#E7EAE5;
+  --ink-2:#9CA8A4;
+  --ink-3:#7A8783;
+  --rule:#2B3336;
+  --rule-2:#3A4448;
+  --blue:#8CC0E8;
+  --blue-soft:#15293A;
+  --red:#EA9583;
+  --red-soft:#33201C;
+  --green:#83C89E;
+  --green-soft:#182C22;
+}
+
+html{
+  font-size:clamp(17px, calc(16.2px + 0.22vw), 18px);
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:4rem;
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-uz);
+  font-size:1rem;
+  line-height:1.65;
+  -webkit-text-size-adjust:100%;
+}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+
+/* ---------- shell ---------- */
+.wrap{max-width:var(--col);margin:0 auto;padding:0 1.05rem}
+
+.masthead{border-bottom:1px solid var(--rule);padding:2rem 0 1.5rem}
+.masthead .eyebrow{
+  font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin:0 0 .9rem
+}
+.masthead h1{
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:clamp(2.3rem,9vw,3.4rem);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  margin:0 0 .7rem;
+  text-wrap:balance;
+}
+.masthead p{margin:0;color:var(--ink-2);max-width:34rem}
+.masthead .stat{
+  display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.3rem;
+  font-size:.92rem;color:var(--ink-3);
+  font-variant-numeric:tabular-nums;
+}
+.masthead .stat b{color:var(--ink-2);font-weight:600}
+
+/* ---------- nav ---------- */
+nav.chips{
+  position:sticky;top:0;z-index:20;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+nav.chips .scroller{
+  display:flex;gap:.4rem;overflow-x:auto;padding:.55rem 1.05rem;
+  max-width:var(--col);margin:0 auto;
+  scrollbar-width:thin;
+}
+nav.chips a{
+  flex:0 0 auto;
+  font-size:.88rem;font-weight:600;letter-spacing:.02em;
+  color:var(--ink-2);text-decoration:none;
+  padding:.45rem .8rem;border:1px solid var(--rule-2);border-radius:999px;
+  -webkit-tap-highlight-color:transparent;
+  white-space:nowrap;
+}
+nav.chips a:hover{color:var(--blue);border-color:var(--blue)}
+nav.chips a.n{font-variant-numeric:tabular-nums}
+
+/* ---------- sections ---------- */
+section{padding:2.4rem 0;border-bottom:1px solid var(--rule)}
+h2{
+  font-family:var(--f-display);font-weight:700;
+  font-size:1.62rem;line-height:1.18;letter-spacing:-.01em;
+  margin:0 0 1rem;text-wrap:balance;
+}
+h3{
+  font-size:.86rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;
+  margin:2rem 0 .7rem;
+}
+h3:first-of-type{margin-top:1.4rem}
+p{margin:0 0 .9rem}
+p:last-child{margin-bottom:0}
+
+/* lesson head */
+.lesson-head{
+  display:grid;grid-template-columns:auto 1fr;gap:0 1rem;align-items:start;
+  margin-bottom:.4rem;
+}
+.lesson-head .num{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(2.6rem,11vw,3.6rem);line-height:.82;
+  color:var(--blue);font-variant-numeric:tabular-nums;
+  letter-spacing:-.03em;
+}
+.lesson-head .ttl{padding-top:.15rem}
+.lesson-head h2{margin:0 0 .2rem}
+.lesson-head .sub{
+  font-size:.88rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+
+/* ---------- word list ---------- */
+dl.words{margin:0;border-top:1px solid var(--rule)}
+dl.words > div{
+  display:grid;grid-template-columns:1fr;
+  gap:0 1rem;
+  padding:.6rem 0;
+  border-bottom:1px dotted var(--rule-2);
+}
+dl.words dt{
+  font-family:var(--f-en);font-size:1.2rem;font-weight:600;color:var(--blue);
+}
+dl.words dd{margin:0}
+dl.words .pron{
+  font-size:.92rem;color:var(--ink-3);letter-spacing:.05em;font-weight:600;
+}
+dl.words .uz{color:var(--ink-2);font-size:1.04rem}
+@media(min-width:560px){
+  dl.words > div{grid-template-columns:11rem 8.5rem 1fr;align-items:baseline}
+}
+
+/* ---------- rule box ---------- */
+.rule{
+  background:var(--raised);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--blue);
+  padding:.95rem 1.05rem;
+  margin:1rem 0;
+}
+.rule > :first-child{margin-top:0}
+.rule > :last-child{margin-bottom:0}
+.rule .lbl{
+  display:block;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:700;color:var(--blue);margin-bottom:.45rem;
+}
+
+/* ---------- warn box ---------- */
+.warn{
+  background:var(--red-soft);
+  border-left:3px solid var(--red);
+  padding:.95rem 1.05rem;
+  margin:1.2rem 0;
+}
+.warn .lbl{
+  display:block;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:700;color:var(--red);margin-bottom:.45rem;
+}
+.warn > :last-child{margin-bottom:0}
+.bad,.good{font-family:var(--f-en);font-size:1.14rem}
+.bad{color:var(--red)}
+.good{color:var(--green);font-weight:600}
+.bad::before{content:"✗ ";font-family:var(--f-uz)}
+.good::before{content:"✓ ";font-family:var(--f-uz)}
+.vs{display:flex;flex-direction:column;gap:.2rem;margin:.55rem 0}
+
+/* ---------- english / uzbek pair ---------- */
+.pair{
+  border-left:2px solid var(--rule-2);
+  padding-left:.85rem;margin:.7rem 0;
+}
+.pair .en{
+  font-family:var(--f-en);font-size:1.2rem;color:var(--blue);
+  display:block;line-height:1.4;
+}
+.pair .uz{font-size:1.02rem;color:var(--ink-2);display:block;margin-top:.15rem;line-height:1.45}
+.pairs{display:flex;flex-direction:column;gap:.55rem;margin:1rem 0}
+.pairs .pair{margin:0}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto;margin:1rem 0;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:1rem;background:var(--raised)}
+th,td{text-align:left;padding:.55rem .75rem;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{
+  font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;background:var(--paper);
+}
+td.e{font-family:var(--f-en);color:var(--blue);font-size:1.12rem;white-space:nowrap}
+td.u{color:var(--ink-2);font-size:1rem}
+table.build td{font-family:var(--f-en);color:var(--blue);font-size:1.12rem;white-space:nowrap}
+table.build td.u{font-family:var(--f-uz);color:var(--ink-2);font-size:1rem;white-space:normal}
+.cap{font-size:.9rem;color:var(--ink-3);margin:-.5rem 0 1rem;font-style:italic}
+
+/* ---------- exercises ---------- */
+.exhead{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.showall{
+  font-family:var(--f-uz);font-size:.84rem;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-2);color:var(--ink-2);
+  padding:.42rem .85rem;border-radius:999px;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.showall:hover{border-color:var(--blue);color:var(--blue)}
+ol.ex{margin:.6rem 0 0;padding:0;list-style:none;counter-reset:x;border-top:1px solid var(--rule)}
+ol.ex li{
+  counter-increment:x;
+  display:grid;grid-template-columns:1.75rem 1fr;gap:0 .5rem;
+  padding:.7rem 0;border-bottom:1px dotted var(--rule-2);
+}
+ol.ex li::before{
+  content:counter(x)".";color:var(--ink-3);font-size:.95rem;
+  font-variant-numeric:tabular-nums;padding-top:.15rem;
+}
+ol.ex .q{color:var(--ink-2);font-size:1.02rem;line-height:1.5}
+button.a{
+  display:block;margin-top:.2rem;padding:.2rem 0 .3rem;border:0;background:none;
+  text-align:left;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  font-family:var(--f-en);font-size:1.2rem;color:var(--blue);
+  filter:blur(4.5px);opacity:.75;
+  transition:filter .18s ease,opacity .18s ease;
+}
+button.a[aria-expanded="true"]{filter:none;opacity:1;cursor:default}
+@media (prefers-reduced-motion:reduce){button.a{transition:none}}
+
+/* ---------- dialogue ---------- */
+.dlg{border-top:1px solid var(--rule);margin:1rem 0 0}
+.dlg .turn{
+  display:grid;grid-template-columns:1fr;gap:.1rem 0;
+  padding:.65rem 0;border-bottom:1px dotted var(--rule-2);
+}
+@media(min-width:460px){
+  .dlg .turn{grid-template-columns:4.6rem 1fr;gap:0 .7rem;padding:.55rem 0}
+  .dlg .who{padding-top:.28rem}
+}
+.dlg .who{
+  font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;padding-top:0;
+}
+.dlg .en{font-family:var(--f-en);font-size:1.2rem;color:var(--blue);display:block;line-height:1.4}
+.dlg .uz{font-size:1rem;color:var(--ink-2);display:block;line-height:1.45}
+
+/* ---------- misc lists ---------- */
+ul.plain{margin:.6rem 0;padding-left:1.1rem}
+ul.plain li{margin-bottom:.42rem}
+ul.plain li::marker{color:var(--ink-3)}
+ol.steps{margin:.8rem 0;padding-left:1.3rem}
+ol.steps li{margin-bottom:.55rem}
+ol.steps li::marker{color:var(--blue);font-weight:700;font-variant-numeric:tabular-nums}
+.en-i{font-family:var(--f-en);color:var(--blue)}
+.pron-i{font-size:.92rem;color:var(--ink-3);letter-spacing:.04em;font-weight:600}
+strong{font-weight:700}
+.k{background:var(--blue-soft);padding:0 .18em;border-radius:2px}
+.k-g{background:var(--green-soft);padding:0 .18em;border-radius:2px;color:var(--green);font-weight:600}
+
+/* word bank */
+.bank{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:.15rem .9rem;margin:.5rem 0 0}
+.bank div{padding:.4rem 0;border-bottom:1px dotted var(--rule-2);font-size:1rem}
+.bank .e{font-family:var(--f-en);color:var(--blue);font-size:1.12rem}
+.bank .u{color:var(--ink-2);font-size:.96rem;display:block;line-height:1.4}
+
+footer{padding:2.2rem 0 3rem;color:var(--ink-3);font-size:.95rem}
+footer p{margin-bottom:.5rem}
+/* APP-CSS-START */
+
+/* ==========================================================================
+   Progress, quizzes and audio. Everything below is the "app" half of the page —
+   it stores progress in this browser only, and needs no server of any kind.
+   ========================================================================== */
+
+/* ---------- speak buttons ---------- */
+.say{
+  border:0;background:none;padding:.4rem .45rem;margin:0 0 0 .1rem;
+  min-width:36px;min-height:36px;
+  display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;line-height:1;font-size:1rem;
+  color:var(--ink-3);border-radius:6px;
+  -webkit-tap-highlight-color:transparent;
+  vertical-align:baseline;
+}
+.say:hover{color:var(--blue);background:var(--blue-soft)}
+.say.on{color:var(--blue);background:var(--blue-soft)}
+.say[hidden]{display:none}
+
+/* ---------- garden ---------- */
+#bog .plot{
+  background:var(--raised);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:1.15rem 1.1rem 1.25rem;
+  margin-top:.4rem;
+}
+.plot .row{
+  display:flex;flex-wrap:wrap;gap:.45rem;
+  font-size:2rem;line-height:1.25;
+  margin:.2rem 0 1rem;
+}
+.plot .row span{filter:grayscale(1);opacity:.35}
+.plot .row span.got{filter:none;opacity:1}
+.plot .streak{
+  display:flex;align-items:center;gap:.7rem;
+  padding-top:1rem;border-top:1px solid var(--rule);
+}
+.plot .streak .big{font-size:2.4rem;line-height:1}
+.plot .streak .n{
+  font-family:var(--f-display);font-weight:700;
+  font-size:1.9rem;line-height:1;color:var(--blue);
+  font-variant-numeric:tabular-nums;
+}
+.plot .streak .lbl{font-size:.9rem;color:var(--ink-2)}
+.plot .streak .lbl b{color:var(--ink);font-weight:600}
+.plot .meta{
+  margin-top:.9rem;font-size:.9rem;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;
+}
+.plot .meta b{color:var(--ink-2);font-weight:600;font-variant-numeric:tabular-nums}
+.reset{
+  margin-top:1rem;font-family:var(--f-uz);font-size:.8rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-2);color:var(--ink-3);
+  padding:.4rem .8rem;border-radius:999px;cursor:pointer;
+}
+.reset:hover{border-color:var(--red);color:var(--red)}
+
+/* ---------- per-lesson progress badge ---------- */
+.done-badge{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--green);background:var(--green-soft);
+  padding:.2rem .55rem;border-radius:999px;margin-top:.35rem;
+}
+
+/* ---------- quiz ---------- */
+.quiz{margin-top:.5rem}
+.quiz .qi{
+  padding:1rem 0 1.1rem;border-bottom:1px dotted var(--rule-2);
+}
+.quiz .qi:last-of-type{border-bottom:0}
+.quiz .task{
+  font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;
+}
+.quiz .prompt{
+  font-size:1.15rem;margin:.3rem 0 .7rem;color:var(--ink);line-height:1.4;
+}
+.quiz .prompt .n{color:var(--ink-3);font-variant-numeric:tabular-nums;margin-right:.35rem}
+.opts{display:flex;flex-direction:column;gap:.45rem}
+.opt{
+  display:block;width:100%;text-align:left;
+  font-family:var(--f-en);font-size:1.12rem;line-height:1.35;
+  background:var(--raised);color:var(--ink);
+  border:1px solid var(--rule-2);border-radius:8px;
+  padding:.7rem .85rem;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:border-color .12s ease, background .12s ease;
+}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt:disabled{cursor:default}
+.opt.right{
+  border-color:var(--green);background:var(--green-soft);
+  color:var(--green);font-weight:600;
+}
+.opt.wrong{
+  border-color:var(--red);background:var(--red-soft);color:var(--red);
+}
+.opt.dim{opacity:.5}
+.opt .mark{font-family:var(--f-uz);font-weight:700;margin-right:.4rem}
+.why{
+  margin:.5rem 0 0;padding:.6rem .8rem;
+  background:var(--red-soft);border-left:3px solid var(--red);
+  font-size:1rem;line-height:1.45;color:var(--ink-2);border-radius:0 6px 6px 0;
+}
+.why b{color:var(--red)}
+
+/* ---------- quiz result ---------- */
+.result{
+  margin-top:1.2rem;padding:1.1rem 1.05rem;
+  background:var(--raised);border:1px solid var(--rule);
+  border-left:3px solid var(--green);border-radius:0 8px 8px 0;
+}
+.result.thin{border-left-color:var(--ink-3)}
+.result .big{font-size:2.6rem;line-height:1;margin-bottom:.5rem}
+.result h4{
+  font-family:var(--f-display);font-weight:700;font-size:1.3rem;
+  margin:0 0 .35rem;color:var(--ink);
+}
+.result p{margin:0 0 .6rem;color:var(--ink-2);font-size:1rem}
+.result .score{font-variant-numeric:tabular-nums;font-weight:700;color:var(--blue)}
+.again{
+  font-family:var(--f-uz);font-size:.82rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-2);color:var(--ink-2);
+  padding:.42rem .85rem;border-radius:999px;cursor:pointer;
+}
+.again:hover{border-color:var(--blue);color:var(--blue)}
+
+/* APP-CSS-END */
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Oʻzbek tilida · noldan boshlovchilar uchun</p>
+    <h1>Noldan Ingliz Tili</h1>
+    <p>Bu Duolingo emas. Bu yerda har bir qoida oʻzbek tilida tushuntiriladi va oʻzbek tili bilan solishtiriladi — chunki ingliz tilidagi eng koʻp xatolarni aynan oʻzbek tilining odati keltirib chiqaradi.</p>
+    <div class="stat">
+      <span><b>10</b> ta toʻliq dars</span>
+      <span><b>60</b> ta soʻz</span>
+      <span><b>20</b> daqiqa kunlik</span>
+      <span><b>12</b> haftalik reja</span>
+    </div>
+  </div>
+</header>
+
+<nav class="chips" aria-label="Boʻlimlar">
+  <div class="scroller">
+        <a href="#bog">Bogʻim</a>
+    <a href="#usul">Qanday oʻqish</a>
+    <a href="#farqlar">5 ta katta farq</a>
+    <a href="#talaffuz">Talaffuz</a>
+    <a class="n" href="#d1">1</a>
+    <a class="n" href="#d2">2</a>
+    <a class="n" href="#d3">3</a>
+    <a class="n" href="#d4">4</a>
+    <a class="n" href="#d5">5</a>
+    <a class="n" href="#d6">6</a>
+    <a class="n" href="#d7">7</a>
+    <a class="n" href="#d8">8</a>
+    <a class="n" href="#d9">9</a>
+    <a class="n" href="#d10">10</a>
+    <a href="#soz">Soʻzlar</a>
+    <a href="#reja">12 hafta</a>
+    <a href="#er">Er uchun</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- APP-GARDEN-START -->
+<section id="bog">
+  <div class="wrap">
+    <h2>Mening bogʻim</h2>
+    <p>Har bir tugallangan dars — bitta yangi gul. Har kuni oʻqisangiz, nihol daraxtga aylanadi.
+       Hech narsa soʻlmaydi: kun oʻtkazib yuborsangiz, oʻsish sekinlashadi, lekin yiqqaningiz yoʻqolmaydi.</p>
+    <div class="plot" id="plot"></div>
+  </div>
+</section>
+<!-- APP-GARDEN-END -->
+<!-- ================= HOW TO STUDY ================= -->
+<section id="usul">
+  <div class="wrap">
+    <h2>Qanday oʻqish kerak</h2>
+    <p>Haftada bir marta uch soat oʻqigandan koʻra, <strong>har kuni 20 daqiqa</strong> oʻqigan yaxshiroq. Til xotirada takrorlash bilan qoladi, uzoq oʻtirish bilan emas.</p>
+
+    <h3>Kunlik 20 daqiqa</h3>
+    <ol class="steps">
+      <li><strong>5 daqiqa — takrorlash.</strong> Kechagi darsning soʻzlarini oʻqing. Avval inglizchasiga qarab oʻzbekchasini ayting, keyin teskarisiga.</li>
+      <li><strong>5 daqiqa — yangi qoida.</strong> Darsning «Qoida» qismini sekin oʻqing. Tushunmasangiz, ikkinchi marta oʻqing — davom etmang.</li>
+      <li><strong>5 daqiqa — gap yasash.</strong> Jadvaldan kamida <strong>10 ta gap</strong> tuzing va <strong>ovoz chiqarib</strong> ayting. Ichingizda oʻqish yordam bermaydi. Ogʻiz mushaklari ham oʻrganishi kerak.</li>
+      <li><strong>5 daqiqa — mashq.</strong> Javobni <em>oldin oʻzingiz</em> yozing, keyin ustiga bosib tekshiring.</li>
+    </ol>
+
+    <div class="rule">
+      <span class="lbl">Uchta qoida</span>
+      <ul class="plain">
+        <li><strong>Ovoz chiqarib gapiring.</strong> Har bir gapni eshitilarli qilib ayting.</li>
+        <li><strong>Yozing.</strong> Alohida daftar tuting. Qoʻl bilan yozilgan soʻz uch barobar yaxshi yodda qoladi.</li>
+        <li><strong>Xato qilishdan qoʻrqmang.</strong> Xato — bu oʻrganish belgisi. Notoʻgʻri gapirgan odam jim oʻtirgandan tezroq oʻrganadi.</li>
+      </ul>
+    </div>
+
+    <h3>Bir darsni necha kunda oʻqish kerak</h3>
+    <p>Bir dars — <strong>ikki kun</strong>. Birinchi kuni soʻzlar va qoida, ikkinchi kuni mashq va takrorlash. Shunda 10 ta dars 20 kunga yetadi. Shoshilmang: 3-darsni yaxshi bilmasdan 4-darsga oʻtsangiz, keyingi hamma darslar qiyin boʻladi.</p>
+  </div>
+</section>
+
+<!-- ================= 5 DIFFERENCES ================= -->
+<section id="farqlar">
+  <div class="wrap">
+    <h2>Oʻzbek va ingliz tili: 5 ta katta farq</h2>
+    <p>Bu beshta narsani hozir tushunib olsangiz, keyingi hamma darslar oson boʻladi. Ingliz tilidagi xatolarning taxminan 80 foizi shu beshtasidan chiqadi.</p>
+
+    <h3>1 — Soʻz tartibi teskari</h3>
+    <p>Oʻzbekchada feʼl (harakat) gapning <em>oxirida</em> keladi. Inglizchada feʼl <em>oʻrtada</em>, egadan keyin darrov keladi.</p>
+    <div class="pairs">
+      <div class="pair"><span class="uz">Men olma yeyman. <em>(men — olma — yeyman)</em></span><span class="en">I eat an apple. <em>(men — yeyman — olma)</em></span></div>
+      <div class="pair"><span class="uz">U doʻkonda ishlaydi.</span><span class="en">She works in a shop.</span></div>
+    </div>
+    <p>Formula: <strong>KIM → NIMA QILADI → NIMANI</strong>. Har doim shu tartib.</p>
+
+    <h3>2 — Ega hech qachon tushib qolmaydi</h3>
+    <p>Oʻzbekchada «Talabaman» deyish mumkin — «men» kerak emas, chunki <strong>-man</strong> qoʻshimchasi kimligini koʻrsatadi. Inglizchada bunday qoʻshimcha yoʻq, shuning uchun <strong>I, you, he, she</strong> har doim yoziladi.</p>
+    <div class="vs">
+      <span class="bad">Am a student.</span>
+      <span class="good">I am a student.</span>
+    </div>
+
+    <h3>3 — Artikl bor: a / an / the</h3>
+    <p>Oʻzbek tilida artikl umuman yoʻq. Shuning uchun oʻzbeklar uni doim unutadi. Inglizchada esa sanaladigan bitta narsa artiklsiz deyarli hech qachon aytilmaydi.</p>
+    <div class="vs">
+      <span class="bad">I am doctor.</span>
+      <span class="good">I am a doctor.</span>
+    </div>
+
+    <h3>4 — «U» uchta soʻzga boʻlinadi</h3>
+    <p>Oʻzbekchada erkak ham, ayol ham, narsa ham — hammasi <strong>u</strong>. Inglizchada uchta boshqa soʻz: erkak uchun <span class="en-i">he</span>, ayol uchun <span class="en-i">she</span>, narsa va hayvon uchun <span class="en-i">it</span>. Bu — oʻzbeklarning eng koʻp qiladigan xatosi.</p>
+
+    <h3>5 — Koʻmakchi soʻzdan <em>oldin</em> keladi</h3>
+    <p>Oʻzbekchada «uy<strong>da</strong>» — qoʻshimcha oxirida. Inglizchada <span class="en-i">in the house</span> — soʻz oldida.</p>
+    <div class="pairs">
+      <div class="pair"><span class="uz">stol<strong>da</strong></span><span class="en">on the table</span></div>
+      <div class="pair"><span class="uz">Toshkent<strong>ga</strong></span><span class="en">to Tashkent</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRONUNCIATION ================= -->
+<section id="talaffuz">
+  <div class="wrap">
+    <h2>Talaffuz kaliti</h2>
+    <p>Ingliz tilida soʻz <em>yozilishi</em> va <em>oʻqilishi</em> koʻpincha mos kelmaydi. Shuning uchun har bir soʻz yonida oʻzbek harflari bilan oʻqilishi beriladi. <strong>KATTA HARF</strong> — urgʻu tushadigan boʻgʻin.</p>
+    <p>Masalan: <span class="en-i">teacher</span> <span class="pron-i">TII-cher</span> — birinchi boʻgʻin kuchli aytiladi.</p>
+
+    <h3>Oʻzbek tilida yoʻq beshta tovush</h3>
+
+    <div class="rule">
+      <span class="lbl">th</span>
+      <p>Tilning uchini yuqori va pastki tishlar orasiga chiqarib, havo puflang. Bu «s» ham, «t» ham emas.</p>
+      <p><span class="en-i">think</span> <span class="pron-i">THINK</span> — oʻylamoq &nbsp;·&nbsp; <span class="en-i">this</span> <span class="pron-i">DHIS</span> — bu</p>
+      <p><span class="bad">sink</span> <span class="good">think</span> — «s» desangiz, boshqa soʻz chiqadi.</p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">w — «v» emas!</span>
+      <p>Lablarni <strong>oʻ</strong> deyayotgandek dumaloqlang, tishlarga tegizmang. Oʻzbekcha «v» da pastki lab tishga tegadi — inglizcha <span class="en-i">w</span> da hech qachon tegmaydi.</p>
+      <p><span class="en-i">water</span> <span class="pron-i">UO-ter</span> &nbsp;·&nbsp; <span class="en-i">we</span> <span class="pron-i">UII</span> &nbsp;·&nbsp; <span class="en-i">window</span> <span class="pron-i">UIN-dou</span></p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">a (ochiq)</span>
+      <p><span class="en-i">cat, apple, bad, man</span> soʻzlaridagi tovush — oʻzbekcha «a» bilan «e» orasida. Ogʻizni kengroq oching va «a» deng.</p>
+      <p><span class="en-i">apple</span> <span class="pron-i">E-pl</span> &nbsp;·&nbsp; <span class="en-i">bad</span> <span class="pron-i">BED</span></p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">-ing</span>
+      <p>Oxiridagi <strong>g</strong> aytilmaydi. Burun orqali «n» chiqadi.</p>
+      <p><span class="en-i">morning</span> <span class="pron-i">MOO-nin</span> &nbsp;·&nbsp; <span class="en-i">working</span> <span class="pron-i">UOO-kin</span></p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">urgʻusiz boʻgʻin</span>
+      <p>Urgʻu tushmagan unli deyarli yutib yuboriladi va «e»/«i» ga oʻxshab qoladi. Shuning uchun <span class="en-i">banana</span> «ba-na-na» emas, <span class="pron-i">be-NA-ne</span> boʻlib eshitiladi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LESSON 1 ================= -->
+<section id="d1">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">1</div>
+      <div class="ttl"><h2>I am / You are</h2><div class="sub">Men … man</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>I</dt><dd class="pron">AY</dd><dd class="uz">men</dd></div>
+      <div><dt>you</dt><dd class="pron">YU</dd><dd class="uz">sen / siz / sizlar</dd></div>
+      <div><dt>am</dt><dd class="pron">EM</dd><dd class="uz">-man (faqat «I» bilan)</dd></div>
+      <div><dt>are</dt><dd class="pron">AR</dd><dd class="uz">-san / -siz</dd></div>
+      <div><dt>student</dt><dd class="pron">STYU-dent</dd><dd class="uz">talaba, oʻquvchi</dd></div>
+      <div><dt>teacher</dt><dd class="pron">TII-cher</dd><dd class="uz">oʻqituvchi</dd></div>
+      <div><dt>doctor</dt><dd class="pron">DOK-ter</dd><dd class="uz">shifokor</dd></div>
+      <div><dt>from</dt><dd class="pron">FROM</dd><dd class="uz">-dan</dd></div>
+      <div><dt>here</dt><dd class="pron">HIIR</dd><dd class="uz">bu yerda</dd></div>
+      <div><dt>Uzbekistan</dt><dd class="pron">uz-BE-kis-tan</dd><dd class="uz">Oʻzbekiston</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida</span>
+      <p>Oʻzbekchada «talaba<strong>man</strong>» — qoʻshimcha soʻzning oxiriga yopishadi. Inglizchada u <strong>alohida soʻz</strong> boʻlib, egadan keyin turadi:</p>
+      <div class="pairs">
+        <div class="pair"><span class="uz">Men talabaman.</span><span class="en">I <strong>am</strong> a student.</span></div>
+      </div>
+      <p>Va yana bir narsa: <strong>I</strong> harfi gapning oʻrtasida ham har doim katta yoziladi. Bu ingliz tilidagi yagona shunday soʻz.</p>
+      <p>Gapirganda qisqartiriladi: <span class="en-i">I am → I'm</span> <span class="pron-i">AYM</span>, <span class="en-i">you are → you're</span> <span class="pron-i">YUR</span>.</p>
+    </div>
+
+    <h3>Gap yasash</h3>
+    <div class="tbl-wrap">
+      <table class="build">
+        <tr><td>I am</td><td>a student.</td><td class="u">Men talabaman.</td></tr>
+        <tr><td>I am</td><td>from Uzbekistan.</td><td class="u">Men Oʻzbekistondanman.</td></tr>
+        <tr><td>You are</td><td>a teacher.</td><td class="u">Siz oʻqituvchisiz.</td></tr>
+        <tr><td>You are</td><td>here.</td><td class="u">Siz bu yerdasiz.</td></tr>
+      </table>
+    </div>
+    <p class="cap">Chap ustundan bittasini, oʻng ustundan bittasini tanlab, ovoz chiqarib 10 ta gap ayting.</p>
+
+    <div class="warn">
+      <span class="lbl">Diqqat</span>
+      <p>Egani tushirib qoldirmang. Oʻzbekchada mumkin, inglizchada — yoʻq.</p>
+      <div class="vs"><span class="bad">Am a teacher.</span><span class="good">I am a teacher.</span></div>
+      <div class="vs"><span class="bad">Are from Uzbekistan.</span><span class="good">You are from Uzbekistan.</span></div>
+    </div>
+
+    <div class="exhead"><h3>Mashq — inglizchaga oʻgiring</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">Men shifokorman.</span><button class="a" type="button" aria-expanded="false">I am a doctor.</button></li>
+      <li><span class="q">Siz talabasiz.</span><button class="a" type="button" aria-expanded="false">You are a student.</button></li>
+      <li><span class="q">Men Oʻzbekistondanman.</span><button class="a" type="button" aria-expanded="false">I am from Uzbekistan.</button></li>
+      <li><span class="q">Siz oʻqituvchisiz.</span><button class="a" type="button" aria-expanded="false">You are a teacher.</button></li>
+      <li><span class="q">Men bu yerdaman.</span><button class="a" type="button" aria-expanded="false">I am here.</button></li>
+      <li><span class="q">Men talabaman. <em>(qisqartirib)</em></span><button class="a" type="button" aria-expanded="false">I'm a student.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 2 ================= -->
+<section id="d2">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">2</div>
+      <div class="ttl"><h2>He / She / It</h2><div class="sub">«U» uchta soʻz</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>he</dt><dd class="pron">HII</dd><dd class="uz">u (erkak)</dd></div>
+      <div><dt>she</dt><dd class="pron">SHII</dd><dd class="uz">u (ayol)</dd></div>
+      <div><dt>it</dt><dd class="pron">IT</dd><dd class="uz">u (narsa, hayvon)</dd></div>
+      <div><dt>we</dt><dd class="pron">UII</dd><dd class="uz">biz</dd></div>
+      <div><dt>they</dt><dd class="pron">DHEY</dd><dd class="uz">ular</dd></div>
+      <div><dt>is</dt><dd class="pron">IZ</dd><dd class="uz">-dir (he/she/it bilan)</dd></div>
+      <div><dt>husband</dt><dd class="pron">HAZ-bend</dd><dd class="uz">er</dd></div>
+      <div><dt>wife</dt><dd class="pron">UAYF</dd><dd class="uz">xotin</dd></div>
+      <div><dt>sister</dt><dd class="pron">SIS-ter</dd><dd class="uz">opa, singil</dd></div>
+      <div><dt>brother</dt><dd class="pron">BRA-dher</dd><dd class="uz">aka, uka</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida — toʻliq jadval</span>
+      <p>«Be» feʼli uch xil shaklga ega. Buni yod oling — u ingliz tilining tayanchi.</p>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Olmosh</th><th>Be</th><th>Qisqargan</th><th>Oʻzbekcha</th></tr>
+        <tr><td class="e">I</td><td class="e">am</td><td class="e">I'm</td><td class="u">men</td></tr>
+        <tr><td class="e">you</td><td class="e">are</td><td class="e">you're</td><td class="u">sen / siz</td></tr>
+        <tr><td class="e">he</td><td class="e">is</td><td class="e">he's</td><td class="u">u (erkak)</td></tr>
+        <tr><td class="e">she</td><td class="e">is</td><td class="e">she's</td><td class="u">u (ayol)</td></tr>
+        <tr><td class="e">it</td><td class="e">is</td><td class="e">it's</td><td class="u">u (narsa)</td></tr>
+        <tr><td class="e">we</td><td class="e">are</td><td class="e">we're</td><td class="u">biz</td></tr>
+        <tr><td class="e">they</td><td class="e">are</td><td class="e">they're</td><td class="u">ular</td></tr>
+      </table>
+    </div>
+    <p class="cap">Faqat <strong>I</strong> bilan «am», faqat <strong>he / she / it</strong> bilan «is», qolgan hammasi bilan «are».</p>
+
+    <div class="pairs">
+      <div class="pair"><span class="uz">U mening erim. U shifokor.</span><span class="en">He is my husband. He is a doctor.</span></div>
+      <div class="pair"><span class="uz">U mening singlim. U talaba.</span><span class="en">She is my sister. She is a student.</span></div>
+      <div class="pair"><span class="uz">Biz Oʻzbekistondanmiz.</span><span class="en">We are from Uzbekistan.</span></div>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat — eng koʻp uchraydigan xato</span>
+      <p>Oʻzbekchada «u» erkakmi ayolmi — bilinmaydi. Shuning uchun oʻzbeklar inglizchada <span class="en-i">he</span> va <span class="en-i">she</span> ni almashtirib yuboradi. Gapirishdan <em>oldin</em> «kim haqida gapiryapman — erkakmi, ayolmi?» deb oʻylang.</p>
+      <div class="vs"><span class="bad">My sister? He is a doctor.</span><span class="good">My sister? She is a doctor.</span></div>
+      <p>Bu xato ingliz tilida juda seziladi. Ayolni «he» desangiz, suhbatdosh toʻxtab qoladi. Shuning uchun birinchi kundan toʻgʻri oʻrganing.</p>
+    </div>
+
+    <div class="exhead"><h3>Mashq — he, she yoki it?</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">my husband → ___ is here.</span><button class="a" type="button" aria-expanded="false">He is here.</button></li>
+      <li><span class="q">my sister → ___ is a teacher.</span><button class="a" type="button" aria-expanded="false">She is a teacher.</button></li>
+      <li><span class="q">the book → ___ is here.</span><button class="a" type="button" aria-expanded="false">It is here.</button></li>
+      <li><span class="q">Biz talabamiz.</span><button class="a" type="button" aria-expanded="false">We are students.</button></li>
+      <li><span class="q">Ular Oʻzbekistondan.</span><button class="a" type="button" aria-expanded="false">They are from Uzbekistan.</button></li>
+      <li><span class="q">U (akam) shifokor.</span><button class="a" type="button" aria-expanded="false">He is a doctor.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 3 ================= -->
+<section id="d3">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">3</div>
+      <div class="ttl"><h2>a / an / the</h2><div class="sub">Oʻzbekchada yoʻq soʻzlar</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>a / an</dt><dd class="pron">E / EN</dd><dd class="uz">bitta, qandaydir</dd></div>
+      <div><dt>the</dt><dd class="pron">DHE</dd><dd class="uz">oʻsha, aniq</dd></div>
+      <div><dt>apple</dt><dd class="pron">E-pl</dd><dd class="uz">olma</dd></div>
+      <div><dt>orange</dt><dd class="pron">O-rinj</dd><dd class="uz">apelsin</dd></div>
+      <div><dt>chair</dt><dd class="pron">CHEER</dd><dd class="uz">stul</dd></div>
+      <div><dt>shop</dt><dd class="pron">SHOP</dd><dd class="uz">doʻkon</dd></div>
+      <div><dt>house</dt><dd class="pron">HAUS</dd><dd class="uz">uy</dd></div>
+      <div><dt>car</dt><dd class="pron">KAR</dd><dd class="uz">mashina</dd></div>
+      <div><dt>egg</dt><dd class="pron">EG</dd><dd class="uz">tuxum</dd></div>
+      <div><dt>old</dt><dd class="pron">OULD</dd><dd class="uz">eski, qari</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida 1 — a / an</span>
+      <p>Sanaladigan <strong>bitta</strong> narsa haqida birinchi marta gapirsangiz, oldiga <span class="en-i">a</span> qoʻyiladi. Bu «bitta, qandaydir» degani.</p>
+      <p>Agar soʻz <strong>unli tovush</strong> bilan boshlansa — <span class="en-i">an</span>:</p>
+      <div class="pairs">
+        <div class="pair"><span class="en">a book, a chair, a shop, a doctor</span><span class="uz">undosh tovush bilan boshlanadi</span></div>
+        <div class="pair"><span class="en">an apple, an orange, an egg</span><span class="uz">unli tovush bilan boshlanadi</span></div>
+      </div>
+      <p>Eʼtibor bering: <strong>harf</strong> emas, <strong>tovush</strong> muhim. <span class="en-i">an hour</span> <span class="pron-i">en AUER</span> — «h» aytilmaydi. <span class="en-i">a university</span> <span class="pron-i">e yu-ni-VOO-si-ti</span> — «yu» tovushi bilan boshlanadi.</p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Qoida 2 — the</span>
+      <p><span class="en-i">the</span> — «oʻsha», ikkalamiz ham qaysi narsa haqida gapirayotganimizni bilamiz.</p>
+      <div class="pairs">
+        <div class="pair"><span class="en">I have <strong>a</strong> car. <strong>The</strong> car is old.</span><span class="uz">Menda mashina bor. (Oʻsha) mashina eski.</span></div>
+      </div>
+      <p>Birinchi marta — <span class="en-i">a</span>. Ikkinchi marta — <span class="en-i">the</span>. Va dunyoda yagona narsalar oldida ham <span class="en-i">the</span>: <span class="en-i">the sun, the moon</span>.</p>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat</span>
+      <p>Kasb aytganda artikl <strong>albatta</strong> kerak. Bu oʻzbeklarda eng koʻp qoladigan xato.</p>
+      <div class="vs"><span class="bad">I am doctor.</span><span class="good">I am a doctor.</span></div>
+      <div class="vs"><span class="bad">She is teacher.</span><span class="good">She is a teacher.</span></div>
+      <p>Sanalmaydigan narsalar oldida esa <span class="en-i">a</span> qoʻyilmaydi: <span class="en-i">water, bread, money</span> — bularni «bitta» deb sanab boʻlmaydi.</p>
+    </div>
+
+    <div class="exhead"><h3>Mashq — a, an yoki the?</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">I am ___ teacher.</span><button class="a" type="button" aria-expanded="false">I am a teacher.</button></li>
+      <li><span class="q">This is ___ apple.</span><button class="a" type="button" aria-expanded="false">This is an apple.</button></li>
+      <li><span class="q">She is ___ student.</span><button class="a" type="button" aria-expanded="false">She is a student.</button></li>
+      <li><span class="q">I have ___ house. ___ house is old.</span><button class="a" type="button" aria-expanded="false">I have a house. The house is old.</button></li>
+      <li><span class="q">It is ___ egg.</span><button class="a" type="button" aria-expanded="false">It is an egg.</button></li>
+      <li><span class="q">Bu doʻkon.</span><button class="a" type="button" aria-expanded="false">This is a shop.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 4 ================= -->
+<section id="d4">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">4</div>
+      <div class="ttl"><h2>Koʻplik: -s</h2><div class="sub">-lar qoʻshimchasi</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>book</dt><dd class="pron">BUK</dd><dd class="uz">kitob</dd></div>
+      <div><dt>box</dt><dd class="pron">BOKS</dd><dd class="uz">quti</dd></div>
+      <div><dt>watch</dt><dd class="pron">UOCH</dd><dd class="uz">soat (qoʻl soati)</dd></div>
+      <div><dt>city</dt><dd class="pron">SI-ti</dd><dd class="uz">shahar</dd></div>
+      <div><dt>man / men</dt><dd class="pron">MEN / MEN</dd><dd class="uz">erkak / erkaklar</dd></div>
+      <div><dt>woman / women</dt><dd class="pron">UU-men / UI-min</dd><dd class="uz">ayol / ayollar</dd></div>
+      <div><dt>child / children</dt><dd class="pron">CHAYLD / CHIL-dren</dd><dd class="uz">bola / bolalar</dd></div>
+      <div><dt>carrot</dt><dd class="pron">KE-ret</dd><dd class="uz">sabzi</dd></div>
+      <div><dt>banana</dt><dd class="pron">be-NA-ne</dd><dd class="uz">banan</dd></div>
+      <div><dt>two / three</dt><dd class="pron">TU / THRII</dd><dd class="uz">ikki / uch</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida</span>
+      <p>Oʻzbekcha <strong>-lar</strong> oʻrniga inglizcha <strong>-s</strong>.</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Qachon</th><th>Nima qoʻshiladi</th><th>Misol</th></tr>
+          <tr><td class="u">odatda</td><td class="e">-s</td><td class="e">book → books</td></tr>
+          <tr><td class="u">-s, -sh, -ch, -x, -o dan keyin</td><td class="e">-es</td><td class="e">box → boxes</td></tr>
+          <tr><td class="u">undosh + y</td><td class="e">-ies</td><td class="e">city → cities</td></tr>
+        </table>
+      </div>
+      <p>Bir nechta soʻz qoidaga boʻysunmaydi — ularni yodlash kerak:</p>
+      <p><span class="en-i">man → men</span> &nbsp;·&nbsp; <span class="en-i">woman → women</span> &nbsp;·&nbsp; <span class="en-i">child → children</span> &nbsp;·&nbsp; <span class="en-i">foot → feet</span></p>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat</span>
+      <p>Oʻzbekchada son bor boʻlsa «-lar» qoʻyilmaydi: «ikkita <strong>kitob</strong>». Inglizchada esa son bor boʻlsa ham <strong>-s</strong> shart:</p>
+      <div class="vs"><span class="bad">two book</span><span class="good">two books</span></div>
+      <div class="vs"><span class="bad">three carrot</span><span class="good">three carrots</span></div>
+      <p>Va koʻplik bilan <span class="en-i">is</span> emas, <span class="en-i">are</span> ishlatiladi:</p>
+      <div class="vs"><span class="bad">The books is here.</span><span class="good">The books are here.</span></div>
+    </div>
+
+    <div class="exhead"><h3>Mashq — koʻplik yasang</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">one chair → two ___</span><button class="a" type="button" aria-expanded="false">two chairs</button></li>
+      <li><span class="q">one box → three ___</span><button class="a" type="button" aria-expanded="false">three boxes</button></li>
+      <li><span class="q">one city → two ___</span><button class="a" type="button" aria-expanded="false">two cities</button></li>
+      <li><span class="q">one woman → two ___</span><button class="a" type="button" aria-expanded="false">two women</button></li>
+      <li><span class="q">Uchta olma.</span><button class="a" type="button" aria-expanded="false">Three apples.</button></li>
+      <li><span class="q">Kitoblar bu yerda.</span><button class="a" type="button" aria-expanded="false">The books are here.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 5 ================= -->
+<section id="d5">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">5</div>
+      <div class="ttl"><h2>Inkor va savol</h2><div class="sub">not · Are you …?</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>not</dt><dd class="pron">NOT</dd><dd class="uz">emas</dd></div>
+      <div><dt>yes / no</dt><dd class="pron">YES / NOU</dd><dd class="uz">ha / yoʻq</dd></div>
+      <div><dt>tired</dt><dd class="pron">TA-yerd</dd><dd class="uz">charchagan</dd></div>
+      <div><dt>ready</dt><dd class="pron">RE-di</dd><dd class="uz">tayyor</dd></div>
+      <div><dt>at home</dt><dd class="pron">et HOUM</dd><dd class="uz">uyda</dd></div>
+      <div><dt>at work</dt><dd class="pron">et UOOK</dd><dd class="uz">ishda</dd></div>
+      <div><dt>your</dt><dd class="pron">YOR</dd><dd class="uz">sening, sizning</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida 1 — inkor</span>
+      <p><strong>be</strong> dan keyin <span class="en-i">not</span> qoʻshiladi. Boshqa hech narsa oʻzgarmaydi.</p>
+      <div class="pairs">
+        <div class="pair"><span class="en">I am <strong>not</strong> a doctor. → I'm not a doctor.</span><span class="uz">Men shifokor emasman.</span></div>
+        <div class="pair"><span class="en">He is <strong>not</strong> at home. → He isn't at home.</span><span class="uz">U uyda emas.</span></div>
+        <div class="pair"><span class="en">They are <strong>not</strong> ready. → They aren't ready.</span><span class="uz">Ular tayyor emas.</span></div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Qoida 2 — savol</span>
+      <p>Oʻzbekchada savol qilish uchun oxiriga <strong>-mi</strong> qoʻshiladi: «Talabasizmi?» Inglizchada esa <strong>soʻz tartibi oʻzgaradi</strong> — <span class="en-i">be</span> oldinga chiqadi.</p>
+      <div class="pairs">
+        <div class="pair"><span class="en">You are a student. → <strong>Are you</strong> a student?</span><span class="uz">Siz talabasiz. → Siz talabamisiz?</span></div>
+        <div class="pair"><span class="en">She is your sister. → <strong>Is she</strong> your sister?</span><span class="uz">U singlingiz. → U singlingizmi?</span></div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Qisqa javob</span>
+      <p>Inglizchada faqat «Yes» yoki «No» deyish quruq eshitiladi. Doim shunday javob bering:</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Savol</th><th>Ha</th><th>Yoʻq</th></tr>
+          <tr><td class="e">Are you a student?</td><td class="e">Yes, I am.</td><td class="e">No, I'm not.</td></tr>
+          <tr><td class="e">Is he at home?</td><td class="e">Yes, he is.</td><td class="e">No, he isn't.</td></tr>
+          <tr><td class="e">Are they ready?</td><td class="e">Yes, they are.</td><td class="e">No, they aren't.</td></tr>
+        </table>
+      </div>
+      <p class="cap">Eʼtibor bering: «Yes, I am» — qisqartirilmaydi. «Yes, I'm» deyilmaydi.</p>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat</span>
+      <p>Faqat ohangni koʻtarib savol qilmang — soʻz tartibini oʻzgartiring.</p>
+      <div class="vs"><span class="bad">You are a student?</span><span class="good">Are you a student?</span></div>
+    </div>
+
+    <div class="exhead"><h3>Mashq</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">Men charchamaganman.</span><button class="a" type="button" aria-expanded="false">I am not tired. / I'm not tired.</button></li>
+      <li><span class="q">U uyda emas. (erkak)</span><button class="a" type="button" aria-expanded="false">He isn't at home.</button></li>
+      <li><span class="q">Siz oʻqituvchimisiz?</span><button class="a" type="button" aria-expanded="false">Are you a teacher?</button></li>
+      <li><span class="q">U singlingizmi?</span><button class="a" type="button" aria-expanded="false">Is she your sister?</button></li>
+      <li><span class="q">Ular tayyormi? — Ha.</span><button class="a" type="button" aria-expanded="false">Are they ready? — Yes, they are.</button></li>
+      <li><span class="q">Siz ishdamisiz? — Yoʻq.</span><button class="a" type="button" aria-expanded="false">Are you at work? — No, I'm not.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 6 ================= -->
+<section id="d6">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">6</div>
+      <div class="ttl"><h2>This / That · What is this?</h2><div class="sub">Bu · U</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>this / these</dt><dd class="pron">DHIS / DHIIZ</dd><dd class="uz">bu / bular (yaqin)</dd></div>
+      <div><dt>that / those</dt><dd class="pron">DHET / DHOUZ</dd><dd class="uz">u / ular (uzoq)</dd></div>
+      <div><dt>what</dt><dd class="pron">UOT</dd><dd class="uz">nima</dd></div>
+      <div><dt>who</dt><dd class="pron">HU</dd><dd class="uz">kim</dd></div>
+      <div><dt>table</dt><dd class="pron">TEY-bl</dd><dd class="uz">stol</dd></div>
+      <div><dt>water</dt><dd class="pron">UO-ter</dd><dd class="uz">suv</dd></div>
+      <div><dt>bread</dt><dd class="pron">BRED</dd><dd class="uz">non</dd></div>
+      <div><dt>door</dt><dd class="pron">DOR</dd><dd class="uz">eshik</dd></div>
+      <div><dt>window</dt><dd class="pron">UIN-dou</dd><dd class="uz">deraza</dd></div>
+      <div><dt>phone</dt><dd class="pron">FOUN</dd><dd class="uz">telefon</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida</span>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th></th><th>Birlik</th><th>Koʻplik</th></tr>
+          <tr><td class="u">yaqin</td><td class="e">this — bu</td><td class="e">these — bular</td></tr>
+          <tr><td class="u">uzoq</td><td class="e">that — u, ana u</td><td class="e">those — ular</td></tr>
+        </table>
+      </div>
+      <p>Koʻplikda <span class="en-i">is</span> emas, <span class="en-i">are</span>:</p>
+      <div class="pairs">
+        <div class="pair"><span class="en">This <strong>is</strong> a chair.</span><span class="uz">Bu stul.</span></div>
+        <div class="pair"><span class="en">These <strong>are</strong> chairs.</span><span class="uz">Bular stullar.</span></div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Savol berish</span>
+      <div class="pairs">
+        <div class="pair"><span class="en">What is this? — It is a phone.</span><span class="uz">Bu nima? — Bu telefon.</span></div>
+        <div class="pair"><span class="en">What are these? — They are books.</span><span class="uz">Bular nima? — Bular kitoblar.</span></div>
+        <div class="pair"><span class="en">Who is this? — This is my sister.</span><span class="uz">Bu kim? — Bu mening singlim.</span></div>
+      </div>
+      <p>Gapirganda qisqartiriladi: <span class="en-i">What's this?</span> <span class="pron-i">UOTS DHIS</span></p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Kunlik mashq</span>
+      <p>Uy boʻylab yuring va koʻrgan har bir narsani koʻrsatib ayting: <span class="en-i">This is a table. That is a window. These are chairs.</span> Kuniga 20 ta narsa. Bu — eng tez natija beradigan mashq.</p>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat</span>
+      <div class="vs"><span class="bad">This are books.</span><span class="good">These are books.</span></div>
+      <div class="vs"><span class="bad">What is these?</span><span class="good">What are these?</span></div>
+    </div>
+
+    <div class="exhead"><h3>Mashq</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">Bu eshik.</span><button class="a" type="button" aria-expanded="false">This is a door.</button></li>
+      <li><span class="q">Bular kitoblar.</span><button class="a" type="button" aria-expanded="false">These are books.</button></li>
+      <li><span class="q">U (uzoqdagi) stol.</span><button class="a" type="button" aria-expanded="false">That is a table.</button></li>
+      <li><span class="q">Bu nima? — Bu suv.</span><button class="a" type="button" aria-expanded="false">What is this? — It is water.</button></li>
+      <li><span class="q">Bu kim? — Bu mening erim.</span><button class="a" type="button" aria-expanded="false">Who is this? — This is my husband.</button></li>
+      <li><span class="q">Bular nima? — Bular sabzilar.</span><button class="a" type="button" aria-expanded="false">What are these? — They are carrots.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 7 ================= -->
+<section id="d7">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">7</div>
+      <div class="ttl"><h2>Sifatlar</h2><div class="sub">katta uy → a big house</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>big / small</dt><dd class="pron">BIG / SMOOL</dd><dd class="uz">katta / kichik</dd></div>
+      <div><dt>new / old</dt><dd class="pron">NYU / OULD</dd><dd class="uz">yangi / eski</dd></div>
+      <div><dt>good / bad</dt><dd class="pron">GUD / BED</dd><dd class="uz">yaxshi / yomon</dd></div>
+      <div><dt>hot / cold</dt><dd class="pron">HOT / KOULD</dd><dd class="uz">issiq / sovuq</dd></div>
+      <div><dt>hungry</dt><dd class="pron">HANG-ri</dd><dd class="uz">och</dd></div>
+      <div><dt>happy</dt><dd class="pron">HE-pi</dd><dd class="uz">xursand</dd></div>
+      <div><dt>expensive</dt><dd class="pron">iks-PEN-siv</dd><dd class="uz">qimmat</dd></div>
+      <div><dt>cheap</dt><dd class="pron">CHIIP</dd><dd class="uz">arzon</dd></div>
+      <div><dt>beautiful</dt><dd class="pron">BYU-ti-ful</dd><dd class="uz">chiroyli</dd></div>
+      <div><dt>years old</dt><dd class="pron">YIRZ OULD</dd><dd class="uz">yoshda</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Yaxshi xabar</span>
+      <p>Sifat otdan <strong>oldin</strong> keladi — xuddi oʻzbekchadagidek. Bu yerda hech narsani oʻzgartirish shart emas.</p>
+      <div class="pairs">
+        <div class="pair"><span class="uz">katta uy</span><span class="en">a big house</span></div>
+        <div class="pair"><span class="uz">sovuq suv</span><span class="en">cold water</span></div>
+        <div class="pair"><span class="uz">yangi mashina</span><span class="en">a new car</span></div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Qoida — sifat oʻzgarmaydi</span>
+      <p>Koʻplikda ham sifatga <strong>-s</strong> qoʻshilmaydi. Faqat ot oʻzgaradi.</p>
+      <div class="vs"><span class="bad">two bigs houses</span><span class="good">two big houses</span></div>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">be + sifat</span>
+      <div class="pairs">
+        <div class="pair"><span class="en">The water is cold.</span><span class="uz">Suv sovuq.</span></div>
+        <div class="pair"><span class="en">I am hungry.</span><span class="uz">Qornim och.</span></div>
+        <div class="pair"><span class="en">This house is very beautiful.</span><span class="uz">Bu uy juda chiroyli.</span></div>
+      </div>
+      <p><span class="en-i">very</span> <span class="pron-i">VE-ri</span> — juda.</p>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat — holat «bor» emas, «be»</span>
+      <p>Oʻzbekcha «qornim och», «charchadim», «27 yoshdaman» — inglizchada hammasi <strong>be</strong> bilan aytiladi.</p>
+      <div class="vs"><span class="bad">I have hungry.</span><span class="good">I am hungry.</span></div>
+      <div class="vs"><span class="bad">I have 27 years.</span><span class="good">I am 27 years old.</span></div>
+      <div class="vs"><span class="bad">My name Aziza.</span><span class="good">My name is Aziza.</span></div>
+    </div>
+
+    <div class="exhead"><h3>Mashq</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">katta doʻkon</span><button class="a" type="button" aria-expanded="false">a big shop</button></li>
+      <li><span class="q">Suv issiq.</span><button class="a" type="button" aria-expanded="false">The water is hot.</button></li>
+      <li><span class="q">Bu juda qimmat.</span><button class="a" type="button" aria-expanded="false">This is very expensive.</button></li>
+      <li><span class="q">Men xursandman.</span><button class="a" type="button" aria-expanded="false">I am happy.</button></li>
+      <li><span class="q">Ikkita eski kitob.</span><button class="a" type="button" aria-expanded="false">two old books</button></li>
+      <li><span class="q">Men 27 yoshdaman.</span><button class="a" type="button" aria-expanded="false">I am 27 years old.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 8 ================= -->
+<section id="d8">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">8</div>
+      <div class="ttl"><h2>have / has</h2><div class="sub">Menda … bor</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>have</dt><dd class="pron">HEV</dd><dd class="uz">ega boʻlmoq (I, you, we, they)</dd></div>
+      <div><dt>has</dt><dd class="pron">HEZ</dd><dd class="uz">ega boʻlmoq (he, she, it)</dd></div>
+      <div><dt>money</dt><dd class="pron">MA-ni</dd><dd class="uz">pul</dd></div>
+      <div><dt>time</dt><dd class="pron">TAYM</dd><dd class="uz">vaqt</dd></div>
+      <div><dt>work / job</dt><dd class="pron">UOOK / JOB</dd><dd class="uz">ish</dd></div>
+      <div><dt>friend</dt><dd class="pron">FREND</dd><dd class="uz">doʻst</dd></div>
+      <div><dt>question</dt><dd class="pron">KUES-chin</dd><dd class="uz">savol</dd></div>
+      <div><dt>today</dt><dd class="pron">te-DEY</dd><dd class="uz">bugun</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida</span>
+      <p>Oʻzbekchada «Men<strong>da</strong> mashina <strong>bor</strong>» deyiladi — egasi «-da» qoʻshimchasi bilan. Inglizchada esa egasi gapning boshida turadi va <span class="en-i">have</span> feʼli ishlatiladi.</p>
+      <div class="pairs">
+        <div class="pair"><span class="uz">Menda mashina bor.</span><span class="en">I <strong>have</strong> a car.</span></div>
+        <div class="pair"><span class="uz">Uning ikkita bolasi bor. (ayol)</span><span class="en">She <strong>has</strong> two children.</span></div>
+      </div>
+      <p>Faqat <strong>he / she / it</strong> bilan <span class="en-i">has</span>. Qolgan hammasi bilan <span class="en-i">have</span>.</p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Inkor va savol</span>
+      <p>Bu yerda yangi soʻz paydo boʻladi: <span class="en-i">do</span> / <span class="en-i">does</span>. U hech narsani anglatmaydi — u faqat inkor va savol yasash uchun kerak boʻlgan <strong>yordamchi soʻz</strong>. Hozircha shu shakllarni yodlab qoʻying, toʻliq qoida 12-darsda beriladi.</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Tasdiq</th><th>Inkor</th><th>Savol</th></tr>
+          <tr><td class="e">I have a car.</td><td class="e">I don't have a car.</td><td class="e">Do you have a car?</td></tr>
+          <tr><td class="e">She has a car.</td><td class="e">She doesn't have a car.</td><td class="e">Does she have a car?</td></tr>
+        </table>
+      </div>
+      <p class="cap">Diqqat: <span class="en-i">does</span> bor boʻlsa, <span class="en-i">have</span> yana oddiy shaklga qaytadi — «does she <strong>has</strong>» emas, «does she <strong>have</strong>».</p>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat</span>
+      <div class="vs"><span class="bad">He have a car.</span><span class="good">He has a car.</span></div>
+      <div class="vs"><span class="bad">In me there is a car.</span><span class="good">I have a car.</span></div>
+      <p>Va «bor» soʻzi alohida tarjima qilinmaydi — u <span class="en-i">have</span> ning ichida.</p>
+    </div>
+
+    <div class="exhead"><h3>Mashq</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">Menda pul bor.</span><button class="a" type="button" aria-expanded="false">I have money.</button></li>
+      <li><span class="q">Uning ishi bor. (erkak)</span><button class="a" type="button" aria-expanded="false">He has a job.</button></li>
+      <li><span class="q">Bizning uyimiz bor.</span><button class="a" type="button" aria-expanded="false">We have a house.</button></li>
+      <li><span class="q">Menda vaqt yoʻq.</span><button class="a" type="button" aria-expanded="false">I don't have time.</button></li>
+      <li><span class="q">Sizda mashina bormi?</span><button class="a" type="button" aria-expanded="false">Do you have a car?</button></li>
+      <li><span class="q">Uning bolalari bormi? (ayol)</span><button class="a" type="button" aria-expanded="false">Does she have children?</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 9 ================= -->
+<section id="d9">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">9</div>
+      <div class="ttl"><h2>my · your · his · her</h2><div class="sub">Egalik</div></div>
+    </div>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>my</dt><dd class="pron">MAY</dd><dd class="uz">mening</dd></div>
+      <div><dt>your</dt><dd class="pron">YOR</dd><dd class="uz">sening, sizning</dd></div>
+      <div><dt>his</dt><dd class="pron">HIZ</dd><dd class="uz">uning (erkak)</dd></div>
+      <div><dt>her</dt><dd class="pron">HOR</dd><dd class="uz">uning (ayol)</dd></div>
+      <div><dt>its</dt><dd class="pron">ITS</dd><dd class="uz">uning (narsa)</dd></div>
+      <div><dt>our</dt><dd class="pron">AUER</dd><dd class="uz">bizning</dd></div>
+      <div><dt>their</dt><dd class="pron">DHEER</dd><dd class="uz">ularning</dd></div>
+      <div><dt>mother / father</dt><dd class="pron">MA-dher / FA-dher</dd><dd class="uz">ona / ota</dd></div>
+      <div><dt>name</dt><dd class="pron">NEYM</dd><dd class="uz">ism</dd></div>
+      <div><dt>family</dt><dd class="pron">FE-mi-li</dd><dd class="uz">oila</dd></div>
+    </dl>
+
+    <div class="rule">
+      <span class="lbl">Qoida 1</span>
+      <p>Oʻzbekchada egalik otning oxiriga qoʻshiladi: «kitob<strong>im</strong>», «uy<strong>ingiz</strong>». Inglizchada esa <strong>alohida soʻz otdan oldin</strong> turadi.</p>
+      <div class="pairs">
+        <div class="pair"><span class="uz">kitobim</span><span class="en">my book</span></div>
+        <div class="pair"><span class="uz">uyingiz</span><span class="en">your house</span></div>
+        <div class="pair"><span class="uz">oilamiz</span><span class="en">our family</span></div>
+      </div>
+      <p>Egalik soʻzi bor boʻlsa, artikl qoʻyilmaydi: <span class="bad">a my book</span> <span class="good">my book</span></p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Qoida 2 — his yoki her?</span>
+      <p>Bu <strong>egasiga</strong> qarab tanlanadi, narsaga qarab emas.</p>
+      <div class="pairs">
+        <div class="pair"><span class="uz">Aziza va uning eri</span><span class="en">Aziza and <strong>her</strong> husband</span></div>
+        <div class="pair"><span class="uz">Aziz va uning xotini</span><span class="en">Aziz and <strong>his</strong> wife</span></div>
+      </div>
+      <p>Yaʼni: ega ayol boʻlsa — har doim <span class="en-i">her</span>, keyin nima kelishidan qatʼi nazar.</p>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">Qoida 3 — 's</span>
+      <p>Odam nomidan keyin <strong>'s</strong> qoʻyiladi:</p>
+      <div class="pairs">
+        <div class="pair"><span class="uz">Azizaning kitobi</span><span class="en">Aziza's book</span></div>
+        <div class="pair"><span class="uz">akamning mashinasi</span><span class="en">my brother's car</span></div>
+      </div>
+      <p>Tartib teskari emas — egasi <strong>oldin</strong>, narsa keyin, xuddi oʻzbekchadagidek.</p>
+    </div>
+
+    <div class="warn">
+      <span class="lbl">Diqqat</span>
+      <div class="vs"><span class="bad">Aziza and his husband</span><span class="good">Aziza and her husband</span></div>
+      <div class="vs"><span class="bad">the book of my brother</span><span class="good">my brother's book</span></div>
+      <div class="vs"><span class="bad">My name Aziza.</span><span class="good">My name is Aziza.</span></div>
+    </div>
+
+    <div class="exhead"><h3>Mashq</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">mening oilam</span><button class="a" type="button" aria-expanded="false">my family</button></li>
+      <li><span class="q">Bu uning onasi. (erkakning onasi)</span><button class="a" type="button" aria-expanded="false">This is his mother.</button></li>
+      <li><span class="q">Bu uning eri. (ayolning eri)</span><button class="a" type="button" aria-expanded="false">This is her husband.</button></li>
+      <li><span class="q">Sizning ismingiz nima?</span><button class="a" type="button" aria-expanded="false">What is your name?</button></li>
+      <li><span class="q">Azizaning uyi katta.</span><button class="a" type="button" aria-expanded="false">Aziza's house is big.</button></li>
+      <li><span class="q">Bizning bolalarimiz uyda.</span><button class="a" type="button" aria-expanded="false">Our children are at home.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= LESSON 10 ================= -->
+<section id="d10">
+  <div class="wrap">
+    <div class="lesson-head">
+      <div class="num">10</div>
+      <div class="ttl"><h2>Birinchi suhbat</h2><div class="sub">Takrorlash</div></div>
+    </div>
+
+    <p>Bu darsda yangi qoida yoʻq. Faqat 1–9-darslarda oʻrganganingiz — endi jonli suhbatda. Ikkala suhbatni <strong>yod oling</strong> va ovoz chiqarib oʻqing.</p>
+
+    <h3>Soʻzlar</h3>
+    <dl class="words">
+      <div><dt>hello / hi</dt><dd class="pron">he-LOU / HAY</dd><dd class="uz">salom</dd></div>
+      <div><dt>please</dt><dd class="pron">PLIIZ</dd><dd class="uz">iltimos</dd></div>
+      <div><dt>thank you</dt><dd class="pron">THENK-yu</dd><dd class="uz">rahmat</dd></div>
+      <div><dt>sorry</dt><dd class="pron">SO-ri</dd><dd class="uz">kechirasiz</dd></div>
+      <div><dt>how much</dt><dd class="pron">hau MACH</dd><dd class="uz">qancha (narx)</dd></div>
+      <div><dt>where</dt><dd class="pron">UEER</dd><dd class="uz">qayerda</dd></div>
+      <div><dt>nice to meet you</dt><dd class="pron">nays tu MIIT yu</dd><dd class="uz">tanishganimdan xursandman</dd></div>
+      <div><dt>goodbye / bye</dt><dd class="pron">gud-BAY / BAY</dd><dd class="uz">xayr</dd></div>
+    </dl>
+
+    <h3>Suhbat 1 — Tanishuv</h3>
+    <div class="dlg">
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">Hello! My name is Aziza.</span><span class="uz">Salom! Mening ismim Aziza.</span></div></div>
+      <div class="turn"><div class="who">Sara</div><div><span class="en">Hi, Aziza. I'm Sara. Nice to meet you.</span><span class="uz">Salom, Aziza. Men Saraman. Tanishganimdan xursandman.</span></div></div>
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">Nice to meet you too. Where are you from?</span><span class="uz">Men ham. Siz qayerdansiz?</span></div></div>
+      <div class="turn"><div class="who">Sara</div><div><span class="en">I'm from England. And you?</span><span class="uz">Men Angliyadanman. Siz-chi?</span></div></div>
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">I'm from Uzbekistan. I'm a teacher.</span><span class="uz">Men Oʻzbekistondanman. Men oʻqituvchiman.</span></div></div>
+      <div class="turn"><div class="who">Sara</div><div><span class="en">Are you married?</span><span class="uz">Turmush qurganmisiz?</span></div></div>
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">Yes, I am. I have two children.</span><span class="uz">Ha. Mening ikkita bolam bor.</span></div></div>
+    </div>
+
+    <h3>Suhbat 2 — Doʻkonda</h3>
+    <div class="dlg">
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">Hello. How much is this?</span><span class="uz">Salom. Bu qancha turadi?</span></div></div>
+      <div class="turn"><div class="who">Sotuvchi</div><div><span class="en">It's five dollars.</span><span class="uz">Besh dollar.</span></div></div>
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">That's expensive. How much are these apples?</span><span class="uz">Bu qimmat. Bu olmalar qancha?</span></div></div>
+      <div class="turn"><div class="who">Sotuvchi</div><div><span class="en">They're two dollars.</span><span class="uz">Ikki dollar.</span></div></div>
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">OK. Two apples and one banana, please.</span><span class="uz">Yaxshi. Ikkita olma va bitta banan, iltimos.</span></div></div>
+      <div class="turn"><div class="who">Sotuvchi</div><div><span class="en">Here you are.</span><span class="uz">Mana, oling.</span></div></div>
+      <div class="turn"><div class="who">Aziza</div><div><span class="en">Thank you. Goodbye!</span><span class="uz">Rahmat. Xayr!</span></div></div>
+    </div>
+
+    <div class="exhead"><h3>Umumiy mashq — 1–9-darslar</h3><button class="showall" type="button">Javoblar</button></div>
+    <ol class="ex">
+      <li><span class="q">Mening ismim Aziza.</span><button class="a" type="button" aria-expanded="false">My name is Aziza.</button></li>
+      <li><span class="q">Men oʻqituvchiman, shifokor emasman.</span><button class="a" type="button" aria-expanded="false">I am a teacher, not a doctor.</button></li>
+      <li><span class="q">U mening erim. U bu yerda emas.</span><button class="a" type="button" aria-expanded="false">He is my husband. He isn't here.</button></li>
+      <li><span class="q">Bular olmalar. Ular arzon.</span><button class="a" type="button" aria-expanded="false">These are apples. They are cheap.</button></li>
+      <li><span class="q">Sizda vaqt bormi?</span><button class="a" type="button" aria-expanded="false">Do you have time?</button></li>
+      <li><span class="q">Uning ikkita bolasi bor. (ayol)</span><button class="a" type="button" aria-expanded="false">She has two children.</button></li>
+      <li><span class="q">Bu nima? — Bu suv.</span><button class="a" type="button" aria-expanded="false">What is this? — It is water.</button></li>
+      <li><span class="q">Bizning uyimiz katta va yangi.</span><button class="a" type="button" aria-expanded="false">Our house is big and new.</button></li>
+      <li><span class="q">Siz Oʻzbekistondanmisiz? — Ha.</span><button class="a" type="button" aria-expanded="false">Are you from Uzbekistan? — Yes, I am.</button></li>
+      <li><span class="q">Azizaning singlisi talaba.</span><button class="a" type="button" aria-expanded="false">Aziza's sister is a student.</button></li>
+      <li><span class="q">Men charchaganman va qornim och.</span><button class="a" type="button" aria-expanded="false">I am tired and hungry.</button></li>
+      <li><span class="q">Bu juda qimmat.</span><button class="a" type="button" aria-expanded="false">This is very expensive.</button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= WORD BANK ================= -->
+<section id="soz">
+  <div class="wrap">
+    <h2>Birinchi 60 soʻz</h2>
+    <p>1–10-darslardagi hamma soʻz. Har hafta oxirida shu roʻyxatni yuqoridan pastga oʻqing: inglizchasiga qarab oʻzbekchasini ayting. Bilmaganingizni belgilab qoʻying va ertasi kuni yana koʻring.</p>
+
+    <h3>Odamlar</h3>
+    <div class="bank">
+      <div><span class="e">I</span><span class="u">men</span></div>
+      <div><span class="e">you</span><span class="u">sen, siz</span></div>
+      <div><span class="e">he</span><span class="u">u (erkak)</span></div>
+      <div><span class="e">she</span><span class="u">u (ayol)</span></div>
+      <div><span class="e">it</span><span class="u">u (narsa)</span></div>
+      <div><span class="e">we</span><span class="u">biz</span></div>
+      <div><span class="e">they</span><span class="u">ular</span></div>
+      <div><span class="e">husband</span><span class="u">er</span></div>
+      <div><span class="e">wife</span><span class="u">xotin</span></div>
+      <div><span class="e">sister</span><span class="u">opa, singil</span></div>
+      <div><span class="e">brother</span><span class="u">aka, uka</span></div>
+      <div><span class="e">mother</span><span class="u">ona</span></div>
+      <div><span class="e">father</span><span class="u">ota</span></div>
+      <div><span class="e">child / children</span><span class="u">bola / bolalar</span></div>
+      <div><span class="e">man / men</span><span class="u">erkak / erkaklar</span></div>
+      <div><span class="e">woman / women</span><span class="u">ayol / ayollar</span></div>
+      <div><span class="e">friend</span><span class="u">doʻst</span></div>
+      <div><span class="e">family</span><span class="u">oila</span></div>
+      <div><span class="e">student</span><span class="u">talaba</span></div>
+      <div><span class="e">teacher</span><span class="u">oʻqituvchi</span></div>
+      <div><span class="e">doctor</span><span class="u">shifokor</span></div>
+    </div>
+
+    <h3>Narsalar</h3>
+    <div class="bank">
+      <div><span class="e">book</span><span class="u">kitob</span></div>
+      <div><span class="e">chair</span><span class="u">stul</span></div>
+      <div><span class="e">table</span><span class="u">stol</span></div>
+      <div><span class="e">door</span><span class="u">eshik</span></div>
+      <div><span class="e">window</span><span class="u">deraza</span></div>
+      <div><span class="e">house</span><span class="u">uy</span></div>
+      <div><span class="e">car</span><span class="u">mashina</span></div>
+      <div><span class="e">phone</span><span class="u">telefon</span></div>
+      <div><span class="e">shop</span><span class="u">doʻkon</span></div>
+      <div><span class="e">city</span><span class="u">shahar</span></div>
+      <div><span class="e">box</span><span class="u">quti</span></div>
+      <div><span class="e">watch</span><span class="u">qoʻl soati</span></div>
+      <div><span class="e">money</span><span class="u">pul</span></div>
+      <div><span class="e">time</span><span class="u">vaqt</span></div>
+      <div><span class="e">work / job</span><span class="u">ish</span></div>
+      <div><span class="e">name</span><span class="u">ism</span></div>
+      <div><span class="e">question</span><span class="u">savol</span></div>
+    </div>
+
+    <h3>Ovqat</h3>
+    <div class="bank">
+      <div><span class="e">water</span><span class="u">suv</span></div>
+      <div><span class="e">bread</span><span class="u">non</span></div>
+      <div><span class="e">apple</span><span class="u">olma</span></div>
+      <div><span class="e">orange</span><span class="u">apelsin</span></div>
+      <div><span class="e">banana</span><span class="u">banan</span></div>
+      <div><span class="e">carrot</span><span class="u">sabzi</span></div>
+      <div><span class="e">egg</span><span class="u">tuxum</span></div>
+    </div>
+
+    <h3>Sifatlar va holat</h3>
+    <div class="bank">
+      <div><span class="e">big / small</span><span class="u">katta / kichik</span></div>
+      <div><span class="e">new / old</span><span class="u">yangi / eski</span></div>
+      <div><span class="e">good / bad</span><span class="u">yaxshi / yomon</span></div>
+      <div><span class="e">hot / cold</span><span class="u">issiq / sovuq</span></div>
+      <div><span class="e">expensive / cheap</span><span class="u">qimmat / arzon</span></div>
+      <div><span class="e">beautiful</span><span class="u">chiroyli</span></div>
+      <div><span class="e">hungry</span><span class="u">och</span></div>
+      <div><span class="e">tired</span><span class="u">charchagan</span></div>
+      <div><span class="e">happy</span><span class="u">xursand</span></div>
+      <div><span class="e">ready</span><span class="u">tayyor</span></div>
+      <div><span class="e">very</span><span class="u">juda</span></div>
+    </div>
+
+    <h3>Kerakli iboralar</h3>
+    <div class="bank">
+      <div><span class="e">hello / hi</span><span class="u">salom</span></div>
+      <div><span class="e">goodbye / bye</span><span class="u">xayr</span></div>
+      <div><span class="e">please</span><span class="u">iltimos</span></div>
+      <div><span class="e">thank you</span><span class="u">rahmat</span></div>
+      <div><span class="e">sorry</span><span class="u">kechirasiz</span></div>
+      <div><span class="e">yes / no</span><span class="u">ha / yoʻq</span></div>
+      <div><span class="e">what</span><span class="u">nima</span></div>
+      <div><span class="e">who</span><span class="u">kim</span></div>
+      <div><span class="e">where</span><span class="u">qayerda</span></div>
+      <div><span class="e">how much</span><span class="u">qancha</span></div>
+      <div><span class="e">here</span><span class="u">bu yerda</span></div>
+      <div><span class="e">at home / at work</span><span class="u">uyda / ishda</span></div>
+      <div><span class="e">today</span><span class="u">bugun</span></div>
+      <div><span class="e">nice to meet you</span><span class="u">tanishganimdan xursandman</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 12 WEEK PLAN ================= -->
+<section id="reja">
+  <div class="wrap">
+    <h2>12 haftalik reja</h2>
+    <p>Yuqoridagi 10 ta dars — birinchi blok, yaʼni 1–4-haftalar. Keyingi bloklarda nimalar boʻlishini bilib turishingiz uchun toʻliq reja:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Hafta</th><th>Mavzu</th><th>Nima qila olasiz</th></tr>
+        <tr><td class="u"><strong>1–2</strong></td><td class="u">1–5-darslar: be, olmoshlar, artikl, koʻplik, savol</td><td class="u">Oʻzingiz va oilangiz haqida gapira olasiz</td></tr>
+        <tr><td class="u"><strong>3–4</strong></td><td class="u">6–10-darslar: this/that, sifat, have, egalik, suhbat</td><td class="u">Narsalarni tasvirlaysiz, doʻkonda gaplashasiz</td></tr>
+        <tr><td class="u"><strong>5–6</strong></td><td class="u">Present Simple: I work, she works · do / does</td><td class="u">Kundalik ishlaringizni aytasiz</td></tr>
+        <tr><td class="u"><strong>7</strong></td><td class="u">can / can't · there is / there are</td><td class="u">Nimani bilasiz, uyda nima bor — aytasiz</td></tr>
+        <tr><td class="u"><strong>8</strong></td><td class="u">Joy va vaqt: in, on, at, to · soat, kun, oy</td><td class="u">Vaqt belgilaysiz, joy tushuntirasiz</td></tr>
+        <tr><td class="u"><strong>9</strong></td><td class="u">Present Continuous: I am working</td><td class="u">Hozir nima qilayotganingizni aytasiz</td></tr>
+        <tr><td class="u"><strong>10</strong></td><td class="u">Oʻtgan zamon: was / were · -ed · notoʻgʻri feʼllar</td><td class="u">Kechagi kun haqida gapirasiz</td></tr>
+        <tr><td class="u"><strong>11</strong></td><td class="u">Kelasi zamon: going to · will · want to</td><td class="u">Rejalaringizni aytasiz</td></tr>
+        <tr><td class="u"><strong>12</strong></td><td class="u">Amaliy suhbatlar: shifokorda, aeroportda, restoranda</td><td class="u">Sayohatda oʻzingizni eplaysiz</td></tr>
+      </table>
+    </div>
+
+    <div class="rule">
+      <span class="lbl">12 haftadan keyin</span>
+      <p>Bu reja <strong>A2</strong> darajaga olib boradi — oddiy kundalik mavzularda gaplasha olish. Undan keyin: koʻproq oʻqish (bolalar kitoblari), subtitr bilan film koʻrish, va haftada bir marta jonli suhbat.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOR THE HUSBAND ================= -->
+<section id="er">
+  <div class="wrap">
+    <h2>Er uchun: sizning vazifangiz</h2>
+    <p>Yolgʻiz oʻqiyotgan odam odatda 2–3 haftada tashlab yuboradi. Yonida bir kishi boʻlsa — davom etadi. Sizning roʻlingiz oʻqituvchi emas, <strong>suhbatdosh</strong> boʻlish.</p>
+
+    <ol class="steps">
+      <li><strong>Kuniga 5 daqiqa suhbat.</strong> Har kuni bir vaqtda — masalan kechki ovqatdan keyin. Faqat oʻsha kungi dars materialidan foydalanib 5–10 ta savol bering. Koʻproq emas.</li>
+      <li><strong>Har bir xatoni tuzatmang.</strong> Bu oʻrganishni toʻxtatadigan eng tez yoʻl. Bitta suhbatda faqat <em>bitta</em> xatoni tuzating — eng muhimini. Qolganini eshitmagandek qiling.</li>
+      <li><strong>Uyga stiker yopishtiring.</strong> Eshikka <span class="en-i">door</span>, derazaga <span class="en-i">window</span>, muzlatkichga <span class="en-i">fridge</span>. Bir haftada 20 ta soʻz oʻz-oʻzidan yodlanadi.</li>
+      <li><strong>Progressni koʻrsating.</strong> Har yakshanba 1-darsning mashqini yana bir marta qildiring. «Ikki hafta oldin buni bilmasding» — bu eng kuchli motivatsiya.</li>
+      <li><strong>Duolingoni butunlay tashlamang.</strong> U qoida oʻrgatmaydi, lekin soʻz takrorlash uchun yaxshi. Kuniga 5 daqiqa — asosiy 20 daqiqadan <em>keyin</em>, oʻrniga emas.</li>
+    </ol>
+
+    <div class="warn">
+      <span class="lbl">Nimaga Duolingo yetarli boʻlmagan</span>
+      <p>Duolingo oʻzbek tilida tushuntirmaydi — u faqat mashq qildiradi. Nol darajadagi kattalar uchun bu ishlamaydi: nima uchun «I am a doctor» da «a» borligini bilmasang, uni har safar taxmin qilishga toʻgʻri keladi. Bu charchatadi va odam tashlab yuboradi. Shuning uchun bu kursda avval <strong>qoida oʻzbekcha</strong>, keyin mashq.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Javobni koʻrish uchun xira yozuv ustiga bosing. Har bir darsdagi «Javoblar» tugmasi hammasini birdan ochadi.</p>
+    <p>Noldan Ingliz Tili · 1-blok, 1–10-darslar</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest("button.a");
+  if (btn) {
+    btn.setAttribute("aria-expanded", "true");
+    return;
+  }
+  var all = e.target.closest("button.showall");
+  if (all) {
+    var sec = all.closest("section");
+    var answers = sec.querySelectorAll("button.a");
+    var anyHidden = false;
+    answers.forEach(function (a) {
+      if (a.getAttribute("aria-expanded") !== "true") anyHidden = true;
+    });
+    answers.forEach(function (a) {
+      a.setAttribute("aria-expanded", anyHidden ? "true" : "false");
+    });
+    all.textContent = anyHidden ? "Yashirish" : "Javoblar";
+  }
+});
+</script>
+
+<!-- APP-JS-START -->
+<script>
+var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[{"en":"I","pron":"AY","uz":"men"},{"en":"you","pron":"YU","uz":"sen / siz"},{"en":"am","pron":"EM","uz":"-man (faqat I bilan)"},{"en":"are","pron":"AR","uz":"-san / -siz"},{"en":"student","pron":"STYU-dent","uz":"talaba"},{"en":"teacher","pron":"TII-cher","uz":"oʻqituvchi"},{"en":"doctor","pron":"DOK-ter","uz":"shifokor"},{"en":"from","pron":"FROM","uz":"-dan"},{"en":"here","pron":"HIIR","uz":"bu yerda"},{"en":"Uzbekistan","pron":"uz-BE-kis-tan","uz":"Oʻzbekiston"}],"quiz":[{"prompt":"Men shifokorman.","task":"Inglizchaga oʻgiring:","options":[{"t":"I am a doctor.","c":true,"w":null},{"t":"Am a doctor.","c":false,"w":"Ega tushib qolgan. Inglizchada «I» har doim yoziladi."},{"t":"I am doctor.","c":false,"w":"Artikl yoʻq. Kasb oldida «a» shart: a doctor."},{"t":"I doctor am.","c":false,"w":"Bu oʻzbekcha soʻz tartibi. Inglizchada: KIM → NIMA → qolgani."}]},{"prompt":"Siz talabasiz.","task":"Inglizchaga oʻgiring:","options":[{"t":"You are a student.","c":true,"w":null},{"t":"You is a student.","c":false,"w":"«is» faqat he / she / it bilan. «you» bilan har doim «are»."},{"t":"You are student.","c":false,"w":"Artikl yoʻq: a student."},{"t":"Are you a student.","c":false,"w":"Bu savol tartibi. Oddiy gapda ega birinchi keladi."}]},{"prompt":"Men Oʻzbekistondanman.","task":"Inglizchaga oʻgiring:","options":[{"t":"I am from Uzbekistan.","c":true,"w":null},{"t":"I from Uzbekistan.","c":false,"w":"«am» tushib qolgan. Inglizchada «be» hech qachon tushmaydi."},{"t":"Am from Uzbekistan.","c":false,"w":"Ega yoʻq. «I» kerak."},{"t":"I am Uzbekistan from.","c":false,"w":"«from» oʻzbekcha «-dan» kabi oxirga qoʻyilgan. Inglizchada u soʻzdan oldin keladi."}]},{"prompt":"Men bu yerdaman.","task":"Inglizchaga oʻgiring:","options":[{"t":"I am here.","c":true,"w":null},{"t":"I here am.","c":false,"w":"Oʻzbekcha tartib. Feʼl egadan keyin darrov keladi."},{"t":"I here.","c":false,"w":"«am» yoʻq. Ingliz gapida «be» shart."},{"t":"Me am here.","c":false,"w":"«me» ega boʻla olmaydi. Ega sifatida faqat «I»."}]},{"prompt":"Siz oʻqituvchisiz.","task":"Inglizchaga oʻgiring:","options":[{"t":"You are a teacher.","c":true,"w":null},{"t":"You are teacher.","c":false,"w":"Artikl yoʻq: a teacher."},{"t":"You am a teacher.","c":false,"w":"«am» faqat «I» bilan ishlatiladi."},{"t":"Teacher you are.","c":false,"w":"Soʻz tartibi buzilgan."}]},{"prompt":"Men talabaman.","task":"Qisqartirilgan shaklini tanlang:","options":[{"t":"I'm a student.","c":true,"w":null},{"t":"Im a student.","c":false,"w":"Apostrof (') tushib qolgan. «I'm» deb yoziladi."},{"t":"I'm student.","c":false,"w":"Qisqartirilsa ham artikl kerak: a student."},{"t":"Iam a student.","c":false,"w":"«I» va «am» qoʻshib yozilmaydi."}]}]},{"id":2,"flower":"\uD83C\uDF38","title":"He / She / It","words":[{"en":"he","pron":"HII","uz":"u (erkak)"},{"en":"she","pron":"SHII","uz":"u (ayol)"},{"en":"it","pron":"IT","uz":"u (narsa, hayvon)"},{"en":"we","pron":"UII","uz":"biz"},{"en":"they","pron":"DHEY","uz":"ular"},{"en":"is","pron":"IZ","uz":"-dir (he/she/it bilan)"},{"en":"husband","pron":"HAZ-bend","uz":"er"},{"en":"wife","pron":"UAYF","uz":"xotin"},{"en":"sister","pron":"SIS-ter","uz":"opa, singil"},{"en":"brother","pron":"BRA-dher","uz":"aka, uka"}],"quiz":[{"prompt":"my sister → ___ a teacher.","task":"Toʻgʻri gapni tanlang:","options":[{"t":"She is a teacher.","c":true,"w":null},{"t":"He is a teacher.","c":false,"w":"«sister» — ayol. Ayol uchun «she»."},{"t":"It is a teacher.","c":false,"w":"«it» faqat narsa va hayvon uchun, odam uchun emas."},{"t":"She are a teacher.","c":false,"w":"«she» bilan har doim «is»."}]},{"prompt":"my husband → ___ at home.","task":"Toʻgʻri gapni tanlang:","options":[{"t":"He is at home.","c":true,"w":null},{"t":"She is at home.","c":false,"w":"«husband» — erkak. Erkak uchun «he»."},{"t":"He are at home.","c":false,"w":"«he» bilan har doim «is»."},{"t":"He is home.","c":false,"w":"«at» tushib qolgan. Toʻgʻrisi: at home."}]},{"prompt":"Biz talabamiz.","task":"Inglizchaga oʻgiring:","options":[{"t":"We are students.","c":true,"w":null},{"t":"We is students.","c":false,"w":"«is» faqat he / she / it bilan. «we» bilan «are»."},{"t":"We are student.","c":false,"w":"Biz koʻpmiz — koʻplik kerak: students."},{"t":"Us are students.","c":false,"w":"«us» ega boʻla olmaydi. Ega — «we»."}]},{"prompt":"Ular Oʻzbekistondan.","task":"Inglizchaga oʻgiring:","options":[{"t":"They are from Uzbekistan.","c":true,"w":null},{"t":"They is from Uzbekistan.","c":false,"w":"«they» bilan «are»."},{"t":"They from Uzbekistan.","c":false,"w":"«are» tushib qolgan."},{"t":"They are Uzbekistan from.","c":false,"w":"«from» soʻzdan oldin keladi, oxirida emas."}]},{"prompt":"the book → ___ new.","task":"Toʻgʻri gapni tanlang:","options":[{"t":"It is new.","c":true,"w":null},{"t":"He is new.","c":false,"w":"Kitob — narsa. Narsa uchun «it»."},{"t":"She is new.","c":false,"w":"Kitob — narsa. Narsa uchun «it»."},{"t":"Its new.","c":false,"w":"«it is» qisqarsa «it's» boʻladi. «its» — bu «uning»."}]},{"prompt":"U mening singlim va u shifokor.","task":"Inglizchaga oʻgiring:","options":[{"t":"She is my sister and she is a doctor.","c":true,"w":null},{"t":"She is my sister and he is a doctor.","c":false,"w":"Ikkala gap ham bitta ayol haqida — ikkalasida ham «she»."},{"t":"He is my sister and he is a doctor.","c":false,"w":"«sister» ayol, «he» emas."},{"t":"She my sister and she a doctor.","c":false,"w":"Ikkala gapda ham «is» tushib qolgan."}]}]},{"id":3,"flower":"\uD83C\uDF3A","title":"a / an / the","words":[{"en":"a","pron":"E / EN","uz":"bitta, qandaydir"},{"en":"the","pron":"DHE","uz":"oʻsha, aniq"},{"en":"apple","pron":"E-pl","uz":"olma"},{"en":"orange","pron":"O-rinj","uz":"apelsin"},{"en":"chair","pron":"CHEER","uz":"stul"},{"en":"shop","pron":"SHOP","uz":"doʻkon"},{"en":"house","pron":"HAUS","uz":"uy"},{"en":"car","pron":"KAR","uz":"mashina"},{"en":"egg","pron":"EG","uz":"tuxum"},{"en":"old","pron":"OULD","uz":"eski, qari"}],"quiz":[{"prompt":"I am ___ teacher.","task":"Boʻsh joyni toʻldiring:","options":[{"t":"I am a teacher.","c":true,"w":null},{"t":"I am teacher.","c":false,"w":"Kasb oldida artikl shart."},{"t":"I am an teacher.","c":false,"w":"«teacher» undosh tovush bilan boshlanadi — «a»."},{"t":"I am the teacher.","c":false,"w":"«the» aniq, maʼlum oʻqituvchi degani. Oddiy tanishuvda «a»."}]},{"prompt":"This is ___ apple.","task":"Boʻsh joyni toʻldiring:","options":[{"t":"This is an apple.","c":true,"w":null},{"t":"This is a apple.","c":false,"w":"«apple» unli tovush bilan boshlanadi — «an» kerak."},{"t":"This is apple.","c":false,"w":"Artikl tushib qolgan."},{"t":"This is an apples.","c":false,"w":"«an» bitta narsa uchun. Koʻplik bilan ishlatilmaydi."}]},{"prompt":"It is ___ egg.","task":"Boʻsh joyni toʻldiring:","options":[{"t":"It is an egg.","c":true,"w":null},{"t":"It is a egg.","c":false,"w":"«egg» unli tovush bilan boshlanadi — «an»."},{"t":"It is egg.","c":false,"w":"Artikl kerak."},{"t":"It is the egg.","c":false,"w":"Birinchi marta aytilayotgan narsa — «an»."}]},{"prompt":"Menda uy bor. Oʻsha uy eski.","task":"Inglizchaga oʻgiring:","options":[{"t":"I have a house. The house is old.","c":true,"w":null},{"t":"I have the house. A house is old.","c":false,"w":"Teskari. Birinchi marta — «a», ikkinchi marta — «the»."},{"t":"I have a house. A house is old.","c":false,"w":"Ikkinchi gapda allaqachon maʼlum uy — «the»."},{"t":"I have house. House is old.","c":false,"w":"Ikkala gapda ham artikl tushib qolgan."}]},{"prompt":"Bu doʻkon.","task":"Inglizchaga oʻgiring:","options":[{"t":"This is a shop.","c":true,"w":null},{"t":"This is shop.","c":false,"w":"Artikl kerak: a shop."},{"t":"This a shop.","c":false,"w":"«is» tushib qolgan."},{"t":"This is an shop.","c":false,"w":"«shop» undosh bilan boshlanadi — «a»."}]},{"prompt":"«bir soat» — inglizcha qanday?","task":"Toʻgʻrisini tanlang:","options":[{"t":"an hour","c":true,"w":null},{"t":"a hour","c":false,"w":"«hour» da «h» aytilmaydi — «auer» boʻlib eshitiladi. Unli tovush, demak «an»."},{"t":"the hour","c":false,"w":"«the» aniq soatni bildiradi. «bir soat» — «an hour»."},{"t":"hour","c":false,"w":"Artikl tushib qolgan."}]}]},{"id":4,"flower":"\uD83C\uDF3B","title":"Koʻplik: -s","words":[{"en":"book","pron":"BUK","uz":"kitob"},{"en":"box","pron":"BOKS","uz":"quti"},{"en":"watch","pron":"UOCH","uz":"qoʻl soati"},{"en":"city","pron":"SI-ti","uz":"shahar"},{"en":"man","pron":"MEN / MEN","uz":"erkak / erkaklar"},{"en":"woman","pron":"UU-men / UI-min","uz":"ayol / ayollar"},{"en":"child","pron":"CHAYLD / CHIL-dren","uz":"bola / bolalar"},{"en":"carrot","pron":"KE-ret","uz":"sabzi"},{"en":"banana","pron":"be-NA-ne","uz":"banan"},{"en":"two","pron":"TU / THRII","uz":"ikki / uch"}],"quiz":[{"prompt":"one box → three ___","task":"Koʻplik shaklini tanlang:","options":[{"t":"three boxes","c":true,"w":null},{"t":"three boxs","c":false,"w":"«-x» dan keyin «-es» qoʻshiladi: boxes."},{"t":"three box","c":false,"w":"Son bor boʻlsa ham koʻplik qoʻshimchasi shart."},{"t":"three boxies","c":false,"w":"«-ies» faqat undoshdan keyingi «-y» uchun."}]},{"prompt":"one city → two ___","task":"Koʻplik shaklini tanlang:","options":[{"t":"two cities","c":true,"w":null},{"t":"two citys","c":false,"w":"Undoshdan keyingi «-y» → «-ies»: cities."},{"t":"two cityes","c":false,"w":"«y» tushib, «-ies» qoʻshiladi: cities."},{"t":"two city","c":false,"w":"Koʻplik qoʻshimchasi yoʻq."}]},{"prompt":"one woman → two ___","task":"Koʻplik shaklini tanlang:","options":[{"t":"two women","c":true,"w":null},{"t":"two womans","c":false,"w":"«woman» qoidaga boʻysunmaydi: woman → women."},{"t":"two womens","c":false,"w":"«women» allaqachon koʻplik. Ustiga «-s» qoʻshilmaydi."},{"t":"two woman","c":false,"w":"Koʻplik shakli kerak: women."}]},{"prompt":"Uchta olma.","task":"Inglizchaga oʻgiring:","options":[{"t":"three apples","c":true,"w":null},{"t":"three apple","c":false,"w":"Oʻzbekchada «uchta olma» — «lar» yoʻq. Inglizchada «-s» shart."},{"t":"three an apple","c":false,"w":"«a / an» va son bir vaqtda ishlatilmaydi."},{"t":"apples three","c":false,"w":"Son otdan oldin keladi."}]},{"prompt":"Kitoblar bu yerda.","task":"Inglizchaga oʻgiring:","options":[{"t":"The books are here.","c":true,"w":null},{"t":"The books is here.","c":false,"w":"Koʻplik bilan «are» ishlatiladi."},{"t":"The book are here.","c":false,"w":"«book» birlik, «are» koʻplik — mos kelmayapti."},{"t":"The books here.","c":false,"w":"«are» tushib qolgan."}]},{"prompt":"Ular bolalar.","task":"Inglizchaga oʻgiring:","options":[{"t":"They are children.","c":true,"w":null},{"t":"They are childrens.","c":false,"w":"«children» allaqachon koʻplik. Ustiga «-s» qoʻshilmaydi."},{"t":"They are childs.","c":false,"w":"«child» qoidaga boʻysunmaydi: child → children."},{"t":"They is children.","c":false,"w":"«they» bilan «are»."}]}]},{"id":5,"flower":"\uD83C\uDF3C","title":"Inkor va savol","words":[{"en":"not","pron":"NOT","uz":"emas"},{"en":"yes","pron":"YES","uz":"ha"},{"en":"no","pron":"NOU","uz":"yoʻq"},{"en":"tired","pron":"TA-yerd","uz":"charchagan"},{"en":"ready","pron":"RE-di","uz":"tayyor"},{"en":"at home","pron":"et HOUM","uz":"uyda"},{"en":"at work","pron":"et UOOK","uz":"ishda"},{"en":"your","pron":"YOR","uz":"sening, sizning"},{"en":"married","pron":"ME-rid","uz":"turmush qurgan"},{"en":"busy","pron":"BI-zi","uz":"band"}],"quiz":[{"prompt":"Men charchamaganman.","task":"Inglizchaga oʻgiring:","options":[{"t":"I'm not tired.","c":true,"w":null},{"t":"I not tired.","c":false,"w":"«am» tushib qolgan. Inkorda ham «be» kerak."},{"t":"I don't tired.","c":false,"w":"«don't» feʼllar bilan ishlatiladi. «be» bilan faqat «not»."},{"t":"I'm no tired.","c":false,"w":"«no» emas, <b>not</b>."}]},{"prompt":"U uyda emas. (erkak)","task":"Inglizchaga oʻgiring:","options":[{"t":"He isn't at home.","c":true,"w":null},{"t":"He not at home.","c":false,"w":"«is» tushib qolgan: he isn't."},{"t":"He doesn't at home.","c":false,"w":"«be» bilan «doesn't» ishlatilmaydi."},{"t":"He isn't home.","c":false,"w":"«at» kerak: at home."}]},{"prompt":"Siz oʻqituvchimisiz?","task":"Inglizchaga oʻgiring:","options":[{"t":"Are you a teacher?","c":true,"w":null},{"t":"You are a teacher?","c":false,"w":"Savolda «are» oldinga chiqishi kerak."},{"t":"Are you teacher?","c":false,"w":"Artikl tushib qolgan: a teacher."},{"t":"Do you a teacher?","c":false,"w":"«be» bilan savol «do» siz yasaladi."}]},{"prompt":"U singlingizmi?","task":"Inglizchaga oʻgiring:","options":[{"t":"Is she your sister?","c":true,"w":null},{"t":"She is your sister?","c":false,"w":"Savolda «is» birinchi keladi."},{"t":"Is she you sister?","c":false,"w":"«you» emas, egalik shakli <b>your</b>."},{"t":"Is he your sister?","c":false,"w":"«sister» ayol — «she»."}]},{"prompt":"Are they ready? — Ha.","task":"Qisqa javobni tanlang:","options":[{"t":"Yes, they are.","c":true,"w":null},{"t":"Yes, they're.","c":false,"w":"Qisqa javobda qisqartirilmaydi. Toʻliq: Yes, they are."},{"t":"Yes, they is.","c":false,"w":"«they» bilan «are»."},{"t":"Yes.","c":false,"w":"Quruq «Yes» qoʻpol eshitiladi. Toʻliq javob bering."}]},{"prompt":"Are you at work? — Yoʻq.","task":"Qisqa javobni tanlang:","options":[{"t":"No, I'm not.","c":true,"w":null},{"t":"No, I amn't.","c":false,"w":"«amn't» degan soʻz yoʻq. Toʻgʻrisi: I'm not."},{"t":"No, I not.","c":false,"w":"«am» tushib qolgan."},{"t":"No, I don't.","c":false,"w":"«be» bilan savolga «don't» bilan javob berilmaydi."}]}]},{"id":6,"flower":"\uD83C\uDF39","title":"This / That · What is this?","words":[{"en":"this","pron":"DHIS","uz":"bu (yaqin)"},{"en":"these","pron":"DHIIZ","uz":"bular (yaqin)"},{"en":"that","pron":"DHET","uz":"u, ana u (uzoq)"},{"en":"those","pron":"DHOUZ","uz":"ular (uzoq)"},{"en":"what","pron":"UOT","uz":"nima"},{"en":"who","pron":"HU","uz":"kim"},{"en":"table","pron":"TEY-bl","uz":"stol"},{"en":"water","pron":"UO-ter","uz":"suv"},{"en":"door","pron":"DOR","uz":"eshik"},{"en":"window","pron":"UIN-dou","uz":"deraza"}],"quiz":[{"prompt":"Bular kitoblar.","task":"Inglizchaga oʻgiring:","options":[{"t":"These are books.","c":true,"w":null},{"t":"This are books.","c":false,"w":"«this» birlik. Koʻplik uchun «these»."},{"t":"These is books.","c":false,"w":"Koʻplik bilan «are»."},{"t":"These are book.","c":false,"w":"Koʻplik qoʻshimchasi kerak: books."}]},{"prompt":"Bu eshik.","task":"Inglizchaga oʻgiring:","options":[{"t":"This is a door.","c":true,"w":null},{"t":"This is door.","c":false,"w":"Artikl tushib qolgan: a door."},{"t":"This a door.","c":false,"w":"«is» tushib qolgan."},{"t":"These is a door.","c":false,"w":"Bitta eshik — «this»."}]},{"prompt":"Bu nima? — Bu suv.","task":"Inglizchaga oʻgiring:","options":[{"t":"What is this? — It is water.","c":true,"w":null},{"t":"What is this? — It is a water.","c":false,"w":"«water» sanalmaydi — artikl qoʻyilmaydi."},{"t":"What this is? — It is water.","c":false,"w":"Savolda «is» «what» dan keyin darrov keladi."},{"t":"This is what? — It is water.","c":false,"w":"Soʻroq soʻzi gapning boshida turadi."}]},{"prompt":"Bular nima?","task":"Inglizchaga oʻgiring:","options":[{"t":"What are these?","c":true,"w":null},{"t":"What is these?","c":false,"w":"«these» koʻplik — «are» kerak."},{"t":"What are this?","c":false,"w":"«this» birlik — «are» bilan mos kelmaydi."},{"t":"These are what?","c":false,"w":"Soʻroq soʻzi boshida turadi."}]},{"prompt":"Bu kim? — Bu mening erim.","task":"Inglizchaga oʻgiring:","options":[{"t":"Who is this? — This is my husband.","c":true,"w":null},{"t":"What is this? — This is my husband.","c":false,"w":"Odam haqida «what» emas, <b>who</b> soʻraladi."},{"t":"Who is this? — This is my wife.","c":false,"w":"«er» — husband. «wife» — xotin."},{"t":"Who this is? — This is my husband.","c":false,"w":"Savol tartibi buzilgan: Who is this?"}]},{"prompt":"Ana u (uzoqdagi) mening uyim.","task":"Inglizchaga oʻgiring:","options":[{"t":"That is my house.","c":true,"w":null},{"t":"This is my house.","c":false,"w":"«this» yaqin narsa uchun. Uzoq narsa — «that»."},{"t":"Those is my house.","c":false,"w":"«those» koʻplik, «house» birlik."},{"t":"That is my a house.","c":false,"w":"«my» bor boʻlsa artikl qoʻyilmaydi."}]}]},{"id":7,"flower":"\uD83D\uDC90","title":"Sifatlar","words":[{"en":"big","pron":"BIG","uz":"katta"},{"en":"small","pron":"SMOOL","uz":"kichik"},{"en":"new","pron":"NYU","uz":"yangi"},{"en":"good","pron":"GUD","uz":"yaxshi"},{"en":"cold","pron":"KOULD","uz":"sovuq"},{"en":"hungry","pron":"HANG-ri","uz":"och"},{"en":"happy","pron":"HE-pi","uz":"xursand"},{"en":"expensive","pron":"iks-PEN-siv","uz":"qimmat"},{"en":"beautiful","pron":"BYU-ti-ful","uz":"chiroyli"},{"en":"very","pron":"VE-ri","uz":"juda"}],"quiz":[{"prompt":"katta doʻkon","task":"Inglizchaga oʻgiring:","options":[{"t":"a big shop","c":true,"w":null},{"t":"a shop big","c":false,"w":"Sifat otdan oldin keladi — xuddi oʻzbekchadagidek."},{"t":"big shop","c":false,"w":"Artikl tushib qolgan: a big shop."},{"t":"a big a shop","c":false,"w":"Artikl bir marta, iboraning boshida qoʻyiladi."}]},{"prompt":"Ikkita eski kitob.","task":"Inglizchaga oʻgiring:","options":[{"t":"two old books","c":true,"w":null},{"t":"two olds books","c":false,"w":"Sifat hech qachon koʻplik shakliga oʻtmaydi."},{"t":"two old book","c":false,"w":"Ot koʻplik boʻlishi kerak: books."},{"t":"two books old","c":false,"w":"Sifat otdan oldin keladi."}]},{"prompt":"Qornim och.","task":"Inglizchaga oʻgiring:","options":[{"t":"I am hungry.","c":true,"w":null},{"t":"I have hungry.","c":false,"w":"Holat «have» bilan emas, «be» bilan aytiladi."},{"t":"My stomach hungry.","c":false,"w":"Inglizchada oddiy qilib «I am hungry» deyiladi."},{"t":"I hungry.","c":false,"w":"«am» tushib qolgan."}]},{"prompt":"Men 27 yoshdaman.","task":"Inglizchaga oʻgiring:","options":[{"t":"I am 27 years old.","c":true,"w":null},{"t":"I have 27 years.","c":false,"w":"Yosh «have» bilan aytilmaydi. «I am … years old»."},{"t":"I am 27 years.","c":false,"w":"«old» tushib qolgan: 27 years old."},{"t":"My age is 27 years old.","c":false,"w":"Bu ortiqcha. Oddiy qilib «I am 27» yoki «I am 27 years old»."}]},{"prompt":"Bu juda qimmat.","task":"Inglizchaga oʻgiring:","options":[{"t":"This is very expensive.","c":true,"w":null},{"t":"This is expensive very.","c":false,"w":"«very» sifatdan oldin keladi."},{"t":"This very expensive.","c":false,"w":"«is» tushib qolgan."},{"t":"This is a very expensive.","c":false,"w":"Ot yoʻq — artikl ham kerak emas."}]},{"prompt":"Suv sovuq.","task":"Inglizchaga oʻgiring:","options":[{"t":"The water is cold.","c":true,"w":null},{"t":"The water cold.","c":false,"w":"«is» tushib qolgan."},{"t":"The cold water.","c":false,"w":"Bu gap emas, ibora. Gap uchun «is» kerak."},{"t":"The water is a cold.","c":false,"w":"Sifat oldida artikl qoʻyilmaydi."}]}]},{"id":8,"flower":"\uD83C\uDFF5️","title":"have / has","words":[{"en":"have","pron":"HEV","uz":"ega boʻlmoq (I, you, we, they)"},{"en":"has","pron":"HEZ","uz":"ega boʻlmoq (he, she, it)"},{"en":"money","pron":"MA-ni","uz":"pul"},{"en":"time","pron":"TAYM","uz":"vaqt"},{"en":"job","pron":"JOB","uz":"ish"},{"en":"friend","pron":"FREND","uz":"doʻst"},{"en":"today","pron":"te-DEY","uz":"bugun"},{"en":"don't","pron":"DOUNT","uz":"yoʻq (inkor yordamchisi)"},{"en":"doesn't","pron":"DAZNT","uz":"yoʻq (he/she/it uchun)"},{"en":"children","pron":"CHIL-dren","uz":"bolalar"}],"quiz":[{"prompt":"Uning ishi bor. (erkak)","task":"Inglizchaga oʻgiring:","options":[{"t":"He has a job.","c":true,"w":null},{"t":"He have a job.","c":false,"w":"«he» bilan «has» ishlatiladi."},{"t":"He has job.","c":false,"w":"Artikl tushib qolgan: a job."},{"t":"He is have a job.","c":false,"w":"«be» va «have» birga ishlatilmaydi."}]},{"prompt":"Menda pul bor.","task":"Inglizchaga oʻgiring:","options":[{"t":"I have money.","c":true,"w":null},{"t":"I have a money.","c":false,"w":"«money» sanalmaydi — artikl qoʻyilmaydi."},{"t":"In me there is money.","c":false,"w":"Bu oʻzbekcha «menda» ning soʻzma-soʻz tarjimasi. Inglizchada «I have»."},{"t":"Me have money.","c":false,"w":"Ega sifatida «I» ishlatiladi, «me» emas."}]},{"prompt":"Menda vaqt yoʻq.","task":"Inglizchaga oʻgiring:","options":[{"t":"I don't have time.","c":true,"w":null},{"t":"I doesn't have time.","c":false,"w":"«doesn't» faqat he / she / it bilan."},{"t":"I don't have a time.","c":false,"w":"«time» bu maʼnoda sanalmaydi — artikl kerak emas."},{"t":"I not have time.","c":false,"w":"«don't» kerak. Feʼl oldida shunchaki «not» qoʻyilmaydi."}]},{"prompt":"Sizda mashina bormi?","task":"Inglizchaga oʻgiring:","options":[{"t":"Do you have a car?","c":true,"w":null},{"t":"You have a car?","c":false,"w":"Savolda «do» oldinga chiqadi."},{"t":"Have you a car?","c":false,"w":"Zamonaviy inglizchada «Do you have …?» deyiladi."},{"t":"Does you have a car?","c":false,"w":"«you» bilan «do», «does» emas."}]},{"prompt":"Uning bolalari bormi? (ayol)","task":"Inglizchaga oʻgiring:","options":[{"t":"Does she have children?","c":true,"w":null},{"t":"Does she has children?","c":false,"w":"«does» bor boʻlsa, «have» oddiy shaklda qoladi."},{"t":"Do she have children?","c":false,"w":"«she» bilan «does»."},{"t":"Has she children?","c":false,"w":"Zamonaviy inglizchada «Does she have …?»"}]},{"prompt":"Bizning uyimiz bor.","task":"Inglizchaga oʻgiring:","options":[{"t":"We have a house.","c":true,"w":null},{"t":"We has a house.","c":false,"w":"«we» bilan «have»."},{"t":"We have house.","c":false,"w":"Artikl tushib qolgan: a house."},{"t":"Our have a house.","c":false,"w":"Ega «we». «our» — bu «bizning»."}]}]},{"id":9,"flower":"\uD83C\uDF40","title":"my · your · his · her","words":[{"en":"my","pron":"MAY","uz":"mening"},{"en":"your","pron":"YOR","uz":"sening, sizning"},{"en":"his","pron":"HIZ","uz":"uning (erkak)"},{"en":"her","pron":"HOR","uz":"uning (ayol)"},{"en":"our","pron":"AUER","uz":"bizning"},{"en":"their","pron":"DHEER","uz":"ularning"},{"en":"mother","pron":"MA-dher","uz":"ona"},{"en":"father","pron":"FA-dher","uz":"ota"},{"en":"name","pron":"NEYM","uz":"ism"},{"en":"family","pron":"FE-mi-li","uz":"oila"}],"quiz":[{"prompt":"Bu uning onasi. (erkakning onasi)","task":"Inglizchaga oʻgiring:","options":[{"t":"This is his mother.","c":true,"w":null},{"t":"This is her mother.","c":false,"w":"Egasi erkak — «his». «mother» ayol boʻlsa ham, egasi muhim."},{"t":"This is he mother.","c":false,"w":"«he» ega olmoshi. Egalik shakli — «his»."},{"t":"This is his a mother.","c":false,"w":"Egalik soʻzi bor boʻlsa artikl qoʻyilmaydi."}]},{"prompt":"Bu uning eri. (ayolning eri)","task":"Inglizchaga oʻgiring:","options":[{"t":"This is her husband.","c":true,"w":null},{"t":"This is his husband.","c":false,"w":"Egasi ayol — «her». Narsa (husband) erkak boʻlsa ham."},{"t":"This is she husband.","c":false,"w":"«she» ega olmoshi. Egalik shakli — «her»."},{"t":"This is hers husband.","c":false,"w":"«hers» otsiz ishlatiladi. Otdan oldin — «her»."}]},{"prompt":"Sizning ismingiz nima?","task":"Inglizchaga oʻgiring:","options":[{"t":"What is your name?","c":true,"w":null},{"t":"What is you name?","c":false,"w":"«you» emas, egalik shakli <b>your</b>."},{"t":"What your name?","c":false,"w":"«is» tushib qolgan."},{"t":"Your name is what?","c":false,"w":"Soʻroq soʻzi gapning boshida turadi."}]},{"prompt":"Azizaning uyi katta.","task":"Inglizchaga oʻgiring:","options":[{"t":"Aziza's house is big.","c":true,"w":null},{"t":"The house of Aziza is big.","c":false,"w":"Odam nomi bilan «of» emas, «'s» ishlatiladi."},{"t":"Aziza house is big.","c":false,"w":"«'s» tushib qolgan: Aziza's house."},{"t":"House Aziza's is big.","c":false,"w":"Egasi oldin keladi: Aziza's house."}]},{"prompt":"Bizning bolalarimiz uyda.","task":"Inglizchaga oʻgiring:","options":[{"t":"Our children are at home.","c":true,"w":null},{"t":"Our children is at home.","c":false,"w":"«children» koʻplik — «are»."},{"t":"We children are at home.","c":false,"w":"«we» ega olmoshi. Egalik shakli — «our»."},{"t":"Our childrens are at home.","c":false,"w":"«children» allaqachon koʻplik."}]},{"prompt":"Bu mening oilam.","task":"Inglizchaga oʻgiring:","options":[{"t":"This is my family.","c":true,"w":null},{"t":"This is a my family.","c":false,"w":"«my» bor boʻlsa artikl qoʻyilmaydi."},{"t":"This is me family.","c":false,"w":"«me» emas, egalik shakli <b>my</b>."},{"t":"This my family.","c":false,"w":"«is» tushib qolgan."}]}]},{"id":10,"flower":"\uD83C\uDF33","title":"Birinchi suhbat","words":[{"en":"hello","pron":"he-LOU","uz":"salom"},{"en":"please","pron":"PLIIZ","uz":"iltimos"},{"en":"thank you","pron":"THENK-yu","uz":"rahmat"},{"en":"sorry","pron":"SO-ri","uz":"kechirasiz"},{"en":"how much","pron":"hau MACH","uz":"qancha (narx)"},{"en":"where","pron":"UEER","uz":"qayerda"},{"en":"nice to meet you","pron":"nays tu MIIT yu","uz":"tanishganimdan xursandman"},{"en":"here you are","pron":"HIIR yu ar","uz":"mana, oling"},{"en":"goodbye","pron":"gud-BAY","uz":"xayr"},{"en":"and","pron":"END","uz":"va"}],"quiz":[{"prompt":"Mening ismim Aziza.","task":"Inglizchaga oʻgiring:","options":[{"t":"My name is Aziza.","c":true,"w":null},{"t":"My name Aziza.","c":false,"w":"«is» tushib qolgan. Ingliz gapida «be» shart."},{"t":"I name is Aziza.","c":false,"w":"«I» emas, egalik shakli <b>my</b>."},{"t":"Me name is Aziza.","c":false,"w":"«me» emas, <b>my</b>."}]},{"prompt":"Siz qayerdansiz?","task":"Inglizchaga oʻgiring:","options":[{"t":"Where are you from?","c":true,"w":null},{"t":"Where you are from?","c":false,"w":"Savolda «are» egadan oldin keladi."},{"t":"Where are you?","c":false,"w":"«from» tushib qolgan — bu «Qayerdasiz?» degani."},{"t":"From where you are?","c":false,"w":"«from» gapning oxirida qoladi: Where are you from?"}]},{"prompt":"Bu olmalar qancha?","task":"Inglizchaga oʻgiring:","options":[{"t":"How much are these apples?","c":true,"w":null},{"t":"How much is these apples?","c":false,"w":"«these apples» koʻplik — «are» kerak."},{"t":"How much are this apples?","c":false,"w":"«this» birlik. Koʻplik uchun «these»."},{"t":"How much these apples are?","c":false,"w":"Savolda «are» soʻroq soʻzidan keyin darrov keladi."}]},{"prompt":"Men oʻqituvchiman, shifokor emasman.","task":"Inglizchaga oʻgiring:","options":[{"t":"I am a teacher, not a doctor.","c":true,"w":null},{"t":"I am teacher, not doctor.","c":false,"w":"Ikkala kasb oldida ham artikl kerak."},{"t":"I am a teacher, no a doctor.","c":false,"w":"«no» emas, <b>not</b>."},{"t":"Am a teacher, not a doctor.","c":false,"w":"Ega tushib qolgan: I am."}]},{"prompt":"Uning ikkita bolasi bor. (ayol)","task":"Inglizchaga oʻgiring:","options":[{"t":"She has two children.","c":true,"w":null},{"t":"She have two children.","c":false,"w":"«she» bilan «has»."},{"t":"She has two child.","c":false,"w":"Koʻplik kerak: children."},{"t":"Her has two children.","c":false,"w":"Ega «she». «her» — bu «uning»."}]},{"prompt":"Bizning uyimiz katta va yangi.","task":"Inglizchaga oʻgiring:","options":[{"t":"Our house is big and new.","c":true,"w":null},{"t":"Our house is big and news.","c":false,"w":"Sifat hech qachon koʻplik shakliga oʻtmaydi."},{"t":"Our house big and new.","c":false,"w":"«is» tushib qolgan."},{"t":"We house is big and new.","c":false,"w":"«we» emas, egalik shakli <b>our</b>."}]}]}];
+</script>
+<script>
+/* ===========================================================================
+   Noldan Ingliz Tili — the app half of the page.
+
+   Everything here runs in the browser. There is no server, no account and no
+   network call: progress lives in this browser's localStorage, and the voice is
+   the one already built into the phone. Open the file and it works, offline.
+   =========================================================================== */
+(function () {
+  "use strict";
+
+  var KEY = "noldan-ingliz-v1";
+
+  /* ---------------------------------------------------------------- state */
+
+  function today() {
+    var d = new Date();
+    return d.getFullYear() + "-" +
+      String(d.getMonth() + 1).padStart(2, "0") + "-" +
+      String(d.getDate()).padStart(2, "0");
+  }
+
+  function daysBetween(a, b) {
+    return Math.round((Date.parse(b + "T00:00:00") - Date.parse(a + "T00:00:00")) / 86400000);
+  }
+
+  function blank() { return { v: 1, lessons: {}, streak: 0, best: 0, last: null }; }
+
+  // Private mode and blocked site-data both make storage throw; the page must
+  // still work, it just cannot remember anything.
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return blank();
+      var s = JSON.parse(raw);
+      if (!s || typeof s !== "object" || !s.lessons) return blank();
+      return s;
+    } catch (e) { return blank(); }
+  }
+
+  function save(s) {
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* nothing to do */ }
+  }
+
+  var state = load();
+
+  /* Streak advances once per day. A missed day resets to 1, never to 0 —
+     coming back today is still a day studied. Nothing ever wilts. */
+  function bumpStreak(s) {
+    var t = today();
+    if (s.last === t) return;
+    s.streak = (s.last && daysBetween(s.last, t) === 1) ? s.streak + 1 : 1;
+    s.best = Math.max(s.best || 0, s.streak);
+    s.last = t;
+  }
+
+  var PLANTS = [
+    [60, "🌳", "daraxt"], [30, "🌺", "toʻliq ochilgan"], [14, "🌸", "gullagan"],
+    [7, "🌷", "lolaqizgʻaldoq"], [3, "🌿", "novda"], [1, "🌱", "nihol"]
+  ];
+
+  function plant(streak) {
+    for (var i = 0; i < PLANTS.length; i++) if (streak >= PLANTS[i][0]) return PLANTS[i];
+    return [0, "🌱", "urugʻ"];
+  }
+
+  /* ---------------------------------------------------------------- audio */
+
+  var synth = window.speechSynthesis || null;
+  var voice = null;
+
+  function pickVoice() {
+    if (!synth) return;
+    var all = synth.getVoices() || [];
+    voice = all.filter(function (v) { return v.lang === "en-US"; })[0] ||
+            all.filter(function (v) { return /^en[-_]/i.test(v.lang); })[0] || null;
+  }
+  if (synth) {
+    pickVoice();
+    synth.onvoiceschanged = pickVoice;
+  }
+
+  function speak(text, btn) {
+    if (!synth) return;
+    try {
+      synth.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = "en-US";
+      if (voice) u.voice = voice;
+      u.rate = 0.8;              // slow enough for a beginner to imitate
+      if (btn) {
+        btn.classList.add("on");
+        u.onend = u.onerror = function () { btn.classList.remove("on"); };
+      }
+      synth.speak(u);
+    } catch (e) { /* audio is a bonus, never a blocker */ }
+  }
+
+  function sayButton(text, label) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "say";
+    b.textContent = "🔊";
+    b.setAttribute("aria-label", (label || text) + " — tinglash");
+    b.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      speak(text, b);
+    });
+    if (!synth) b.hidden = true;
+    return b;
+  }
+
+  function addSpeakButtons() {
+    document.querySelectorAll("dl.words dt").forEach(function (dt) {
+      var word = (dt.textContent || "").trim();
+      if (word) dt.appendChild(sayButton(word.split("/")[0].trim(), word));
+    });
+    document.querySelectorAll(".pair .en, .dlg .en").forEach(function (el) {
+      var t = (el.textContent || "").trim();
+      if (t) el.appendChild(sayButton(t));
+    });
+  }
+
+  /* ---------------------------------------------------------------- garden */
+
+  function renderGarden() {
+    var host = document.getElementById("plot");
+    if (!host) return;
+
+    var done = Object.keys(state.lessons).length;
+    var p = plant(state.streak || 0);
+
+    var flowers = COURSE.map(function (l) {
+      var got = !!state.lessons[l.id];
+      return '<span class="' + (got ? "got" : "") + '" title="' + l.id + "-dars" +
+             '">' + (got ? l.flower : "🌱") + "</span>";
+    }).join("");
+
+    var best = state.best || 0;
+    var scored = COURSE.reduce(function (n, l) {
+      var r = state.lessons[l.id];
+      return n + (r ? r.score : 0);
+    }, 0);
+
+    host.innerHTML =
+      '<div class="row">' + flowers + "</div>" +
+      '<div class="streak">' +
+        '<span class="big">' + p[1] + "</span>" +
+        '<span class="n">' + (state.streak || 0) + "</span>" +
+        '<span class="lbl">ketma-ket kun<br><b>' + p[2] + "</b></span>" +
+      "</div>" +
+      '<div class="meta">' +
+        "<span>🌸 <b>" + done + "</b> / " + COURSE.length + " dars</span>" +
+        "<span>🏆 eng uzun: <b>" + best + "</b> kun</span>" +
+        "<span>✅ <b>" + scored + "</b> toʻgʻri javob</span>" +
+      "</div>" +
+      (done || state.streak
+        ? '<button class="reset" type="button" id="reset">Boshidan boshlash</button>'
+        : '<p class="cap" style="margin:.9rem 0 0">Birinchi darsning testini yeching — birinchi gul ochiladi.</p>');
+
+    var r = document.getElementById("reset");
+    if (r) r.addEventListener("click", function () {
+      if (!confirm("Hamma natijalar oʻchiriladi. Davom etamizmi?")) return;
+      state = blank();
+      save(state);
+      renderGarden();
+      document.querySelectorAll("section[id^='d'] .quiz").forEach(function (q) {
+        var l = Number(q.getAttribute("data-lesson"));
+        if (l) buildQuiz(q, l);
+      });
+      document.querySelectorAll(".done-badge").forEach(function (b) { b.remove(); });
+    });
+  }
+
+  /* ---------------------------------------------------------------- quiz */
+
+  function badge(section, lessonId) {
+    var res = state.lessons[lessonId];
+    var ttl = section.querySelector(".lesson-head .ttl");
+    var old = section.querySelector(".done-badge");
+    if (old) old.remove();
+    if (!res || !ttl) return;
+
+    var lesson = COURSE.filter(function (l) { return l.id === lessonId; })[0];
+    var b = document.createElement("div");
+    b.className = "done-badge";
+    b.textContent = (lesson ? lesson.flower + " " : "") + "tugallandi · " + res.score + "/" + res.total;
+    ttl.appendChild(b);
+  }
+
+  function buildQuiz(host, lessonId) {
+    var lesson = COURSE.filter(function (l) { return l.id === lessonId; })[0];
+    if (!lesson || !lesson.quiz.length) return;
+
+    host.innerHTML = "";
+    var answered = 0, correct = 0;
+
+    lesson.quiz.forEach(function (q, qi) {
+      var item = document.createElement("div");
+      item.className = "qi";
+
+      var task = document.createElement("div");
+      task.className = "task";
+      task.textContent = q.task || "Inglizchaga oʻgiring:";
+      item.appendChild(task);
+
+      var prompt = document.createElement("div");
+      prompt.className = "prompt";
+      prompt.innerHTML = '<span class="n">' + (qi + 1) + ".</span>";
+      prompt.appendChild(document.createTextNode(q.prompt));
+      item.appendChild(prompt);
+
+      var opts = document.createElement("div");
+      opts.className = "opts";
+
+      q.options.forEach(function (o) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        b.textContent = o.t;
+
+        b.addEventListener("click", function () {
+          if (item.dataset.done) return;
+          item.dataset.done = "1";
+          answered++;
+
+          Array.prototype.forEach.call(opts.children, function (other) {
+            other.disabled = true;
+            if (other !== b) other.classList.add("dim");
+          });
+
+          if (o.c) {
+            correct++;
+            b.classList.add("right");
+            b.innerHTML = '<span class="mark">✓</span>' + o.t;
+          } else {
+            b.classList.add("wrong");
+            b.innerHTML = '<span class="mark">✗</span>' + o.t;
+
+            // Show the right answer too — a wrong tap must still teach.
+            Array.prototype.forEach.call(opts.children, function (other, i) {
+              if (q.options[i].c) {
+                other.classList.remove("dim");
+                other.classList.add("right");
+                other.innerHTML = '<span class="mark">✓</span>' + q.options[i].t;
+              }
+            });
+
+            if (o.w) {
+              var why = document.createElement("p");
+              why.className = "why";
+              why.innerHTML = "<b>Nega?</b> ";
+              why.appendChild(document.createTextNode(o.w));
+              item.appendChild(why);
+            }
+          }
+
+          if (answered === lesson.quiz.length) finish(host, lesson, correct);
+        });
+
+        opts.appendChild(b);
+      });
+
+      item.appendChild(opts);
+      host.appendChild(item);
+    });
+  }
+
+  function finish(host, lesson, score) {
+    var total = lesson.quiz.length;
+    var firstTime = !state.lessons[lesson.id];
+    var prev = state.lessons[lesson.id];
+
+    // Keep her best score for this lesson, never overwrite it with a worse one.
+    if (!prev || score >= prev.score)
+      state.lessons[lesson.id] = { score: score, total: total, date: today() };
+
+    bumpStreak(state);
+    save(state);
+
+    var box = document.createElement("div");
+    box.className = "result" + (score === total ? "" : " thin");
+
+    var head, note;
+    if (score === total) {
+      head = "Aʼlo!"; note = "Hammasi toʻgʻri.";
+    } else if (score >= total - 2) {
+      head = "Yaxshi."; note = "Xato qilgan gaplarni yana bir marta ovoz chiqarib ayting.";
+    } else {
+      head = "Yana bir marta."; note = "Qoidani qayta oʻqing, keyin testni takrorlang. Shoshilmang.";
+    }
+
+    box.innerHTML =
+      '<div class="big">' + (firstTime ? lesson.flower : "🌿") + "</div>" +
+      "<h4>" + head + "</h4>" +
+      '<p><span class="score">' + score + " / " + total + "</span> — " + note + "</p>" +
+      (firstTime ? "<p>Bogʻingizda yangi gul ochildi: " + lesson.flower + "</p>" : "");
+
+    var again = document.createElement("button");
+    again.type = "button";
+    again.className = "again";
+    again.textContent = "Testni qayta yechish";
+    again.addEventListener("click", function () { buildQuiz(host, lesson.id); });
+    box.appendChild(again);
+
+    host.appendChild(box);
+    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    renderGarden();
+    var section = document.getElementById("d" + lesson.id);
+    if (section) badge(section, lesson.id);
+  }
+
+  /* ---------------------------------------------------------------- build */
+
+  function mountQuizzes() {
+    COURSE.forEach(function (lesson) {
+      var section = document.getElementById("d" + lesson.id);
+      if (!section || !lesson.quiz.length) return;
+
+      var wrap = section.querySelector(".wrap") || section;
+
+      var h = document.createElement("div");
+      h.className = "exhead";
+      h.innerHTML = "<h3>Test — oʻzingizni tekshiring</h3>";
+      wrap.appendChild(h);
+
+      var quiz = document.createElement("div");
+      quiz.className = "quiz";
+      quiz.setAttribute("data-lesson", String(lesson.id));
+      wrap.appendChild(quiz);
+
+      buildQuiz(quiz, lesson.id);
+      badge(section, lesson.id);
+    });
+  }
+
+  function ready(fn) {
+    if (document.readyState === "loading")
+      document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+
+  ready(function () {
+    addSpeakButtons();
+    mountQuizzes();
+    renderGarden();
+  });
+})();
+</script>
+<!-- APP-JS-END -->
+</body>
+</html>
