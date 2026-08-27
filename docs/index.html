@@ -6,6 +6,13 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F2F3EE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14181A" media="(prefers-color-scheme: dark)">
+<!-- APP-PWA-START -->
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ingliz tili">
+<!-- APP-PWA-END -->
 <title>Noldan Ingliz Tili</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -452,6 +459,43 @@ footer p{margin-bottom:.5rem}
 }
 .again:hover{border-color:var(--blue);color:var(--blue)}
 
+/* ---------- vocabulary review ---------- */
+#takror .box{
+  background:var(--raised);border:1px solid var(--rule);
+  border-radius:14px;padding:1.2rem 1.1rem 1.3rem;margin-top:.4rem;
+}
+.rvstat{
+  display:flex;flex-wrap:wrap;gap:.4rem .6rem;
+  font-size:.92rem;color:var(--ink-2);
+}
+.rvstat span{
+  background:var(--card,var(--paper));border:1px solid var(--rule);
+  padding:.3rem .65rem;border-radius:999px;
+}
+.rvstat b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.rvstart{margin-top:1.1rem}
+
+.rvhead{
+  display:flex;align-items:center;gap:.75rem;
+  font-size:.85rem;color:var(--ink-3);font-weight:700;
+  font-variant-numeric:tabular-nums;margin-bottom:1rem;
+}
+.rvbar{flex:1;height:4px;background:var(--rule);border-radius:2px;overflow:hidden}
+.rvbar i{display:block;height:100%;background:var(--green);transition:width .3s ease}
+@media (prefers-reduced-motion:reduce){.rvbar i{transition:none}}
+
+.rvword{
+  display:flex;flex-direction:column;align-items:center;gap:.2rem;
+  padding:1.1rem 0 1.4rem;text-align:center;
+}
+.rven{
+  font-family:var(--f-en);font-size:2.1rem;line-height:1.15;
+  color:var(--blue);font-weight:600;
+  display:inline-flex;align-items:center;gap:.2rem;
+}
+.rvpron{font-size:1rem;color:var(--ink-3);letter-spacing:.05em;font-weight:600}
+.rvnext{margin-top:1rem}
+
 
 /* ==========================================================================
    Visual layer. Everything here is decoration and navigation — it never
@@ -725,6 +769,7 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
 <nav class="chips" aria-label="Boʻlimlar">
   <div class="scroller">
         <a href="#bog">Bogʻim</a>
+    <a href="#takror">Takrorlash</a>
     <a href="#darslar">Darslar</a>
     <a href="#usul">Qanday oʻqish</a>
     <a href="#farqlar">5 ta katta farq</a>
@@ -743,7 +788,7 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
     <a href="#reja">12 hafta</a>
     <a href="#er">Er uchun</a>
   </div>
-      <div class="progress"><i></i></div>
+          <div class="progress"><i></i></div>
 </nav>
 
 <main>
@@ -758,6 +803,17 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
   </div>
 </section>
 <!-- APP-GARDEN-END -->
+<!-- APP-TAKROR-START -->
+<section id="takror">
+  <div class="wrap">
+    <h2>Soʻzlarni takrorlash</h2>
+    <p>Tugatgan darslaringizning soʻzlari shu yerga tushadi. Har kuni faqat unutilay deb turgan
+       soʻzlar chiqadi — toʻgʻri javob bersangiz, soʻz uzoqroq muddatga uxlaydi; xato qilsangiz,
+       ertaga yana qaytadi.</p>
+    <div class="box" id="takrorbox"></div>
+  </div>
+</section>
+<!-- APP-TAKROR-END -->
 <!-- APP-INDEX-START -->
 <section id="darslar">
   <div class="wrap">
@@ -1738,7 +1794,7 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
     return Math.round((Date.parse(b + "T00:00:00") - Date.parse(a + "T00:00:00")) / 86400000);
   }
 
-  function blank() { return { v: 1, lessons: {}, streak: 0, best: 0, last: null }; }
+  function blank() { return { v: 1, lessons: {}, cards: {}, streak: 0, best: 0, last: null }; }
 
   // Private mode and blocked site-data both make storage throw; the page must
   // still work, it just cannot remember anything.
@@ -1748,6 +1804,7 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
       if (!raw) return blank();
       var s = JSON.parse(raw);
       if (!s || typeof s !== "object" || !s.lessons) return blank();
+      if (!s.cards) s.cards = {};        // added after the first release
       return s;
     } catch (e) { return blank(); }
   }
@@ -1776,6 +1833,75 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
   function plant(streak) {
     for (var i = 0; i < PLANTS.length; i++) if (streak >= PLANTS[i][0]) return PLANTS[i];
     return [0, "🌱", "urugʻ"];
+  }
+
+  /* ------------------------------------------------------ spaced repetition
+
+     Leitner boxes, the same scheme the Telegram bot used. A word she gets right
+     moves up a box and comes back later; a word she misses drops to box 0 and
+     comes back tomorrow. The deck therefore concentrates on exactly the words
+     she keeps forgetting, instead of drilling all hundred every time.          */
+
+  var INTERVALS = [1, 2, 4, 8, 16, 32];   // days, indexed by box
+  var MAX_BOX = 5;
+
+  function addDays(dateStr, n) {
+    var d = new Date(dateStr + "T00:00:00");
+    d.setDate(d.getDate() + n);
+    return d.getFullYear() + "-" +
+      String(d.getMonth() + 1).padStart(2, "0") + "-" +
+      String(d.getDate()).padStart(2, "0");
+  }
+
+  function wordId(lessonId, i) { return lessonId + "-" + i; }
+
+  function getWord(id) {
+    var p = String(id).split("-");
+    var lesson = COURSE.filter(function (l) { return l.id === Number(p[0]); })[0];
+    if (!lesson) return null;
+    var w = lesson.words[Number(p[1])];
+    return w ? { w: w, lesson: lesson } : null;
+  }
+
+  /* Every word of a finished lesson enters the deck, due the same day. */
+  function seedCards(lessonId) {
+    var lesson = COURSE.filter(function (l) { return l.id === lessonId; })[0];
+    if (!lesson) return;
+    var t = today();
+    lesson.words.forEach(function (_, i) {
+      var id = wordId(lessonId, i);
+      if (!state.cards[id]) state.cards[id] = { box: 0, due: t, hits: 0, misses: 0 };
+    });
+  }
+
+  function recordCard(id, ok) {
+    var c = state.cards[id] || (state.cards[id] = { box: 0, due: today(), hits: 0, misses: 0 });
+    if (ok) { c.hits++; c.box = Math.min(c.box + 1, MAX_BOX); }
+    else    { c.misses++; c.box = 0; }
+    c.due = addDays(today(), INTERVALS[c.box]);
+  }
+
+  /* Due today or overdue, weakest first — lowest box, then most missed. */
+  function dueCards(limit) {
+    var t = today();
+    return Object.keys(state.cards)
+      .filter(function (id) { return state.cards[id].due <= t && getWord(id); })
+      .sort(function (a, b) {
+        var A = state.cards[a], B = state.cards[b];
+        return (A.box - B.box) || (B.misses - A.misses);
+      })
+      .slice(0, limit || 12);
+  }
+
+  function dueCount() {
+    var t = today();
+    return Object.keys(state.cards)
+      .filter(function (id) { return state.cards[id].due <= t && getWord(id); }).length;
+  }
+
+  function masteredCount() {
+    return Object.keys(state.cards)
+      .filter(function (id) { return state.cards[id].box >= MAX_BOX; }).length;
   }
 
   /* ---------------------------------------------------------------- audio */
@@ -1869,6 +1995,7 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
         "<span>🌸 <b>" + done + "</b> / " + COURSE.length + " dars</span>" +
         "<span>🏆 eng uzun: <b>" + best + "</b> kun</span>" +
         "<span>✅ <b>" + scored + "</b> toʻgʻri javob</span>" +
+        "<span>🌳 <b>" + masteredCount() + "</b> mustahkam soʻz</span>" +
       "</div>" +
       (done || state.streak
         ? '<button class="reset" type="button" id="reset">Boshidan boshlash</button>'
@@ -1887,6 +2014,149 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
       document.querySelectorAll(".done-badge").forEach(function (b) { b.remove(); });
       document.dispatchEvent(new CustomEvent("noldan:progress", { detail: { reset: true } }));
     });
+  }
+
+  /* --------------------------------------------------------------- review */
+
+  function renderReview() {
+    var host = document.getElementById("takrorbox");
+    if (!host) return;
+
+    var learned = Object.keys(state.cards).length;
+    var due = dueCount();
+    var mastered = masteredCount();
+
+    if (!learned) {
+      host.innerHTML =
+        '<p class="cap" style="margin:0">Bironta darsni tugating — oʻsha darsning soʻzlari ' +
+        "shu yerga tushadi va har kuni takrorlash uchun chiqadi.</p>";
+      return;
+    }
+
+    host.innerHTML =
+      '<div class="rvstat">' +
+        "<span>📚 <b>" + learned + "</b> ta soʻz oʻrganilmoqda</span>" +
+        "<span>🌳 <b>" + mastered + "</b> ta mustahkam</span>" +
+        "<span>🔁 bugun <b>" + due + "</b> ta</span>" +
+      "</div>" +
+      (due
+        ? '<button class="cta rvstart" type="button" id="rvgo">Takrorlashni boshlash <span class="arrow">→</span></button>'
+        : '<p class="cap" style="margin:.9rem 0 0">Bugungi takrorlash tugadi. Ertaga yana chiqadi. 🌿</p>');
+
+    var go = document.getElementById("rvgo");
+    if (go) go.addEventListener("click", startReview);
+  }
+
+  function startReview() {
+    var host = document.getElementById("takrorbox");
+    var queue = dueCards(12);
+    if (!queue.length) return renderReview();
+
+    var i = 0, right = 0;
+
+    function step() {
+      if (i >= queue.length) return done();
+
+      var id = queue[i];
+      var entry = getWord(id);
+      if (!entry) { i++; return step(); }
+
+      var w = entry.w;
+
+      // Three plausible decoys: same lesson first, then anywhere in the course.
+      var pool = entry.lesson.words.filter(function (x) { return x.uz !== w.uz; });
+      COURSE.forEach(function (l) {
+        l.words.forEach(function (x) { if (x.uz !== w.uz) pool.push(x); });
+      });
+      var seen = {}, decoys = [];
+      shuffled(pool).forEach(function (x) {
+        if (decoys.length < 3 && !seen[x.uz]) { seen[x.uz] = 1; decoys.push(x); }
+      });
+
+      var choices = shuffled(decoys.concat([w]));
+
+      host.innerHTML =
+        '<div class="rvhead"><span>' + (i + 1) + " / " + queue.length + "</span>" +
+          '<span class="rvbar"><i style="width:' + Math.round(i / queue.length * 100) + '%"></i></span></div>' +
+        '<div class="rvword"><span class="rven" id="rven">' + w.en + "</span>" +
+          '<span class="rvpron">' + w.pron + "</span></div>" +
+        '<div class="opts" id="rvopts"></div>';
+
+      var enEl = document.getElementById("rven");
+      if (enEl) enEl.appendChild(sayButton(w.en.split("/")[0].trim(), w.en));
+      speak(w.en.split("/")[0].trim());          // say it as soon as it appears
+
+      var opts = document.getElementById("rvopts");
+      var answered = false;
+
+      choices.forEach(function (c) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        b.style.fontFamily = "var(--f-uz)";
+        b.textContent = c.uz;
+
+        b.addEventListener("click", function () {
+          if (answered) return;
+          answered = true;
+
+          var ok = c.uz === w.uz;
+          if (ok) right++;
+          recordCard(id, ok);
+          save(state);
+
+          Array.prototype.forEach.call(opts.children, function (o) {
+            o.disabled = true;
+            if (o !== b) o.classList.add("dim");
+          });
+
+          if (ok) {
+            b.classList.add("right");
+            b.innerHTML = '<span class="mark">✓</span>' + c.uz;
+          } else {
+            b.classList.add("wrong");
+            b.innerHTML = '<span class="mark">✗</span>' + c.uz;
+            Array.prototype.forEach.call(opts.children, function (o) {
+              if (o.textContent.replace(/^[✓✗]/, "") === w.uz) {
+                o.classList.remove("dim");
+                o.classList.add("right");
+                o.innerHTML = '<span class="mark">✓</span>' + w.uz;
+              }
+            });
+          }
+
+          var next = document.createElement("button");
+          next.type = "button";
+          next.className = "again rvnext";
+          next.textContent = i + 1 >= queue.length ? "Yakunlash" : "Keyingisi →";
+          next.addEventListener("click", function () { i++; step(); });
+          host.appendChild(next);
+        });
+
+        opts.appendChild(b);
+      });
+    }
+
+    function done() {
+      bumpStreak(state);
+      save(state);
+
+      host.innerHTML =
+        '<div class="result">' +
+          '<div class="big">' + (right === queue.length ? "🌳" : "🌿") + "</div>" +
+          "<h4>" + (right === queue.length ? "Hammasi toʻgʻri!" : "Takrorlash tugadi") + "</h4>" +
+          '<p><span class="score">' + right + " / " + queue.length + "</span> — " +
+          (right === queue.length
+            ? "Bu soʻzlar endi uzoqroq muddatga esda qoladi."
+            : "Xato qilgan soʻzlar ertaga yana chiqadi.") + "</p>" +
+        "</div>";
+
+      renderGarden();
+      document.dispatchEvent(new CustomEvent("noldan:progress", { detail: { review: true } }));
+      setTimeout(renderReview, 2600);
+    }
+
+    step();
   }
 
   /* ---------------------------------------------------------------- quiz */
@@ -2007,6 +2277,9 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
     if (!prev || score >= prev.score)
       state.lessons[lesson.id] = { score: score, total: total, date: today() };
 
+    // Every word of a finished lesson joins the review deck.
+    seedCards(lesson.id);
+
     bumpStreak(state);
     save(state);
 
@@ -2039,6 +2312,7 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
     box.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
     renderGarden(firstTime ? lesson.id : null);
+    renderReview();
 
     // The visual layer listens for this to refresh the lesson index and the bar.
     document.dispatchEvent(new CustomEvent("noldan:progress", {
@@ -2083,6 +2357,7 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
     addSpeakButtons();
     mountQuizzes();
     renderGarden();
+    renderReview();
   });
 })();
 </script>
@@ -2271,6 +2546,24 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
     scrollSpy();
     backToTop();
     document.addEventListener("noldan:progress", refresh);
+  });
+})();
+
+/* ===========================================================================
+   Installable-app wiring. Registering the service worker is what lets the
+   course open from a home-screen icon and keep working with no signal.
+   Everything here is optional: if the browser has no service worker, or the
+   page is opened straight from disk (file://), it simply does nothing.
+   =========================================================================== */
+(function () {
+  "use strict";
+  if (!("serviceWorker" in navigator)) return;
+  if (location.protocol !== "https:" && location.hostname !== "localhost") return;
+
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./sw.js").catch(function () {
+      /* offline support just won't be available; the page still works */
+    });
   });
 })();
 </script>

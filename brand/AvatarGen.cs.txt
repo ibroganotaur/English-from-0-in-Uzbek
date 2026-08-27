@@ -48,6 +48,18 @@ public static class Gen
             // a chat-list-sized copy, purely to check the mark still reads when tiny
             Size = 96;
             Save(Render(t), Path.Combine(outDir, $"small-{t.Name}.png"));
+
+            // home-screen icons for the installable web app
+            if (t.Name == "b-blue")
+            {
+                foreach (var px in new[] { 192, 512 })
+                {
+                    Size = px;
+                    var icon = Path.Combine(outDir, $"icon-{px}.png");
+                    Save(Render(t), icon);
+                    Console.WriteLine(icon);
+                }
+            }
         }
         Size = 1024;
     }
