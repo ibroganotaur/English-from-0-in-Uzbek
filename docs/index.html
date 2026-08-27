@@ -743,7 +743,7 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
     <a href="#reja">12 hafta</a>
     <a href="#er">Er uchun</a>
   </div>
-    <div class="progress"><i></i></div>
+      <div class="progress"><i></i></div>
 </nav>
 
 <main>
@@ -1891,6 +1891,17 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
 
   /* ---------------------------------------------------------------- quiz */
 
+  // Fisher-Yates. The course data always lists the correct option first —
+  // without this every question's answer would sit in the same slot.
+  function shuffled(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
   function badge(section, lessonId) {
     var res = state.lessons[lessonId];
     var ttl = section.querySelector(".lesson-head .ttl");
@@ -1930,7 +1941,11 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
       var opts = document.createElement("div");
       opts.className = "opts";
 
-      q.options.forEach(function (o) {
+      // A fresh shuffle every time the quiz is (re)built, so the answer isn't
+      // always option A and isn't in the same slot on a retry either.
+      var options = shuffled(q.options);
+
+      options.forEach(function (o) {
         var b = document.createElement("button");
         b.type = "button";
         b.className = "opt";
@@ -1956,10 +1971,10 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
 
             // Show the right answer too — a wrong tap must still teach.
             Array.prototype.forEach.call(opts.children, function (other, i) {
-              if (q.options[i].c) {
+              if (options[i].c) {
                 other.classList.remove("dim");
                 other.classList.add("right");
-                other.innerHTML = '<span class="mark">✓</span>' + q.options[i].t;
+                other.innerHTML = '<span class="mark">✓</span>' + options[i].t;
               }
             });
 
