@@ -8,7 +8,7 @@
    served cache-first.
    =========================================================================== */
 
-var VERSION = "noldan-v3";
+var VERSION = "noldan-v4";
 var SHELL = [
   "./",
   "./index.html",

@@ -498,6 +498,137 @@ footer p{margin-bottom:.5rem}
 
 
 /* ==========================================================================
+   Vocabulary games. Touch-first: every tile and letter is a comfortable
+   thumb target, and nothing depends on hover.
+   ========================================================================== */
+
+#oyinlar .box{
+  background:var(--raised);border:1px solid var(--rule);
+  border-radius:14px;padding:1.2rem 1.1rem 1.3rem;margin-top:.4rem;
+}
+
+/* ---------- menu ---------- */
+.ggrid{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr))}
+.gcard{
+  display:flex;align-items:center;gap:.9rem;text-align:left;
+  background:var(--card,var(--paper));border:1px solid var(--rule);
+  border-radius:12px;padding:.9rem;cursor:pointer;
+  box-shadow:var(--shadow);color:inherit;font-family:var(--f-uz);
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .14s ease, border-color .14s ease;
+}
+.gcard:hover{transform:translateY(-2px);border-color:var(--blue)}
+.gcard .gi{font-size:1.9rem;line-height:1}
+.gcard .gt{min-width:0}
+.gcard .gn{display:block;font-family:var(--f-display);font-weight:700;font-size:1.1rem;color:var(--ink)}
+.gcard .gd{display:block;font-size:.86rem;color:var(--ink-3);margin-top:.1rem;line-height:1.35}
+.gcard .gb{display:block;font-size:.8rem;color:var(--green);font-weight:700;margin-top:.25rem}
+@media (prefers-reduced-motion:reduce){.gcard{transition:none}}
+
+/* ---------- in-game chrome ---------- */
+.gbar{
+  display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;
+  padding-bottom:.7rem;border-bottom:1px solid var(--rule);
+}
+.gbar span{font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--ink)}
+.gback{
+  font-family:var(--f-uz);font-size:.82rem;font-weight:700;
+  background:none;border:1px solid var(--rule-2);color:var(--ink-2);
+  padding:.4rem .75rem;border-radius:999px;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.gback:hover{border-color:var(--blue);color:var(--blue)}
+.gstat{
+  display:flex;flex-wrap:wrap;gap:.4rem .6rem;margin-bottom:1rem;
+  font-size:.88rem;color:var(--ink-2);
+}
+.gstat span{
+  background:var(--card,var(--paper));border:1px solid var(--rule);
+  padding:.28rem .6rem;border-radius:999px;
+}
+.gstat b{color:var(--ink);font-variant-numeric:tabular-nums}
+.gover{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1rem}
+.gover .cta{margin-top:0}
+
+/* ---------- 1. matching pairs ---------- */
+.jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+@media(min-width:34rem){.jgrid{grid-template-columns:repeat(4,1fr)}}
+.jtile{
+  min-height:74px;padding:.5rem .35rem;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  background:var(--blue);border:1px solid var(--blue);border-radius:10px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:background .18s ease, border-color .18s ease, opacity .25s ease;
+}
+.jtile .jface{
+  font-size:.98rem;line-height:1.25;font-family:var(--f-uz);
+  color:transparent;word-break:break-word;
+}
+.jtile.en .jface{font-family:var(--f-en)}
+.jtile.up{background:var(--card,var(--paper));border-color:var(--rule-2)}
+.jtile.up .jface{color:var(--ink)}
+.jtile.en.up .jface{color:var(--blue)}
+.jtile.gone{
+  background:var(--green-soft);border-color:var(--green);
+  opacity:.55;cursor:default;
+}
+.jtile.gone .jface{color:var(--green);font-weight:600}
+@media (prefers-reduced-motion:reduce){.jtile{transition:none}}
+
+/* ---------- 2. word builder ---------- */
+.tprompt{
+  font-size:1.35rem;line-height:1.35;color:var(--ink);
+  text-align:center;margin:.4rem 0 1.1rem;
+}
+.tslots{
+  display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;margin-bottom:1.3rem;
+}
+.tslot{
+  width:2.3rem;height:2.9rem;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  border:2px dashed var(--rule-2);background:var(--card,var(--paper));
+  font-family:var(--f-en);font-size:1.35rem;font-weight:600;color:var(--ink);
+}
+.tslot.filled{border-style:solid;border-color:var(--blue)}
+.tslot.ok{border-color:var(--green);background:var(--green-soft);color:var(--green)}
+.tslot.no{border-color:var(--red);background:var(--red-soft);color:var(--red)}
+.tletters{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
+.tletter{
+  min-width:2.9rem;min-height:2.9rem;padding:.3rem .5rem;
+  border-radius:10px;border:1px solid var(--rule-2);
+  background:var(--card,var(--paper));cursor:pointer;
+  font-family:var(--f-en);font-size:1.25rem;font-weight:600;color:var(--ink);
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .1s ease, opacity .15s ease;
+}
+.tletter:hover:not(:disabled){border-color:var(--blue);transform:translateY(-1px)}
+.tletter.used{opacity:.25;cursor:default}
+@media (prefers-reduced-motion:reduce){.tletter{transition:none}}
+.tctl{margin-top:1.3rem;text-align:center}
+.tmsg{font-size:1.05rem;margin:0 0 .3rem}
+.tmsg.ok{color:var(--green)}
+.tmsg.no{color:var(--red)}
+.tmsg b{font-family:var(--f-en)}
+
+/* ---------- 3. listening ---------- */
+.ebig{
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  padding:1rem 0 1.5rem;text-align:center;
+}
+.ebtn{
+  width:88px;height:88px;border-radius:50%;
+  border:0;background:var(--blue);color:var(--paper);
+  font-size:2.2rem;line-height:1;cursor:pointer;
+  box-shadow:var(--shadow-lift);
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .14s ease;
+}
+.ebtn:hover{transform:scale(1.04)}
+.ebtn:active{transform:scale(.97)}
+@media (prefers-reduced-motion:reduce){.ebtn{transition:none}}
+
+
+/* ==========================================================================
    Visual layer. Everything here is decoration and navigation — it never
    changes what the lessons say, and it never shrinks reading text.
    Self-contained: gradients and one inline SVG grain, no image files.
@@ -770,6 +901,7 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
   <div class="scroller">
         <a href="#bog">Bogʻim</a>
     <a href="#takror">Takrorlash</a>
+    <a href="#oyinlar">Oʻyinlar</a>
     <a href="#darslar">Darslar</a>
     <a href="#usul">Qanday oʻqish</a>
     <a href="#farqlar">5 ta katta farq</a>
@@ -788,7 +920,7 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
     <a href="#reja">12 hafta</a>
     <a href="#er">Er uchun</a>
   </div>
-          <div class="progress"><i></i></div>
+            <div class="progress"><i></i></div>
 </nav>
 
 <main>
@@ -814,6 +946,16 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
   </div>
 </section>
 <!-- APP-TAKROR-END -->
+<!-- APP-OYIN-START -->
+<section id="oyinlar">
+  <div class="wrap">
+    <h2>Oʻyinlar</h2>
+    <p>Uchta oʻyin, uchta boshqa koʻnikma: juftlash — tanish, soʻz tuzish — yozish,
+       eshitib topish — quloq. Oʻyinda xato qilgan soʻz takrorlashga qaytadi.</p>
+    <div class="box" id="oyinbox"></div>
+  </div>
+</section>
+<!-- APP-OYIN-END -->
 <!-- APP-INDEX-START -->
 <section id="darslar">
   <div class="wrap">
@@ -2353,11 +2495,429 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
     else fn();
   }
 
+  /* ------------------------------------------------------------------- api
+
+     The games live in their own file. They need the same word pool and the
+     same review deck, so those are handed over here rather than duplicated.  */
+
+  window.NOLDAN = {
+    /* Words she has actually met: everything from finished lessons. Before the
+       first lesson is done, lesson 1 so the games are still playable. */
+    pool: function () {
+      var ids = Object.keys(state.cards);
+      if (!ids.length) {
+        return COURSE[0].words.map(function (w, i) {
+          return { id: wordId(COURSE[0].id, i), en: w.en, pron: w.pron, uz: w.uz };
+        });
+      }
+      return ids.map(function (id) {
+        var e = getWord(id);
+        return e ? { id: id, en: e.w.en, pron: e.w.pron, uz: e.w.uz } : null;
+      }).filter(Boolean);
+    },
+
+    /* A game can only push a word back into review, never mark it mastered.
+       Getting one right in a game is weaker evidence than getting it right in
+       the drill, so games demote but never promote — the schedule stays honest. */
+    demote: function (id) {
+      if (!state.cards[id]) return;
+      var c = state.cards[id];
+      c.misses++;
+      c.box = 0;
+      c.due = addDays(today(), 1);
+      save(state);
+    },
+
+    /* Playing is studying: it keeps the streak alive. */
+    studied: function () {
+      bumpStreak(state);
+      save(state);
+      renderGarden();
+      renderReview();
+      document.dispatchEvent(new CustomEvent("noldan:progress", { detail: { game: true } }));
+    },
+
+    best: function (game, score) {
+      state.best_games = state.best_games || {};
+      if (score === undefined) return state.best_games[game] || 0;
+      if (score > (state.best_games[game] || 0)) { state.best_games[game] = score; save(state); }
+      return state.best_games[game];
+    },
+
+    speak: speak,
+    sayButton: sayButton,
+    shuffled: shuffled
+  };
+
   ready(function () {
     addSpeakButtons();
     mountQuizzes();
     renderGarden();
     renderReview();
+  });
+})();
+</script>
+<script>
+/* ===========================================================================
+   Three vocabulary games.
+
+   Each one drills a different skill the lesson quizzes never touch:
+
+     Juftlik topish  recognition, both directions, under memory load
+     Soʻz tuzish     spelling — she can recognise "teacher" long before she
+                     can write it, and nothing else in the course asks her to
+     Eshitib top     listening — English spelling is not phonetic, so hearing
+                     a word and knowing which one it is has to be practised
+
+   They share the word pool and the review deck through window.NOLDAN. A game
+   can push a word back into review but never mark it mastered.
+   =========================================================================== */
+(function () {
+  "use strict";
+
+  function api() { return window.NOLDAN || null; }
+
+  var GAMES = [
+    { id: "juft",  icon: "🃏", name: "Juftlik topish", desc: "Inglizcha va oʻzbekcha soʻzlarni juftlang" },
+    { id: "tuzish", icon: "🔤", name: "Soʻz tuzish",   desc: "Harflardan soʻzni yigʻing" },
+    { id: "eshit",  icon: "🎧", name: "Eshitib top",   desc: "Eshiting va toʻgʻrisini tanlang" }
+  ];
+
+  var host = null;
+
+  /* ------------------------------------------------------------------ menu */
+
+  function menu() {
+    var a = api();
+    if (!host || !a) return;
+
+    var pool = a.pool();
+    host.innerHTML =
+      '<div class="ggrid">' +
+      GAMES.map(function (g) {
+        var best = a.best(g.id);
+        return '<button class="gcard" type="button" data-game="' + g.id + '">' +
+                 '<span class="gi">' + g.icon + "</span>" +
+                 '<span class="gt">' +
+                   '<span class="gn">' + g.name + "</span>" +
+                   '<span class="gd">' + g.desc + "</span>" +
+                   (best ? '<span class="gb">🏆 eng yaxshi: ' + best + "</span>" : "") +
+                 "</span>" +
+               "</button>";
+      }).join("") +
+      "</div>" +
+      '<p class="cap" style="margin:.9rem 0 0">Oʻyinlar tugatgan darslaringiz soʻzlaridan tuziladi — ' +
+      "hozir <b>" + pool.length + "</b> ta soʻz bor.</p>";
+
+    host.querySelectorAll(".gcard").forEach(function (b) {
+      b.addEventListener("click", function () { start(b.getAttribute("data-game")); });
+    });
+  }
+
+  function backBar(title) {
+    return '<div class="gbar"><button class="gback" type="button">← Orqaga</button>' +
+           "<span>" + title + "</span></div>";
+  }
+
+  function wireBack() {
+    var b = host.querySelector(".gback");
+    if (b) b.addEventListener("click", menu);
+  }
+
+  function over(title, line, score, gameId) {
+    var a = api();
+    a.studied();
+    var best = a.best(gameId, score);
+    host.innerHTML =
+      '<div class="result">' +
+        '<div class="big">' + title + "</div>" +
+        "<h4>Oʻyin tugadi</h4>" +
+        '<p><span class="score">' + score + "</span> ball — " + line + "</p>" +
+        "<p class=\"cap\" style=\"margin:0\">🏆 eng yaxshi natijangiz: " + best + "</p>" +
+      "</div>" +
+      '<div class="gover"><button class="cta" type="button" id="gagain">Yana oʻynash</button>' +
+      '<button class="again" type="button" id="gmenu">Boshqa oʻyin</button></div>';
+    host.querySelector("#gagain").addEventListener("click", function () { start(gameId); });
+    host.querySelector("#gmenu").addEventListener("click", menu);
+  }
+
+  function start(id) {
+    if (id === "juft") return juft();
+    if (id === "tuzish") return tuzish();
+    if (id === "eshit") return eshit();
+  }
+
+  /* -------------------------------------------------- 1. matching pairs */
+
+  function juft() {
+    var a = api();
+    var words = a.shuffled(a.pool()).slice(0, 6);
+    if (words.length < 2) return menu();
+
+    // Two tiles per word: the English side and the Uzbek side.
+    var tiles = [];
+    words.forEach(function (w) {
+      tiles.push({ key: w.id, face: w.en, side: "en", w: w });
+      tiles.push({ key: w.id, face: w.uz, side: "uz", w: w });
+    });
+    tiles = a.shuffled(tiles);
+
+    var open = [], matched = 0, moves = 0, locked = false;
+
+    host.innerHTML = backBar("Juftlik topish") +
+      '<div class="gstat"><span>Juftlar: <b id="jm">0</b>/' + words.length + "</span>" +
+      "<span>Urinish: <b id=\"jt\">0</b></span></div>" +
+      '<div class="jgrid" id="jg"></div>';
+    wireBack();
+
+    var grid = host.querySelector("#jg");
+
+    tiles.forEach(function (t, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "jtile" + (t.side === "en" ? " en" : "");
+      b.setAttribute("data-i", String(i));
+      b.innerHTML = '<span class="jface">' + t.face + "</span>";
+
+      b.addEventListener("click", function () {
+        if (locked || b.classList.contains("up") || b.classList.contains("gone")) return;
+
+        b.classList.add("up");
+        open.push({ b: b, t: t });
+        if (t.side === "en") a.speak(t.face.split("/")[0].trim());
+
+        if (open.length < 2) return;
+
+        moves++;
+        host.querySelector("#jt").textContent = String(moves);
+        locked = true;
+
+        var A = open[0], B = open[1];
+        var hit = A.t.key === B.t.key && A.t.side !== B.t.side;
+
+        setTimeout(function () {
+          if (hit) {
+            A.b.classList.add("gone"); B.b.classList.add("gone");
+            matched++;
+            host.querySelector("#jm").textContent = String(matched);
+            if (matched === words.length) {
+              // Fewer moves is better; a perfect run is one move per pair.
+              var score = Math.max(10, Math.round(words.length * 100 / Math.max(moves, 1)));
+              return over("🃏", moves + " ta urinishda " + words.length + " juft.", score, "juft");
+            }
+          } else {
+            A.b.classList.remove("up"); B.b.classList.remove("up");
+            a.demote(A.t.key); a.demote(B.t.key);
+          }
+          open = [];
+          locked = false;
+        }, hit ? 260 : 800);
+      });
+
+      grid.appendChild(b);
+    });
+  }
+
+  /* ---------------------------------------------------- 2. word builder */
+
+  function tuzish() {
+    var a = api();
+    // Single-word answers only: scrambling a phrase is a puzzle, not spelling.
+    var pool = a.pool().filter(function (w) {
+      return /^[A-Za-z]{2,12}$/.test(w.en.split("/")[0].trim());
+    });
+    if (!pool.length) { host.innerHTML = backBar("Soʻz tuzish") +
+      '<p class="cap">Bu oʻyin uchun soʻzlar yetarli emas.</p>'; return wireBack(); }
+
+    var queue = a.shuffled(pool).slice(0, 8);
+    var i = 0, score = 0;
+
+    function step() {
+      if (i >= queue.length) return over("🔤", queue.length + " ta soʻzdan " + score + " tasi.", score * 10, "tuzish");
+
+      var w = queue[i];
+      var answer = w.en.split("/")[0].trim();
+      var letters = a.shuffled(answer.toUpperCase().split(""));
+      var built = [];
+
+      host.innerHTML = backBar("Soʻz tuzish") +
+        '<div class="gstat"><span>' + (i + 1) + " / " + queue.length + "</span>" +
+        "<span>Ball: <b>" + score + "</b></span></div>" +
+        '<div class="tprompt">' + w.uz + "</div>" +
+        '<div class="tslots" id="ts"></div>' +
+        '<div class="tletters" id="tl"></div>' +
+        '<div class="tctl"><button class="again" type="button" id="tclear">Tozalash</button></div>';
+      wireBack();
+
+      var slots = host.querySelector("#ts");
+      var bank = host.querySelector("#tl");
+
+      function draw() {
+        slots.innerHTML = "";
+        for (var s = 0; s < answer.length; s++) {
+          var d = document.createElement("span");
+          d.className = "tslot" + (built[s] ? " filled" : "");
+          d.textContent = built[s] || "";
+          slots.appendChild(d);
+        }
+      }
+
+      function check() {
+        if (built.length !== answer.length || built.indexOf(undefined) !== -1) return;
+        var got = built.join("");
+        var ok = got.toLowerCase() === answer.toLowerCase();
+
+        Array.prototype.forEach.call(slots.children, function (d) {
+          d.classList.add(ok ? "ok" : "no");
+        });
+
+        if (ok) { score++; a.speak(answer); }
+        else a.demote(w.id);
+
+        var msg = document.createElement("div");
+        msg.className = ok ? "tmsg ok" : "tmsg no";
+        msg.innerHTML = ok
+          ? "✓ <b>" + answer + "</b>"
+          : "✗ Toʻgʻrisi: <b>" + answer + "</b>";
+        host.querySelector(".tctl").innerHTML = "";
+        host.querySelector(".tctl").appendChild(msg);
+
+        var next = document.createElement("button");
+        next.type = "button";
+        next.className = "cta";
+        next.style.marginTop = ".9rem";
+        next.textContent = i + 1 >= queue.length ? "Yakunlash" : "Keyingisi →";
+        next.addEventListener("click", function () { i++; step(); });
+        host.querySelector(".tctl").appendChild(next);
+      }
+
+      letters.forEach(function (ch, li) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "tletter";
+        b.textContent = ch;
+        b.addEventListener("click", function () {
+          if (b.disabled) return;
+          b.disabled = true;
+          b.classList.add("used");
+          built.push(ch);
+          draw();
+          check();
+        });
+        bank.appendChild(b);
+      });
+
+      host.querySelector("#tclear").addEventListener("click", function () {
+        built = [];
+        Array.prototype.forEach.call(bank.children, function (b) {
+          b.disabled = false; b.classList.remove("used");
+        });
+        draw();
+      });
+
+      draw();
+    }
+
+    step();
+  }
+
+  /* ------------------------------------------------------- 3. listening */
+
+  function eshit() {
+    var a = api();
+    var pool = a.pool();
+    if (pool.length < 4) { host.innerHTML = backBar("Eshitib top") +
+      '<p class="cap">Bu oʻyin uchun kamida 4 ta soʻz kerak.</p>'; return wireBack(); }
+
+    var queue = a.shuffled(pool).slice(0, 8);
+    var i = 0, score = 0;
+
+    function step() {
+      if (i >= queue.length) return over("🎧", queue.length + " ta soʻzdan " + score + " tasi.", score * 10, "eshit");
+
+      var w = queue[i];
+      var spoken = w.en.split("/")[0].trim();
+
+      var decoys = a.shuffled(pool.filter(function (x) { return x.en !== w.en; })).slice(0, 3);
+      var choices = a.shuffled(decoys.concat([w]));
+
+      host.innerHTML = backBar("Eshitib top") +
+        '<div class="gstat"><span>' + (i + 1) + " / " + queue.length + "</span>" +
+        "<span>Ball: <b>" + score + "</b></span></div>" +
+        '<div class="ebig"><button class="ebtn" type="button" id="eplay">🔊</button>' +
+        '<span class="cap">Tinglang va toʻgʻri yozilishini tanlang</span></div>' +
+        '<div class="opts" id="eo"></div>';
+      wireBack();
+
+      host.querySelector("#eplay").addEventListener("click", function () { a.speak(spoken); });
+      a.speak(spoken);
+
+      var opts = host.querySelector("#eo");
+      var done = false;
+
+      choices.forEach(function (c) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        b.textContent = c.en;
+
+        b.addEventListener("click", function () {
+          if (done) return;
+          done = true;
+
+          var ok = c.en === w.en;
+          if (ok) score++; else a.demote(w.id);
+
+          Array.prototype.forEach.call(opts.children, function (o) {
+            o.disabled = true;
+            if (o !== b) o.classList.add("dim");
+            if (o.textContent === w.en) {
+              o.classList.remove("dim");
+              o.classList.add("right");
+              o.innerHTML = '<span class="mark">✓</span>' + w.en;
+            }
+          });
+          if (!ok) { b.classList.add("wrong"); b.innerHTML = '<span class="mark">✗</span>' + c.en; }
+
+          var uz = document.createElement("p");
+          uz.className = "why";
+          uz.style.background = "var(--blue-soft)";
+          uz.style.borderLeftColor = "var(--blue)";
+          uz.innerHTML = "<b>" + w.en + "</b> — " + w.uz + " · " + w.pron;
+          opts.parentNode.appendChild(uz);
+
+          var next = document.createElement("button");
+          next.type = "button";
+          next.className = "again";
+          next.style.marginTop = ".9rem";
+          next.textContent = i + 1 >= queue.length ? "Yakunlash" : "Keyingisi →";
+          next.addEventListener("click", function () { i++; step(); });
+          opts.parentNode.appendChild(next);
+        });
+
+        opts.appendChild(b);
+      });
+    }
+
+    step();
+  }
+
+  /* ------------------------------------------------------------------ init */
+
+  function ready(fn) {
+    if (document.readyState === "loading")
+      document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+
+  ready(function () {
+    host = document.getElementById("oyinbox");
+    if (!host) return;
+    menu();
+    document.addEventListener("noldan:progress", function () {
+      // Only refresh the menu when it is the thing on screen.
+      if (host.querySelector(".ggrid")) menu();
+    });
   });
 })();
 </script>
