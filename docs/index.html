@@ -688,6 +688,29 @@ body::before{
 :root[data-theme="dark"] body::before{opacity:.20;mix-blend-mode:screen}
 header,nav,main,footer{position:relative;z-index:1}
 
+/* ---------- corner flower decorations ---------- */
+.deco-corner{
+  position:fixed;z-index:0;pointer-events:none;
+  color:var(--bloom);
+  transition:opacity .3s ease;
+}
+.deco-corner svg{width:100%;height:100%}
+.deco-tl{top:-35px;left:-35px;width:280px;height:280px;opacity:.07}
+.deco-tr{top:-25px;right:-25px;width:220px;height:220px;opacity:.06}
+.deco-bl{bottom:-30px;left:-30px;width:190px;height:190px;opacity:.05}
+.deco-br{bottom:-25px;right:-25px;width:190px;height:190px;opacity:.05}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .deco-tl{opacity:.05}
+  :root:not([data-theme="light"]) .deco-tr{opacity:.04}
+  :root:not([data-theme="light"]) .deco-bl,
+  :root:not([data-theme="light"]) .deco-br{opacity:.035}
+}
+@media (max-width: 720px){
+  .deco-tl{width:200px;height:200px;top:-45px;left:-45px}
+  .deco-tr{width:160px;height:160px;top:-35px;right:-35px}
+  .deco-bl,.deco-br{width:140px;height:140px}
+}
+
 /* ---------- hero ---------- */
 .masthead{
   position:relative;overflow:hidden;
@@ -3128,5 +3151,59 @@ var COURSE = [{"id":1,"flower":"\uD83C\uDF37","title":"I am / You are","words":[
 })();
 </script>
 <!-- APP-JS-END -->
+<!-- Corner flower decorations -->
+<div class="deco-corner deco-tl" aria-hidden="true">
+<svg viewBox="0 0 280 280" preserveAspectRatio="xMinYMin meet">
+  <g fill="currentColor">
+    <ellipse cx="70" cy="58" rx="48" ry="34" transform="rotate(-28 70 58)" opacity=".12"/>
+    <ellipse cx="102" cy="42" rx="40" ry="30" transform="rotate(-5 102 42)" opacity=".10"/>
+    <ellipse cx="52" cy="88" rx="36" ry="26" transform="rotate(-48 52 88)" opacity=".09"/>
+    <ellipse cx="75" cy="60" rx="24" ry="18" transform="rotate(-18 75 60)" opacity=".15"/>
+    <ellipse cx="88" cy="52" rx="20" ry="15" transform="rotate(12 88 52)" opacity=".13"/>
+    <circle cx="78" cy="58" r="11" opacity=".20"/>
+    <path d="M78 92 Q74 150 86 218" stroke="currentColor" stroke-width="2" fill="none" opacity=".10"/>
+    <ellipse cx="105" cy="128" rx="38" ry="13" transform="rotate(-12 105 128)" opacity=".08"/>
+    <ellipse cx="58" cy="148" rx="30" ry="11" transform="rotate(32 58 148)" opacity=".07"/>
+  </g>
+</svg>
+</div>
+<div class="deco-corner deco-tr" aria-hidden="true">
+<svg viewBox="0 0 220 220" preserveAspectRatio="xMaxYMin meet">
+  <g fill="currentColor">
+    <ellipse cx="142" cy="48" rx="40" ry="30" transform="rotate(15 142 48)" opacity=".11"/>
+    <ellipse cx="118" cy="58" rx="34" ry="25" transform="rotate(35 118 58)" opacity=".09"/>
+    <ellipse cx="155" cy="72" rx="28" ry="20" transform="rotate(-10 155 72)" opacity=".08"/>
+    <ellipse cx="138" cy="55" rx="20" ry="15" transform="rotate(20 138 55)" opacity=".13"/>
+    <circle cx="134" cy="52" r="10" opacity=".17"/>
+    <path d="M134 82 Q138 128 126 172" stroke="currentColor" stroke-width="1.5" fill="none" opacity=".09"/>
+    <ellipse cx="108" cy="108" rx="32" ry="11" transform="rotate(18 108 108)" opacity=".07"/>
+  </g>
+</svg>
+</div>
+<div class="deco-corner deco-bl" aria-hidden="true">
+<svg viewBox="0 0 190 190" preserveAspectRatio="xMinYMax meet">
+  <g fill="currentColor">
+    <ellipse cx="52" cy="142" rx="32" ry="24" transform="rotate(-25 52 142)" opacity=".10"/>
+    <ellipse cx="76" cy="132" rx="26" ry="20" transform="rotate(-5 76 132)" opacity=".08"/>
+    <ellipse cx="44" cy="120" rx="22" ry="16" transform="rotate(-45 44 120)" opacity=".07"/>
+    <circle cx="58" cy="136" r="9" opacity=".14"/>
+    <path d="M66 118 Q86 92 108 82" stroke="currentColor" stroke-width="1.5" fill="none" opacity=".08"/>
+    <ellipse cx="90" cy="98" rx="22" ry="8" transform="rotate(-20 90 98)" opacity=".06"/>
+  </g>
+</svg>
+</div>
+<div class="deco-corner deco-br" aria-hidden="true">
+<svg viewBox="0 0 190 190" preserveAspectRatio="xMaxYMax meet">
+  <g fill="currentColor">
+    <ellipse cx="148" cy="148" rx="30" ry="22" transform="rotate(20 148 148)" opacity=".10"/>
+    <ellipse cx="128" cy="158" rx="24" ry="18" transform="rotate(40 128 158)" opacity=".08"/>
+    <ellipse cx="155" cy="132" rx="20" ry="15" transform="rotate(-5 155 132)" opacity=".07"/>
+    <circle cx="142" cy="146" r="8" opacity=".13"/>
+    <path d="M132 132 Q112 112 92 102" stroke="currentColor" stroke-width="1.5" fill="none" opacity=".07"/>
+    <ellipse cx="108" cy="112" rx="20" ry="7" transform="rotate(22 108 112)" opacity=".06"/>
+  </g>
+</svg>
+</div>
+
 </body>
 </html>
