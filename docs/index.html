@@ -874,6 +874,45 @@ header,nav,main,footer{position:relative;z-index:1}
   font-variant-numeric:tabular-nums;min-width:2.2rem;text-align:right;
 }
 .fcard.done .fbarlbl{color:var(--green)}
+
+/* ---------- voice picker ---------- */
+.voice-wrap{
+  max-width:var(--col);margin:0 auto;padding:0 1.05rem;
+}
+.vhead{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:.55rem .85rem;
+  background:var(--raised);border:1px solid var(--rule);border-radius:10px;
+  font-family:var(--f-uz);font-size:.92rem;font-weight:600;color:var(--ink-2);
+  cursor:pointer;margin-top:1.5rem;
+}
+.vhead:hover{border-color:var(--blue);color:var(--blue)}
+.vhead[aria-expanded="true"] .varr{transform:rotate(180deg)}
+.varr{transition:transform .2s ease;font-size:.75rem}
+.vbox{
+  background:var(--raised);border:1px solid var(--rule);
+  border-top:0;border-radius:0 0 10px 10px;
+  padding:.8rem 1rem 1rem;margin:-.4rem 0 0;
+}
+.vbox label{
+  display:block;font-size:.82rem;font-weight:700;
+  color:var(--ink-3);margin-bottom:.35rem;
+}
+.vbox select{
+  width:100%;padding:.5rem .6rem;border-radius:8px;
+  border:1px solid var(--rule-2);background:var(--paper);
+  color:var(--ink);font-family:var(--f-uz);font-size:.95rem;
+}
+.vtest{
+  margin-top:.6rem;padding:.45rem .9rem;border-radius:999px;
+  border:1px solid var(--green);background:var(--green-soft);
+  color:var(--green);font-family:var(--f-uz);font-size:.85rem;font-weight:700;
+  cursor:pointer;
+}
+.vtest:hover{background:var(--green);color:var(--paper)}
+.vnote{
+  margin:.5rem 0 0;font-size:.8rem;color:var(--ink-3);font-style:italic;
+}
 /* ---------- hero ---------- */
 .masthead{
   position:relative;overflow:hidden;
@@ -2236,54 +2275,63 @@ var COURSE = [{"id":1,"flower":"./flowers/01_kungaboqar.png","fname":"Kungaboqar
 
   var synth = window.speechSynthesis || null;
   var voice = null;
+  var VOICE_KEY = "noldan-voice";
+
+  function listVoices() {
+    if (!synth) return [];
+    var all = synth.getVoices() || [];
+    // Russian/bad voices to exclude
+    var bad = [/irina/i, /pavel/i, /elena/i, /filipp/i, /tatiana/i, /yuri/i,
+               /russian/i, /ekaterina/i, /maria/i, /dmitri/i, /tatyana/i,
+               /natalia/i, /sergei/i, /ru-/i, /ru_/i];
+    function ok(v) {
+      return !bad.some(function (re) { return re.test(v.name) || re.test(v.lang); });
+    }
+    return all.filter(ok).filter(function (v) { return /^en[-_]/i.test(v.lang); });
+  }
+
+  function findVoiceByName(name) {
+    var vs = listVoices();
+    return vs.filter(function (v) { return v.name === name; })[0] || null;
+  }
 
   function pickVoice() {
     if (!synth) return;
-    var all = synth.getVoices() || [];
+    var vs = listVoices();
+    if (!vs.length) { voice = null; return; }
 
-    // Known good native American English voices by name (prioritized)
-    var goodNames = [
-      /samantha/i, /alex/i, /victoria/i, /fred/i,
-      /google.us english/i, /google english us/i,
-      /microsoft david/i, /microsoft zira/i, /microsoft mark/i,
-      /microsoft aria/i, /microsoft jenny/i, /microsoft guy/i,
-      /apple/i, /daniel/i, /karen/i, /lee/i,
-      /english.*united.*states/i, /us english/i
-    ];
-
-    // Names that usually mean Russian or non-native voices
-    var badNames = [
-      /irina/i, /pavel/i, /elena/i, /filipp/i, /tatiana/i,
-      /yuri/i, /russian/i, /ru-/i, /ru_/i,
-      /ekaterina/i, /maria/i, /dmitri/i,
-      /tatyana/i, /natalia/i, /sergei/i
-    ];
-
-    function isBad(v) {
-      return badNames.some(function (re) { return re.test(v.name) || re.test(v.lang); });
+    // 1. Use stored preference if still available
+    var saved = null;
+    try { saved = localStorage.getItem(VOICE_KEY); } catch (e) {}
+    if (saved) {
+      var v = findVoiceByName(saved);
+      if (v) { voice = v; return; }
     }
 
-    function isGood(v) {
-      return goodNames.some(function (re) { return re.test(v.name); });
+    // 2. Male American voices (strong preference)
+    var maleUS = [
+      /microsoft david/i, /microsoft mark/i, /microsoft guy/i,
+      /alex/i, /fred/i, /daniel/i, /lee/i, /tom/i,
+      /google.*english.*male/i, /google us english male/i,
+      /english.*male/i, /us.*male/i
+    ];
+    for (var i = 0; i < maleUS.length; i++) {
+      var found = vs.filter(function (v) { return maleUS[i].test(v.name); })[0];
+      if (found) { voice = found; return; }
     }
 
-    var candidates = all.filter(function (v) { return !isBad(v); });
+    // 3. Any en-US voice
+    var us = vs.filter(function (v) { return v.lang === "en-US"; })[0];
+    if (us) { voice = us; return; }
 
-    // 1. Prefer known good voices by name
-    voice = candidates.filter(isGood)[0];
-    if (voice) return;
-
-    // 2. Exact en-US match from remaining
-    voice = candidates.filter(function (v) { return v.lang === "en-US"; })[0];
-    if (voice) return;
-
-    // 3. Any en voice from remaining
-    voice = candidates.filter(function (v) { return /^en[-_]/i.test(v.lang); })[0];
-    if (voice) return;
-
-    // 4. Desperate fallback: any non-Russian voice
-    voice = all.filter(function (v) { return !isBad(v); })[0] || null;
+    // 4. First English voice
+    voice = vs[0];
   }
+
+  function saveVoice(name) {
+    try { localStorage.setItem(VOICE_KEY, name); } catch (e) {}
+  }
+
   if (synth) {
     pickVoice();
     synth.onvoiceschanged = pickVoice;
@@ -2390,6 +2438,52 @@ var COURSE = [{"id":1,"flower":"./flowers/01_kungaboqar.png","fname":"Kungaboqar
     if (gb) gb.addEventListener("click", openGallery);
   }
 
+
+  /* --------------------------------------------------------------- voice picker */
+
+  function initVoicePicker() {
+    var wrap = document.getElementById("vwrap");
+    var head = document.getElementById("vhead");
+    var box = document.getElementById("vbox");
+    var sel = document.getElementById("vpick");
+    var testBtn = document.getElementById("vtest");
+    if (!wrap || !sel) return;
+
+    function populate() {
+      var vs = listVoices();
+      sel.innerHTML = "";
+      vs.forEach(function (v) {
+        var o = document.createElement("option");
+        o.value = v.name;
+        o.textContent = v.name + " (" + v.lang + ")";
+        sel.appendChild(o);
+      });
+      // Select current voice
+      if (voice) sel.value = voice.name;
+    }
+
+    head.addEventListener("click", function () {
+      var expanded = head.getAttribute("aria-expanded") === "true";
+      head.setAttribute("aria-expanded", String(!expanded));
+      box.hidden = expanded;
+      if (!expanded) populate();
+    });
+
+    sel.addEventListener("change", function () {
+      var v = findVoiceByName(sel.value);
+      if (v) { voice = v; saveVoice(v.name); }
+    });
+
+    testBtn.addEventListener("click", function () {
+      speak("Hello, how are you?");
+    });
+
+    // Populate once voices are ready
+    if (synth) {
+      if (synth.getVoices().length) populate();
+      else synth.onvoiceschanged = function () { populate(); pickVoice(); };
+    }
+  }
 
   /* --------------------------------------------------------------- flower gallery */
 
@@ -2862,6 +2956,7 @@ var COURSE = [{"id":1,"flower":"./flowers/01_kungaboqar.png","fname":"Kungaboqar
     mountQuizzes();
     renderGarden();
     renderReview();
+    initVoicePicker();
   });
 })();
 </script>
@@ -3436,6 +3531,20 @@ var COURSE = [{"id":1,"flower":"./flowers/01_kungaboqar.png","fname":"Kungaboqar
 })();
 </script>
 <!-- APP-JS-END -->
+<!-- Voice picker -->
+<div class="voice-wrap" id="vwrap">
+  <button class="vhead" type="button" id="vhead" aria-expanded="false">
+    <span>🔊 Tinglash ovozi</span>
+    <span class="varr">▼</span>
+  </button>
+  <div class="vbox" id="vbox" hidden>
+    <label for="vpick">Ovozni tanlang:</label>
+    <select id="vpick"></select>
+    <button class="vtest" type="button" id="vtest">"Hello" — sinab koʻrish</button>
+    <p class="vnote">Eng yaxshi natija: Microsoft David, Microsoft Mark yoki Google US English</p>
+  </div>
+</div>
+
 <!-- Corner flower decorations -->
 <div class="deco-corner deco-tl" aria-hidden="true">
 <svg viewBox="0 0 280 280" preserveAspectRatio="xMinYMin meet">
