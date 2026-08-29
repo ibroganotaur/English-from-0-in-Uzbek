@@ -913,6 +913,39 @@ header,nav,main,footer{position:relative;z-index:1}
 .vnote{
   margin:.5rem 0 0;font-size:.8rem;color:var(--ink-3);font-style:italic;
 }
+
+/* flower card cursor */
+.fcard.done{cursor:pointer}
+
+/* flower detail view */
+.fdetail-wrap{max-width:28rem}
+.fdetail-body{
+  padding:1.2rem;
+  display:flex;flex-direction:column;align-items:center;gap:1rem;
+}
+.fdetail-img{
+  width:100%;max-width:20rem;height:auto;
+  border-radius:16px;border:2px solid var(--green);
+  box-shadow:var(--shadow-lift);
+}
+.fdetail-locked{
+  width:100%;max-width:20rem;height:14rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+  background:var(--raised);border-radius:16px;border:2px dashed var(--rule);
+}
+.fdetail-locked .flock{font-size:3rem;opacity:.4}
+.fdetail-locked p{color:var(--ink-3);font-size:.95rem;margin:0}
+.fdetail-info{
+  width:100%;display:flex;flex-direction:column;gap:.3rem;
+}
+.fdetail-label{
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;margin-top:.3rem;
+}
+.fdetail-value{
+  font-size:1.05rem;color:var(--ink);font-weight:600;
+}
+.fdetail-value.dim{color:var(--ink-3)}
 /* ---------- hero ---------- */
 .masthead{
   position:relative;overflow:hidden;
@@ -2500,7 +2533,7 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
     var cards = COURSE.map(function (l) {
       var got = !!state.lessons[l.id];
       var res = state.lessons[l.id];
-      return '<div class="fcard' + (got ? " done" : "") + '">' +
+      return '<div class="fcard' + (got ? " done" : "") + '" data-id="' + l.id + '">' +
         '<div class="fimg">' +
           (got
             ? '<img src="' + l.flower + '" alt="' + (l.fname || "") + '" loading="lazy">'
@@ -2539,6 +2572,12 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
 
     modal.querySelector(".fbackdrop").addEventListener("click", closeGallery);
     modal.querySelector(".fclose").addEventListener("click", closeGallery);
+    modal.querySelectorAll(".fcard").forEach(function (c) {
+      c.addEventListener("click", function () {
+        var id = Number(c.getAttribute("data-id"));
+        if (id) openFlowerDetail(id);
+      });
+    });
     modal.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeGallery();
     });
@@ -2548,6 +2587,60 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
   function closeGallery() {
     var modal = document.getElementById("fgallery");
     if (modal) { modal.remove(); document.body.style.overflow = ""; }
+  }
+
+  function openFlowerDetail(id) {
+    var lesson = COURSE.filter(function (l) { return l.id === id; })[0];
+    if (!lesson) return;
+    var res = state.lessons[id];
+    var got = !!res;
+
+    var existing = document.getElementById("fdetail");
+    if (existing) existing.remove();
+
+    var modal = document.createElement("div");
+    modal.id = "fdetail";
+    modal.className = "fgallery";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-label", lesson.fname || "Gul");
+
+    modal.innerHTML =
+      '<div class="fbackdrop"></div>' +
+      '<div class="fwrap fdetail-wrap">' +
+        '<div class="fhead">' +
+          '<h3>' + (lesson.fname || "Gul") + '</h3>' +
+          '<button class="fclose" type="button" aria-label="Yopish">✕</button>' +
+        '</div>' +
+        '<div class="fdetail-body">' +
+          (got
+            ? '<img class="fdetail-img" src="' + lesson.flower + '" alt="' + (lesson.fname || "") + '">'
+            : '<div class="fdetail-locked"><span class="flock">🔒</span><p>Darsni tugatib, gulni oching</p></div>') +
+          '<div class="fdetail-info">' +
+            '<span class="fdetail-label">Dars</span>' +
+            '<span class="fdetail-value">' + lesson.id + ' — ' + lesson.title + '</span>' +
+            (got
+              ? '<span class="fdetail-label">Test natijasi</span>' +
+                '<span class="fdetail-value">' + res.score + ' / ' + res.total + ' toʻgʻri javob</span>' +
+                '<span class="fdetail-label">Mukofot</span>' +
+                '<span class="fdetail-value uzs-reward">💰 +5 000 soʻm</span>'
+              : '<span class="fdetail-label">Holat</span>' +
+                '<span class="fdetail-value dim">Hali yechilmagan</span>') +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    document.body.appendChild(modal);
+
+    modal.querySelector(".fbackdrop").addEventListener("click", function () {
+      modal.remove();
+    });
+    modal.querySelector(".fclose").addEventListener("click", function () {
+      modal.remove();
+    });
+    modal.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") modal.remove();
+    });
+    modal.querySelector(".fclose").focus();
   }
 
   /* --------------------------------------------------------------- review */
