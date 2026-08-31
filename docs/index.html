@@ -2404,7 +2404,7 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
   function addSpeakButtons() {
     document.querySelectorAll("dl.words dt").forEach(function (dt) {
       var word = (dt.textContent || "").trim();
-      if (word) dt.appendChild(sayButton(word.split("/")[0].trim(), word));
+      if (word) dt.appendChild(sayButton(word.replace(/\//g, " ").trim(), word));
     });
     document.querySelectorAll(".pair .en, .dlg .en").forEach(function (el) {
       var t = (el.textContent || "").trim();
