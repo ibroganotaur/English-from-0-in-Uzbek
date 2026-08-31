@@ -946,6 +946,42 @@ header,nav,main,footer{position:relative;z-index:1}
   font-size:1.05rem;color:var(--ink);font-weight:600;
 }
 .fdetail-value.dim{color:var(--ink-3)}
+
+/* ---------- final exam ---------- */
+#imtihon .exam-head{
+  background:linear-gradient(135deg,var(--red-soft) 0%,var(--blue-soft) 100%);
+  border:2px solid var(--red);
+  border-radius:16px;
+  padding:1.4rem 1.2rem;
+  text-align:center;
+  margin-bottom:1rem;
+}
+#imtihon .exam-head h3{
+  margin:0 0 .4rem;font-family:var(--f-display);font-size:1.4rem;
+  color:var(--red);
+}
+#imtihon .exam-head p{margin:0;color:var(--ink-2);font-size:.95rem}
+#imtihon .exam-locked{
+  background:var(--raised);border:2px dashed var(--rule);
+  border-radius:14px;padding:1.5rem;text-align:center;
+}
+#imtihon .exam-locked .big{font-size:3rem;margin-bottom:.5rem}
+#imtihon .exam-locked p{color:var(--ink-3);margin:0 0 .8rem}
+#imtihon .exam-uzs{
+  font-size:1.3rem;font-weight:700;color:var(--green);
+  background:var(--green-soft);padding:.5rem 1rem;border-radius:999px;
+  display:inline-block;
+}
+#imtihon .exam-done{
+  background:var(--green-soft);border:2px solid var(--green);
+  border-radius:14px;padding:1.2rem;text-align:center;
+}
+#imtihon .exam-done .big{font-size:2.8rem;margin-bottom:.3rem}
+#imtihon .exam-done h4{
+  margin:0 0 .3rem;font-family:var(--f-display);font-size:1.3rem;color:var(--green);
+}
+#imtihon .exam-done p{margin:0;color:var(--ink-2)}
+
 /* ---------- hero ---------- */
 .masthead{
   position:relative;overflow:hidden;
@@ -1160,6 +1196,7 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
         <a href="#bog">Bogʻim</a>
     <a href="#takror">Takrorlash</a>
     <a href="#oyinlar">Oʻyinlar</a>
+    <a href="#imtihon" style="color:var(--red);font-weight:700">🎓 Imtihon</a>
     <a href="#darslar">Darslar</a>
     <a href="#usul">Qanday oʻqish</a>
     <a href="#farqlar">5 ta katta farq</a>
@@ -1214,6 +1251,21 @@ footer{border-top:1px solid var(--rule);margin-top:1rem}
   </div>
 </section>
 <!-- APP-OYIN-END -->
+<!-- APP-IMTIHON-START -->
+<section id="imtihon">
+  <div class="wrap">
+    <h2>🎓 Yakuniy imtihon</h2>
+    <p>Barcha 10 darsni qoʻshib, eng qiyin savollar. Bu imtihonda kursning har bir mavzusi sinovdan oʻtadi.</p>
+
+    <div class="exam-head">
+      <h3>🏆 Mukofot: 50 000 soʻm</h3>
+      <p>Barcha 10 darsni tugatganingizdan keyin ochiladi. Birinchi muvaffaqiyatli imtihon — 50 000 soʻm. Qayta topshirish — 10 000 soʻm.</p>
+    </div>
+
+    <div id="exambox"></div>
+  </div>
+</section>
+<!-- APP-IMTIHON-END -->
 <!-- APP-INDEX-START -->
 <section id="darslar">
   <div class="wrap">
@@ -2962,6 +3014,308 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
 
   /* ---------------------------------------------------------------- build */
 
+  /* --------------------------------------------------------------- final exam */
+
+  var EXAM = [
+    { prompt: "Men va siz talabamiz.", task: "Inglizchaga oʻgiring:", options: [
+      { t: "You and I are students.", c: true, w: null },
+      { t: "I and you are students.", c: false, w: "Inglizchada odatda boshqalarni oldinga qoʻyamiz: You and I." },
+      { t: "You and I is students.", c: false, w: "Ikki kishi = koʻplik. Har doim 'are' boʻladi." },
+      { t: "We is students.", c: false, w: "'We' bilan 'are' kerak: We are students." }
+    ]},
+    { prompt: "U (ayol) shifokor. U (erkak) ham shifokor.", task: "Inglizchaga oʻgiring:", options: [
+      { t: "She is a doctor. He is a doctor too.", c: true, w: null },
+      { t: "He is a doctor. She is a doctor too.", c: false, w: "Birinchi gap ayol haqida. 'She' bilan boshlanishi kerak." },
+      { t: "She is doctor. He is doctor too.", c: false, w: "Kasb oldida 'a' artikli shart." },
+      { t: "She is a doctor. He is a doctor to.", c: false, w: "'to' emas, 'too' (ham)." }
+    ]},
+    { prompt: "Men bir talabaman. Talaba kitob oʻqiydi.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "I am a student. The student reads a book.", c: true, w: null },
+      { t: "I am the student. A student reads a book.", c: false, w: "Birinchi marta 'a student', keyin maʼlum talaba haqida 'the student'." },
+      { t: "I am a student. A student reads the book.", c: false, w: "Ikkinchi gapda 'kitob' umumiy, shuning uchun 'a book'." },
+      { t: "I am student. The student reads book.", c: false, w: "'a student' va 'a book' — artikllar kerak." }
+    ]},
+    { prompt: "Uch kitob va ikkita daftar.", task: "Inglizchaga oʻgiring:", options: [
+      { t: "Three books and two notebooks.", c: true, w: null },
+      { t: "Three book and two notebook.", c: false, w: "Son birdan koʻp boʻlsa soʻzlar koʻplikda boʻladi: books, notebooks." },
+      { t: "Threes books and twos notebooks.", c: false, w: "Sonlar oʻzgaradi, soʻzlar koʻplikda boʻladi. 'Three' va 'two' qoladi." },
+      { t: "Three books and two notebookes.", c: false, w: "'notebook' koʻplikda 'notebooks' boʻladi, 'notebookes' emas." }
+    ]},
+    { prompt: "U inglizcha gapirmaydi. Siz gapirasizmi?", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "He doesn't speak English. Do you speak?", c: true, w: null },
+      { t: "He not speaks English. Do you speak?", c: false, w: "Inkor: does + not + fe'l (sizsiz). 'He doesn't speak'." },
+      { t: "He doesn't speaks English. Do you speak?", c: false, w: "'doesn't' dan keyin fe'l sizsiz: 'speak', emas 'speaks'." },
+      { t: "He doesn't speak English. Are you speak?", c: false, w: "Savolda 'do/does' kerak, 'are' emas: 'Do you speak?'" }
+    ]},
+    { prompt: "Bu nima? Bu mening kitobim.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "What is this? This is my book.", c: true, w: null },
+      { t: "What is that? This is my book.", c: false, w: "Birinchi gapda yaqin narsa haqida — 'this', uzoq narsa emas." },
+      { t: "What is this? It is my book.", c: false, w: "Toʻgʻri grammatik, lekin 'This is my book' tabiiyroq javob." },
+      { t: "What this is? This is my book.", c: false, w: "Savol tartibi: What + is + this?" }
+    ]},
+    { prompt: "Yangi kichik uy, eski katta eshik.", task: "Inglizchaga oʻgiring:", options: [
+      { t: "A new small house, an old big door.", c: true, w: null },
+      { t: "A new small house, a old big door.", c: false, w: "'old' unli bilan boshlanadi, shuning uchun 'an old'." },
+      { t: "An new small house, an old big door.", c: false, w: "'new' undosh bilan boshlanadi, shuning uchun 'a new'." },
+      { t: "A new small house, a old big gate.", c: false, w: "'door' emas, 'gate' — soʻz xato. 'an old' ham kerak." }
+    ]},
+    { prompt: "Mening akamda ikkita mashina bor. Sizda ham bor.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "My brother has two cars. You have two too.", c: true, w: null },
+      { t: "My brother have two cars. You has two too.", c: false, w: "Uchinchi shaxs 'has', siz/yoki 'have'." },
+      { t: "My brother has two car. You have two too.", c: false, w: "'two' dan keyin koʻplik: 'cars'." },
+      { t: "My brother has two cars. You have two to.", c: false, w: "'too' (ham) emas, 'to' — ortiqcha soʻz." }
+    ]},
+    { prompt: "Uning mashinasi yangi. Meningki eski.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "His car is new. Mine is old.", c: true, w: null },
+      { t: "He car is new. My is old.", c: false, w: "'His car' (uning mashinasi) emas, 'He car' — xato. 'Mine' (meniki) emas, 'My'." },
+      { t: "His car is new. My car is old.", c: false, w: "Toʻgʻri, lekin 'Mine is old' qisqa va tabiiyroq." },
+      { t: "His car is new. Mine car is old.", c: false, w: "'Mine' oʻzida egalik olmosh. 'Mine car' emas, faqat 'Mine is old'." }
+    ]},
+    { prompt: "Salom! Yaxshimisiz? Tanishganimdan xursandman.", task: "Inglizchaga oʻgiring (uch gap):", options: [
+      { t: "Hello! How are you? Nice to meet you.", c: true, w: null },
+      { t: "Hi! How are you? Nice to meet you too.", c: false, w: "'Nice to meet you too' javob, emas birinchi uchrashuvdagi salom." },
+      { t: "Hello! How do you do? Nice to meet you.", c: false, w: "'How do you do?' juda rasmiylashtirilgan. Oddiy 'How are you?' yaxshiroq." },
+      { t: "Hello! How is you? Nice to meet you.", c: false, w: "'How are you?' — 'is' emas, 'are'." }
+    ]},
+    { prompt: "Men talaba emasman. Men oʻqituvchiman. Sizchi?", task: "Inglizchaga oʻgiring (uch gap):", options: [
+      { t: "I am not a student. I am a teacher. What about you?", c: true, w: null },
+      { t: "I not am a student. I am a teacher. What about you?", c: false, w: "Inkor: am + not. 'I am not', emas 'I not am'." },
+      { t: "I am not student. I am teacher. What about you?", c: false, w: "Kasb oldida artikl kerak: 'a student', 'a teacher'." },
+      { t: "I am not a student. I am a teacher. And you?", c: false, w: "'And you?' ham mumkin, lekin 'What about you?' aniqroq." }
+    ]},
+    { prompt: "Uning katta yangi uyida uchta xona bor.", task: "Inglizchaga oʻgiring:", options: [
+      { t: "There are three rooms in his big new house.", c: true, w: null },
+      { t: "There is three rooms in his big new house.", c: false, w: "'Three rooms' koʻplik — 'There are', emas 'There is'." },
+      { t: "There are three room in his big new house.", c: false, w: "'Three' dan keyin koʻplik: 'rooms'." },
+      { t: "There are three rooms in he big new house.", c: false, w: "'his' (uning) emas, 'he' (u) — egalik olmosh kerak." }
+    ]},
+    { prompt: "Bu yerda yaxshi kitoblar bormi? Ha, bir nechta.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "Are there any good books here? Yes, a few.", c: true, w: null },
+      { t: "Is there any good books here? Yes, a few.", c: false, w: "'books' koʻplik — 'Are there', emas 'Is there'." },
+      { t: "Are there some good books here? Yes, a few.", c: false, w: "Savolda 'any' ishlatiladi, 'some' emas." },
+      { t: "Are there any good book here? Yes, a few.", c: false, w: "'book' emas, 'books' — koʻplik." }
+    ]},
+    { prompt: "Men kecha bu yerda edim. U ham.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "I was here yesterday. He was too.", c: true, w: null },
+      { t: "I were here yesterday. He was too.", c: false, w: "'I' bilan 'was', emas 'were'." },
+      { t: "I was here yesterday. He were too.", c: false, w: "'He' bilan 'was', emas 'were'." },
+      { t: "I am here yesterday. He is too.", c: false, w: "Kecha uchun 'was/were' kerak, emas 'am/is'." }
+    ]},
+    { prompt: "Men ertaga ishlamayman. Dam olmoqchiman.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "I am not going to work tomorrow. I want to rest.", c: true, w: null },
+      { t: "I don't going to work tomorrow. I want to rest.", c: false, w: "'going to' bilan 'am' kerak: 'I am not going to'." },
+      { t: "I am not going to work tomorrow. I want rest.", c: false, w: "'want to rest' — 'to' kerak." },
+      { t: "I not will work tomorrow. I want to rest.", c: false, w: "'will not work' yoki 'am not going to work'. 'I not will' xato." }
+    ]},
+    { prompt: "Sizning uyINGIZ kattami YOKI meniki?", task: "Inglizchaga oʻgiring:", options: [
+      { t: "Is your house bigger than mine?", c: true, w: null },
+      { t: "Your house is bigger than mine?", c: false, w: "Bu gap emas, savol. 'Is' boshida kelishi kerak." },
+      { t: "Is your house big than mine?", c: false, w: "'big' emas, taqqoslash 'bigger' kerak." },
+      { t: "Is your house bigger than my?", c: false, w: "'my' (mening) emas, 'mine' (meniki) kerak." }
+    ]},
+    { prompt: "U qayerdan? U Londondan, lekin hozir Toshkentda yashaydi.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "Where is he from? He is from London, but he lives in Tashkent now.", c: true, w: null },
+      { t: "Where he is from? He is from London, but he lives in Tashkent now.", c: false, w: "Savol tartibi: Where + is + he?" },
+      { t: "Where is he from? He from London, but he lives in Tashkent now.", c: false, w: "'He is from' — 'is' tushib qolgan." },
+      { t: "Where is he from? He is from London, but he live in Tashkent now.", c: false, w: "'he' bilan 'lives' (u yashaydi). 'live' emas." }
+    ]},
+    { prompt: "Men soat 8 da ishga bordim. Kech qoldim!", task: "Inglizchaga oʻgiring (ikki gap):", options: [
+      { t: "I went to work at 8 o'clock. I was late!", c: true, w: null },
+      { t: "I go to work at 8 o'clock. I was late!", c: false, w: "Kechagi ish — 'went' (oʻtgan zamon), emas 'go'." },
+      { t: "I went to work at 8 o'clock. I am late!", c: false, w: "Kech qoldim — kechagisi. 'I was late', emas 'I am late'." },
+      { t: "I went to work in 8 o'clock. I was late!", c: false, w: "Vaqt oldida 'at' ishlatiladi: 'at 8 o'clock', emas 'in 8 o'clock'." }
+    ]},
+    { prompt: "Agar yomgʻir yogʻsa, biz uyingizga boramiz. Agar boʻlmasa, kinoga.", task: "Inglizchaga oʻgiring:", options: [
+      { t: "If it rains, we will go to your house. If not, to the cinema.", c: true, w: null },
+      { t: "If it will rain, we go to your house. If not, to the cinema.", c: false, w: "'If' gapida birinchi qism hozirgi zamon: 'it rains', emas 'it will rain'." },
+      { t: "If it rain, we will go to your house. If not, to the cinema.", c: false, w: "'it' bilan 'rains' (uchinchi shaxs). 'rain' emas." },
+      { t: "If it rains, we will go to your house. If no, to cinema.", c: false, w: "'If not' (agar boʻlmasa) va 'the cinema' (artikl kerak)." }
+    ]}
+  ];
+
+  function canTakeExam() {
+    var done = Object.keys(state.lessons).length;
+    return done >= 10;
+  }
+
+  function buildExam() {
+    var host = document.getElementById("exambox");
+    if (!host) return;
+    host.innerHTML = "";
+
+    if (!canTakeExam()) {
+      var done = Object.keys(state.lessons).length;
+      host.innerHTML =
+        '<div class="exam-locked">' +
+          '<div class="big">🔒</div>' +
+          '<p><strong>Hamma 10 darsni tugating</strong></p>' +
+          '<p>Hozirgacha ' + done + ' / 10 dars tugallangan.</p>' +
+          '<p>Imtihon barcha darslarni tugatganingizdan keyin ochiladi.</p>' +
+        '</div>';
+      return;
+    }
+
+    var res = state.exam;
+    if (res && res.passed) {
+      host.innerHTML =
+        '<div class="exam-done">' +
+          '<div class="big">🏆</div>' +
+          '<h4>Tabriklaymiz!</h4>' +
+          '<p>Siz imtihondan muvaffaqiyatli oʻtdingiz: <strong>' + res.score + ' / ' + EXAM.length + '</strong></p>' +
+          '<p class="exam-uzs">💰 50 000 soʻm</p>' +
+          '<button class="again" type="button" id="examAgain">Qayta topshirish (+10 000 soʻm)</button>' +
+        '</div>';
+      document.getElementById("examAgain").addEventListener("click", startExam);
+      return;
+    }
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "cta";
+    btn.style.marginTop = ".6rem";
+    btn.textContent = "🎓 Imtihonni boshlash (20 ta savol)";
+    btn.addEventListener("click", startExam);
+    host.appendChild(btn);
+  }
+
+  function startExam() {
+    var host = document.getElementById("exambox");
+    if (!host) return;
+    host.innerHTML = "";
+
+    var answered = 0, correct = 0;
+
+    EXAM.forEach(function (q, qi) {
+      var item = document.createElement("div");
+      item.className = "qi";
+
+      var task = document.createElement("div");
+      task.className = "task";
+      task.textContent = q.task || "Inglizchaga oʻgiring:";
+      item.appendChild(task);
+
+      var prompt = document.createElement("div");
+      prompt.className = "prompt";
+      prompt.innerHTML = '<span class="n">' + (qi + 1) + ".</span>";
+      prompt.appendChild(document.createTextNode(q.prompt));
+      item.appendChild(prompt);
+
+      var opts = document.createElement("div");
+      opts.className = "opts";
+
+      var options = shuffled(q.options);
+
+      options.forEach(function (o) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        b.textContent = o.t;
+
+        b.addEventListener("click", function () {
+          if (item.dataset.done) return;
+          item.dataset.done = "1";
+          answered++;
+
+          Array.prototype.forEach.call(opts.children, function (other) {
+            other.disabled = true;
+            if (other !== b) other.classList.add("dim");
+          });
+
+          if (o.c) {
+            correct++;
+            b.classList.add("right");
+            b.innerHTML = '<span class="mark">✓</span>' + o.t;
+          } else {
+            b.classList.add("wrong");
+            b.innerHTML = '<span class="mark">✗</span>' + o.t;
+
+            Array.prototype.forEach.call(opts.children, function (other, i) {
+              if (options[i].c) {
+                other.classList.remove("dim");
+                other.classList.add("right");
+                other.innerHTML = '<span class="mark">✓</span>' + options[i].t;
+              }
+            });
+
+            if (o.w) {
+              var why = document.createElement("p");
+              why.className = "why";
+              why.innerHTML = "<b>Nega?</b> ";
+              why.appendChild(document.createTextNode(o.w));
+              item.appendChild(why);
+            }
+          }
+
+          if (answered === EXAM.length) finishExam(host, correct);
+        });
+
+        opts.appendChild(b);
+      });
+
+      item.appendChild(opts);
+      host.appendChild(item);
+    });
+  }
+
+  function finishExam(host, score) {
+    var total = EXAM.length;
+    var prev = state.exam;
+    var firstTime = !prev || !prev.passed;
+    var passed = score >= 14;  // 14/20 = 70% to pass
+
+    if (firstTime && passed) {
+      state.exam = { score: score, total: total, passed: true, date: today() };
+      state.uzs = (state.uzs || 0) + 50000;
+    } else if (passed) {
+      // Retake and passed again
+      state.exam = { score: score, total: total, passed: true, date: today() };
+      state.uzs = (state.uzs || 0) + 10000;
+    } else {
+      state.exam = { score: score, total: total, passed: false, date: today() };
+    }
+
+    save(state);
+
+    var box = document.createElement("div");
+    box.className = "result" + (passed ? "" : " thin");
+
+    var head, note, uzsLine;
+    if (passed && firstTime) {
+      head = "🏆 Aʼlo! Imtihondan oʻtdingiz!";
+      note = "Barcha 10 darsni mukammal egalladingiz.";
+      uzsLine = '<p class="exam-uzs">💰 +50 000 soʻm</p>';
+    } else if (passed) {
+      head = "Yana oʻtdingiz!";
+      note = "Yaxshi natija.";
+      uzsLine = '<p class="exam-uzs">💰 +10 000 soʻm</p>';
+    } else {
+      head = "Yana bir marta urinib koʻring";
+      note = "70% dan yuqori toʻgʻri javob (14/20) bilan oʻtasiz. Darslarni qayta koʻrib chiqing.";
+      uzsLine = '';
+    }
+
+    box.innerHTML =
+      '<div class="big">' + (passed ? '🏆' : '🌱') + '</div>' +
+      "<h4>" + head + "</h4>" +
+      '<p><span class="score">' + score + " / " + total + "</span> — " + note + "</p>" +
+      uzsLine;
+
+    var again = document.createElement("button");
+    again.type = "button";
+    again.className = "again";
+    again.textContent = "Qayta topshirish";
+    again.addEventListener("click", function () { buildExam(); });
+    box.appendChild(again);
+
+    host.appendChild(box);
+    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    renderGarden();
+    renderReview();
+  }
+
+  /* --------------------------------------------------------------- quiz */
+
   function mountQuizzes() {
     COURSE.forEach(function (lesson) {
       var section = document.getElementById("d" + lesson.id);
@@ -3047,6 +3401,7 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
   ready(function () {
     addSpeakButtons();
     mountQuizzes();
+    buildExam();
     renderGarden();
     renderReview();
     initVoicePicker();
@@ -3407,7 +3762,7 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
   }
 
   ready(function () {
-    host = document.getElementById("oyinbox");
+    var host = document.getElementById("oyinbox");
     if (!host) return;
     menu();
     document.addEventListener("noldan:progress", function () {
