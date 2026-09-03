@@ -459,6 +459,100 @@ footer p{margin-bottom:.5rem}
 }
 .again:hover{border-color:var(--blue);color:var(--blue)}
 
+/* ---------- interactive drilling ---------- */
+.drill-box{
+  background:var(--raised);border:1px solid var(--rule);
+  border-radius:12px;padding:1.1rem;margin-top:.7rem;margin-bottom:1.1rem;
+}
+.drill-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:.85rem;padding-bottom:.55rem;border-bottom:1px dotted var(--rule-2);
+}
+.drill-title{
+  font-family:var(--f-uz);font-size:.85rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.4rem;
+}
+.drill-controls{display:flex;align-items:center;gap:.6rem}
+.drill-toggle-btn{
+  background:none;border:1px solid var(--rule-2);border-radius:999px;
+  font-size:.78rem;padding:.22rem .6rem;color:var(--ink-2);cursor:pointer;
+  font-family:var(--f-uz);font-weight:600;
+  transition:border-color .12s, color .12s;
+}
+.drill-toggle-btn:hover{border-color:var(--blue);color:var(--blue)}
+.drill-progress-dots{display:flex;gap:5px;align-items:center}
+.drill-dot{width:8px;height:8px;border-radius:50%;background:var(--rule-2);transition:all .2s ease}
+.drill-dot.done{background:var(--green)}
+.drill-dot.active{background:var(--blue);transform:scale(1.3)}
+.drill-prompt-wrap{margin-bottom:.85rem}
+.drill-prompt-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:700}
+.drill-prompt-text{font-size:1.22rem;font-weight:600;color:var(--ink);margin-top:.2rem;line-height:1.4}
+.drill-slots-area{
+  min-height:3.3rem;padding:.5rem .65rem;border-radius:8px;
+  border:1.5px dashed var(--rule-2);background:rgba(0,0,0,0.02);
+  display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;
+  margin-bottom:.85rem;transition:border-color .15s, background .15s;
+}
+.drill-slots-area.is-correct{border-style:solid;border-color:var(--green);background:var(--green-soft)}
+.drill-slots-area.is-wrong{border-style:solid;border-color:var(--red);background:var(--red-soft)}
+.drill-empty-hint{font-size:.92rem;color:var(--ink-3);font-style:italic;padding-left:.3rem;user-select:none}
+.drill-bank{
+  display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.9rem;min-height:2.5rem;align-items:center;
+}
+.drill-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.42rem .85rem;font-family:var(--f-en);font-size:1.15rem;
+  background:var(--paper);color:var(--ink);
+  border:1px solid var(--rule-2);border-radius:999px;
+  cursor:pointer;user-select:none;transition:all .12s ease;line-height:1.25;
+  -webkit-tap-highlight-color:transparent;
+}
+.drill-chip:hover{border-color:var(--blue);transform:translateY(-1px)}
+.drill-chip:active{transform:translateY(1px)}
+.drill-chip.placed{background:var(--raised);border-color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.drill-chip.placed::after{content:" ×";font-size:.85rem;color:var(--ink-3);margin-left:.35rem}
+.drill-chip.used{opacity:0.2;cursor:default;pointer-events:none;border-style:dashed}
+.drill-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem}
+.drill-action-btns{display:flex;align-items:center;gap:.5rem}
+.drill-btn-check{
+  font-family:var(--f-uz);font-size:.88rem;font-weight:700;
+  padding:.48rem 1.05rem;border-radius:8px;border:none;
+  background:var(--blue);color:#fff;cursor:pointer;transition:opacity .15s;
+}
+.drill-btn-check:hover:not(:disabled){opacity:.9}
+.drill-btn-check:disabled{opacity:.45;cursor:default}
+.drill-btn-clear{
+  font-family:var(--f-uz);font-size:.84rem;font-weight:600;
+  padding:.45rem .8rem;border-radius:8px;border:1px solid var(--rule-2);
+  background:none;color:var(--ink-2);cursor:pointer;
+}
+.drill-btn-clear:hover{border-color:var(--rule);color:var(--ink)}
+.drill-btn-audio{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--f-uz);font-size:.84rem;font-weight:600;
+  padding:.45rem .85rem;border-radius:999px;border:1px solid var(--blue);
+  background:var(--blue-soft);color:var(--blue);cursor:pointer;
+}
+.drill-btn-audio:hover{filter:brightness(1.05)}
+.drill-btn-next{
+  font-family:var(--f-uz);font-size:.88rem;font-weight:700;
+  padding:.48rem 1.1rem;border-radius:8px;border:none;
+  background:var(--green);color:#fff;cursor:pointer;
+}
+.drill-btn-next:hover{opacity:.9}
+.drill-feedback{
+  margin-top:.65rem;padding:.55rem .8rem;border-radius:6px;
+  font-size:.94rem;line-height:1.45;display:none;
+}
+.drill-feedback.success{display:block;background:var(--green-soft);color:var(--green);font-weight:600}
+.drill-feedback.error{display:block;background:var(--red-soft);color:var(--red)}
+.drill-summary{
+  text-align:center;padding:1.4rem .5rem;
+}
+.drill-summary .big{font-size:2.5rem;margin-bottom:.4rem}
+.drill-summary h4{font-family:var(--f-display);font-size:1.3rem;margin:0 0 .4rem;color:var(--ink)}
+.drill-summary p{color:var(--ink-2);margin:0 0 1rem}
+
 /* ---------- vocabulary review ---------- */
 #takror .box{
   background:var(--raised);border:1px solid var(--rule);
@@ -3017,119 +3111,125 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
   /* --------------------------------------------------------------- final exam */
 
   var EXAM = [
-    { prompt: "Men va siz talabamiz.", task: "Inglizchaga oʻgiring:", options: [
-      { t: "You and I are students.", c: true, w: null },
-      { t: "I and you are students.", c: false, w: "Inglizchada odatda boshqalarni oldinga qoʻyamiz: You and I." },
-      { t: "You and I is students.", c: false, w: "Ikki kishi = koʻplik. Har doim 'are' boʻladi." },
-      { t: "We is students.", c: false, w: "'We' bilan 'are' kerak: We are students." }
+    { prompt: "Men shifokorman.", task: "Inglizchaga oʻgiring (1-dars):", options: [
+      { t: "I am a doctor.", c: true, w: null },
+      { t: "Am a doctor.", c: false, w: "Ega tushib qolgan. Ingliz tilida «I» har doim yoziladi." },
+      { t: "I am doctor.", c: false, w: "Artikl yoʻq. Kasb oldida «a» shart: a doctor." },
+      { t: "I doctor am.", c: false, w: "Bu oʻzbekcha soʻz tartibi. Inglizchada avval «I am» keladi." }
     ]},
-    { prompt: "U (ayol) shifokor. U (erkak) ham shifokor.", task: "Inglizchaga oʻgiring:", options: [
-      { t: "She is a doctor. He is a doctor too.", c: true, w: null },
-      { t: "He is a doctor. She is a doctor too.", c: false, w: "Birinchi gap ayol haqida. 'She' bilan boshlanishi kerak." },
-      { t: "She is doctor. He is doctor too.", c: false, w: "Kasb oldida 'a' artikli shart." },
-      { t: "She is a doctor. He is a doctor to.", c: false, w: "'to' emas, 'too' (ham)." }
+    { prompt: "Siz bu yerdasiz.", task: "Inglizchaga oʻgiring (1-dars):", options: [
+      { t: "You are here.", c: true, w: null },
+      { t: "You is here.", c: false, w: "«is» faqat he/she/it bilan. «you» bilan har doim «are»." },
+      { t: "You here are.", c: false, w: "Soʻz tartibi xato. Feʼl (are) egadan keyin darrov keladi." },
+      { t: "You are here from.", c: false, w: "«from» bu yerda ortiqcha — gapda «-dan» maʼnosi yoʻq." }
     ]},
-    { prompt: "Men bir talabaman. Talaba kitob oʻqiydi.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "I am a student. The student reads a book.", c: true, w: null },
-      { t: "I am the student. A student reads a book.", c: false, w: "Birinchi marta 'a student', keyin maʼlum talaba haqida 'the student'." },
-      { t: "I am a student. A student reads the book.", c: false, w: "Ikkinchi gapda 'kitob' umumiy, shuning uchun 'a book'." },
-      { t: "I am student. The student reads book.", c: false, w: "'a student' va 'a book' — artikllar kerak." }
+    { prompt: "U (ayol) mening singlim va u talaba.", task: "Inglizchaga oʻgiring (2-dars):", options: [
+      { t: "She is my sister and she is a student.", c: true, w: null },
+      { t: "He is my sister and he is a student.", c: false, w: "«sister» — ayol kishi. Ayol uchun «she» ishlatiladi." },
+      { t: "She is my sister and she a student.", c: false, w: "Ikkinchi gapda «is» feʼli tushib qolgan: she is a student." },
+      { t: "She my sister and she is student.", c: false, w: "Birinchi gapda «is», ikkinchisida «a» artikli tushib qolgan." }
     ]},
-    { prompt: "Uch kitob va ikkita daftar.", task: "Inglizchaga oʻgiring:", options: [
-      { t: "Three books and two notebooks.", c: true, w: null },
-      { t: "Three book and two notebook.", c: false, w: "Son birdan koʻp boʻlsa soʻzlar koʻplikda boʻladi: books, notebooks." },
-      { t: "Threes books and twos notebooks.", c: false, w: "Sonlar oʻzgaradi, soʻzlar koʻplikda boʻladi. 'Three' va 'two' qoladi." },
-      { t: "Three books and two notebookes.", c: false, w: "'notebook' koʻplikda 'notebooks' boʻladi, 'notebookes' emas." }
+    { prompt: "Biz talabamiz. Ular shifokorlar.", task: "Inglizchaga oʻgiring (2-dars):", options: [
+      { t: "We are students. They are doctors.", c: true, w: null },
+      { t: "We is students. They is doctors.", c: false, w: "«We» va «They» koʻplik — «is» emas, «are» boʻlishi shart." },
+      { t: "We are student. They are doctor.", c: false, w: "Koʻplikda otlarga ham «-s» qoʻshiladi: students, doctors." },
+      { t: "Us are students. Them are doctors.", c: false, w: "«Us» va «Them» ega boʻla olmaydi. Ega: We va They." }
     ]},
-    { prompt: "U inglizcha gapirmaydi. Siz gapirasizmi?", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "He doesn't speak English. Do you speak?", c: true, w: null },
-      { t: "He not speaks English. Do you speak?", c: false, w: "Inkor: does + not + fe'l (sizsiz). 'He doesn't speak'." },
-      { t: "He doesn't speaks English. Do you speak?", c: false, w: "'doesn't' dan keyin fe'l sizsiz: 'speak', emas 'speaks'." },
-      { t: "He doesn't speak English. Are you speak?", c: false, w: "Savolda 'do/does' kerak, 'are' emas: 'Do you speak?'" }
+    { prompt: "Bu olma. Olma yangi.", task: "Inglizchaga oʻgiring (ikki gap, 3-dars):", options: [
+      { t: "This is an apple. The apple is new.", c: true, w: null },
+      { t: "This is a apple. The apple is new.", c: false, w: "«apple» unli tovush bilan boshlanadi — «an apple» boʻladi." },
+      { t: "This is an apple. A apple is new.", c: false, w: "Ikkinchi marta maʼlum narsa haqida gapirganda «the» kerak." },
+      { t: "This is apple. Apple is new.", c: false, w: "Ikkala gapda ham artikllar tushib qolgan." }
     ]},
-    { prompt: "Bu nima? Bu mening kitobim.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "What is this? This is my book.", c: true, w: null },
-      { t: "What is that? This is my book.", c: false, w: "Birinchi gapda yaqin narsa haqida — 'this', uzoq narsa emas." },
-      { t: "What is this? It is my book.", c: false, w: "Toʻgʻri grammatik, lekin 'This is my book' tabiiyroq javob." },
-      { t: "What this is? This is my book.", c: false, w: "Savol tartibi: What + is + this?" }
+    { prompt: "Menda mashina bor. Oʻsha mashina eski.", task: "Inglizchaga oʻgiring (ikki gap, 3-dars):", options: [
+      { t: "I have a car. The car is old.", c: true, w: null },
+      { t: "I have the car. A car is old.", c: false, w: "Teskari: birinchi marta «a car», ikkinchi marta «the car»." },
+      { t: "I have a car. The car is an old.", c: false, w: "Sifat oʻzi kelganda oldiga «an» qoʻyilmaydi." },
+      { t: "I have car. Car is old.", c: false, w: "Birlikdagi sanaladigan otlar artiklsiz kelmaydi." }
     ]},
-    { prompt: "Yangi kichik uy, eski katta eshik.", task: "Inglizchaga oʻgiring:", options: [
-      { t: "A new small house, an old big door.", c: true, w: null },
-      { t: "A new small house, a old big door.", c: false, w: "'old' unli bilan boshlanadi, shuning uchun 'an old'." },
-      { t: "An new small house, an old big door.", c: false, w: "'new' undosh bilan boshlanadi, shuning uchun 'a new'." },
-      { t: "A new small house, a old big gate.", c: false, w: "'door' emas, 'gate' — soʻz xato. 'an old' ham kerak." }
+    { prompt: "Uchta quti va ikkita kitob.", task: "Inglizchaga oʻgiring (4-dars):", options: [
+      { t: "Three boxes and two books.", c: true, w: null },
+      { t: "Three box and two book.", c: false, w: "Ingliz tilida son birdan oshsa «-s / -es» qoʻshimchasi shart." },
+      { t: "Three boxs and two books.", c: false, w: "«-x» harfidan keyin «-es» qoʻshiladi: boxes." },
+      { t: "Three an boxes and two a books.", c: false, w: "Son bor joyda «a / an» artikli ishlatilmaydi." }
     ]},
-    { prompt: "Mening akamda ikkita mashina bor. Sizda ham bor.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "My brother has two cars. You have two too.", c: true, w: null },
-      { t: "My brother have two cars. You has two too.", c: false, w: "Uchinchi shaxs 'has', siz/yoki 'have'." },
-      { t: "My brother has two car. You have two too.", c: false, w: "'two' dan keyin koʻplik: 'cars'." },
-      { t: "My brother has two cars. You have two to.", c: false, w: "'too' (ham) emas, 'to' — ortiqcha soʻz." }
+    { prompt: "Ular bolalar. Ular bu yerda.", task: "Inglizchaga oʻgiring (ikki gap, 4-dars):", options: [
+      { t: "They are children. They are here.", c: true, w: null },
+      { t: "They are childrens. They are here.", c: false, w: "«children» allaqachon koʻplik. Unga «-s» qoʻshilmaydi." },
+      { t: "They are childs. They are here.", c: false, w: "«child» notoʻgʻri oʻzgaradi: toʻgʻrisi child → children." },
+      { t: "They is children. They is here.", c: false, w: "«they» bilan «is» emas, «are» ishlatiladi." }
     ]},
-    { prompt: "Uning mashinasi yangi. Meningki eski.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "His car is new. Mine is old.", c: true, w: null },
-      { t: "He car is new. My is old.", c: false, w: "'His car' (uning mashinasi) emas, 'He car' — xato. 'Mine' (meniki) emas, 'My'." },
-      { t: "His car is new. My car is old.", c: false, w: "Toʻgʻri, lekin 'Mine is old' qisqa va tabiiyroq." },
-      { t: "His car is new. Mine car is old.", c: false, w: "'Mine' oʻzida egalik olmosh. 'Mine car' emas, faqat 'Mine is old'." }
+    { prompt: "Men charchamaganman. Men tayyorman.", task: "Inglizchaga oʻgiring (ikki gap, 5-dars):", options: [
+      { t: "I am not tired. I am ready.", c: true, w: null },
+      { t: "I not tired. I ready.", c: false, w: "«am» tushib qolgan. Ingliz gapida «be» (am/is/are) shart." },
+      { t: "I don't tired. I am ready.", c: false, w: "Sifatlar bilan «don't» emas, «am not» ishlatiladi." },
+      { t: "I am no tired. I am ready.", c: false, w: "Inkor uchun «no» emas, «not» kerak: I am not tired." }
     ]},
-    { prompt: "Salom! Yaxshimisiz? Tanishganimdan xursandman.", task: "Inglizchaga oʻgiring (uch gap):", options: [
-      { t: "Hello! How are you? Nice to meet you.", c: true, w: null },
-      { t: "Hi! How are you? Nice to meet you too.", c: false, w: "'Nice to meet you too' javob, emas birinchi uchrashuvdagi salom." },
-      { t: "Hello! How do you do? Nice to meet you.", c: false, w: "'How do you do?' juda rasmiylashtirilgan. Oddiy 'How are you?' yaxshiroq." },
-      { t: "Hello! How is you? Nice to meet you.", c: false, w: "'How are you?' — 'is' emas, 'are'." }
+    { prompt: "Siz oʻqituvchimisiz? — Yoʻq, men talabaman.", task: "Inglizchaga oʻgiring (5-dars):", options: [
+      { t: "Are you a teacher? — No, I'm not. I am a student.", c: true, w: null },
+      { t: "You are a teacher? — No, I not. I am a student.", c: false, w: "Savolda «Are» oldinga chiqishi kerak: Are you a teacher?" },
+      { t: "Do you a teacher? — No, I don't. I am a student.", c: false, w: "Kasblar oldida «do» emas, «be» (Are you) ishlatiladi." },
+      { t: "Are you teacher? — No, I'm not. I am student.", c: false, w: "Kasb oldida «a» artikli tushib qolgan: a teacher, a student." }
     ]},
-    { prompt: "Men talaba emasman. Men oʻqituvchiman. Sizchi?", task: "Inglizchaga oʻgiring (uch gap):", options: [
-      { t: "I am not a student. I am a teacher. What about you?", c: true, w: null },
-      { t: "I not am a student. I am a teacher. What about you?", c: false, w: "Inkor: am + not. 'I am not', emas 'I not am'." },
-      { t: "I am not student. I am teacher. What about you?", c: false, w: "Kasb oldida artikl kerak: 'a student', 'a teacher'." },
-      { t: "I am not a student. I am a teacher. And you?", c: false, w: "'And you?' ham mumkin, lekin 'What about you?' aniqroq." }
+    { prompt: "Bular nima? — Bular kitoblar.", task: "Inglizchaga oʻgiring (6-dars):", options: [
+      { t: "What are these? — These are books.", c: true, w: null },
+      { t: "What is these? — These are books.", c: false, w: "«these» koʻplik boʻlgani uchun «is» emas, «are» boʻlishi kerak." },
+      { t: "What are this? — This are books.", c: false, w: "Koʻplik uchun «this» emas, «these» ishlatiladi." },
+      { t: "These are what? — These is books.", c: false, w: "Savol soʻzi (What) boshida turishi shart: What are these?" }
     ]},
-    { prompt: "Uning katta yangi uyida uchta xona bor.", task: "Inglizchaga oʻgiring:", options: [
-      { t: "There are three rooms in his big new house.", c: true, w: null },
-      { t: "There is three rooms in his big new house.", c: false, w: "'Three rooms' koʻplik — 'There are', emas 'There is'." },
-      { t: "There are three room in his big new house.", c: false, w: "'Three' dan keyin koʻplik: 'rooms'." },
-      { t: "There are three rooms in he big new house.", c: false, w: "'his' (uning) emas, 'he' (u) — egalik olmosh kerak." }
+    { prompt: "Bu mening yangi uyim. Ana u (uzoqdagi) doʻkon.", task: "Inglizchaga oʻgiring (ikki gap, 6-dars):", options: [
+      { t: "This is my new house. That is a shop.", c: true, w: null },
+      { t: "This is my new house. This is a shop.", c: false, w: "Uzoqdagi narsa uchun «this» emas, «that» (ana u) ishlatiladi." },
+      { t: "This is a my new house. That is shop.", c: false, w: "«my» bor joyda «a» qoʻyilmaydi, lekin ikkinchi gapda «a shop» kerak." },
+      { t: "This my new house. That a shop.", c: false, w: "Ikkala gapda ham «is» feʼli tushib qolgan." }
     ]},
-    { prompt: "Bu yerda yaxshi kitoblar bormi? Ha, bir nechta.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "Are there any good books here? Yes, a few.", c: true, w: null },
-      { t: "Is there any good books here? Yes, a few.", c: false, w: "'books' koʻplik — 'Are there', emas 'Is there'." },
-      { t: "Are there some good books here? Yes, a few.", c: false, w: "Savolda 'any' ishlatiladi, 'some' emas." },
-      { t: "Are there any good book here? Yes, a few.", c: false, w: "'book' emas, 'books' — koʻplik." }
+    { prompt: "Katta yangi doʻkon va eski uy.", task: "Inglizchaga oʻgiring (7-dars):", options: [
+      { t: "A big new shop and an old house.", c: true, w: null },
+      { t: "A big new shop and a old house.", c: false, w: "«old» unli tovush bilan boshlanadi — «an old house» boʻladi." },
+      { t: "A shop big new and a house old.", c: false, w: "Ingliz tilida sifatlar otdan oldin keladi: big new shop, old house." },
+      { t: "Big new shop and old house.", c: false, w: "Sanaladigan birlik otlar oldida «a / an» artikli shart." }
     ]},
-    { prompt: "Men kecha bu yerda edim. U ham.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "I was here yesterday. He was too.", c: true, w: null },
-      { t: "I were here yesterday. He was too.", c: false, w: "'I' bilan 'was', emas 'were'." },
-      { t: "I was here yesterday. He were too.", c: false, w: "'He' bilan 'was', emas 'were'." },
-      { t: "I am here yesterday. He is too.", c: false, w: "Kecha uchun 'was/were' kerak, emas 'am/is'." }
+    { prompt: "Bu suv juda sovuq. Men och emasman.", task: "Inglizchaga oʻgiring (ikki gap, 7-dars):", options: [
+      { t: "This water is very cold. I am not hungry.", c: true, w: null },
+      { t: "This water is very cold. I have not hungry.", c: false, w: "Qorin ochligi «have» bilan emas, «be» bilan aytiladi: I am not hungry." },
+      { t: "This water is cold very. I am not hungry.", c: false, w: "«very» sifatdan oldin keladi: very cold." },
+      { t: "This water very cold. I not hungry.", c: false, w: "Ikkala gapda ham «is» va «am» tushib qolgan." }
     ]},
-    { prompt: "Men ertaga ishlamayman. Dam olmoqchiman.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "I am not going to work tomorrow. I want to rest.", c: true, w: null },
-      { t: "I don't going to work tomorrow. I want to rest.", c: false, w: "'going to' bilan 'am' kerak: 'I am not going to'." },
-      { t: "I am not going to work tomorrow. I want rest.", c: false, w: "'want to rest' — 'to' kerak." },
-      { t: "I not will work tomorrow. I want to rest.", c: false, w: "'will not work' yoki 'am not going to work'. 'I not will' xato." }
+    { prompt: "Mening akamda yangi mashina bor. Uning ishi bor.", task: "Inglizchaga oʻgiring (ikki gap, 8-dars):", options: [
+      { t: "My brother has a new car. He has a job.", c: true, w: null },
+      { t: "My brother have a new car. He have a job.", c: false, w: "Uchinchi shaxs (brother / he) bilan «have» emas, «has» ishlatiladi." },
+      { t: "My brother has new car. He has job.", c: false, w: "«car» va «job» oldida «a» artikli tushib qolgan: a new car, a job." },
+      { t: "In my brother is a new car. He is a job.", c: false, w: "«Menda bor» inglizchada «have / has» bilan yasaladi, «in ... is» deyilmaydi." }
     ]},
-    { prompt: "Sizning uyINGIZ kattami YOKI meniki?", task: "Inglizchaga oʻgiring:", options: [
-      { t: "Is your house bigger than mine?", c: true, w: null },
-      { t: "Your house is bigger than mine?", c: false, w: "Bu gap emas, savol. 'Is' boshida kelishi kerak." },
-      { t: "Is your house big than mine?", c: false, w: "'big' emas, taqqoslash 'bigger' kerak." },
-      { t: "Is your house bigger than my?", c: false, w: "'my' (mening) emas, 'mine' (meniki) kerak." }
+    { prompt: "Menda vaqt yoʻq. Sizda pul bormi?", task: "Inglizchaga oʻgiring (ikki gap, 8-dars):", options: [
+      { t: "I don't have time. Do you have money?", c: true, w: null },
+      { t: "I doesn't have time. Does you have money?", c: false, w: "«I» va «you» bilan «doesn't/does» emas, «don't/do» ishlatiladi." },
+      { t: "I not have time. Have you money?", c: false, w: "Inkor va savolda «don't» va «Do you have» ishlatiladi." },
+      { t: "I don't have a time. Do you have a money?", c: false, w: "«time» va «money» bu maʼnoda sanalmaydi — ularga «a» qoʻyilmaydi." }
     ]},
-    { prompt: "U qayerdan? U Londondan, lekin hozir Toshkentda yashaydi.", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "Where is he from? He is from London, but he lives in Tashkent now.", c: true, w: null },
-      { t: "Where he is from? He is from London, but he lives in Tashkent now.", c: false, w: "Savol tartibi: Where + is + he?" },
-      { t: "Where is he from? He from London, but he lives in Tashkent now.", c: false, w: "'He is from' — 'is' tushib qolgan." },
-      { t: "Where is he from? He is from London, but he live in Tashkent now.", c: false, w: "'he' bilan 'lives' (u yashaydi). 'live' emas." }
+    { prompt: "Bu uning onasi (erkakning) va bu uning eri (ayolning).", task: "Inglizchaga oʻgiring (ikki gap, 9-dars):", options: [
+      { t: "This is his mother and this is her husband.", c: true, w: null },
+      { t: "This is her mother and this is his husband.", c: false, w: "Egalik egasining jinsiga qarab olinadi: erkakniki «his», ayolniki «her»." },
+      { t: "This is he mother and this is she husband.", c: false, w: "«he» va «she» ega olmoshlari. Egalik shakli: his va her." },
+      { t: "This is his a mother and this is her a husband.", c: false, w: "Egalik soʻzi (his, her) bor joyda «a» artikli qoʻyilmaydi." }
     ]},
-    { prompt: "Men soat 8 da ishga bordim. Kech qoldim!", task: "Inglizchaga oʻgiring (ikki gap):", options: [
-      { t: "I went to work at 8 o'clock. I was late!", c: true, w: null },
-      { t: "I go to work at 8 o'clock. I was late!", c: false, w: "Kechagi ish — 'went' (oʻtgan zamon), emas 'go'." },
-      { t: "I went to work at 8 o'clock. I am late!", c: false, w: "Kech qoldim — kechagisi. 'I was late', emas 'I am late'." },
-      { t: "I went to work in 8 o'clock. I was late!", c: false, w: "Vaqt oldida 'at' ishlatiladi: 'at 8 o'clock', emas 'in 8 o'clock'." }
+    { prompt: "Azizaning uyi katta. Bizning bolalarimiz u yerda.", task: "Inglizchaga oʻgiring (ikki gap, 9-dars):", options: [
+      { t: "Aziza's house is big. Our children are there.", c: true, w: null },
+      { t: "Aziza house is big. We children are there.", c: false, w: "«'s» qoʻshimchasi tushib qolgan va «we» emas «our» (bizning) kerak." },
+      { t: "The house of Aziza is big. Our childrens are there.", c: false, w: "Odam nomiga «'s» qoʻyiladi (Aziza's house) va «children»ga «-s» qoʻshilmaydi." },
+      { t: "Aziza's house is big. Our children is there.", c: false, w: "«children» koʻplik — «is» emas, «are» ishlatiladi." }
     ]},
-    { prompt: "Agar yomgʻir yogʻsa, biz uyingizga boramiz. Agar boʻlmasa, kinoga.", task: "Inglizchaga oʻgiring:", options: [
-      { t: "If it rains, we will go to your house. If not, to the cinema.", c: true, w: null },
-      { t: "If it will rain, we go to your house. If not, to the cinema.", c: false, w: "'If' gapida birinchi qism hozirgi zamon: 'it rains', emas 'it will rain'." },
-      { t: "If it rain, we will go to your house. If not, to the cinema.", c: false, w: "'it' bilan 'rains' (uchinchi shaxs). 'rain' emas." },
-      { t: "If it rains, we will go to your house. If no, to cinema.", c: false, w: "'If not' (agar boʻlmasa) va 'the cinema' (artikl kerak)." }
+    { prompt: "Salom! Tanishganimdan xursandman. Siz qayerdansiz?", task: "Inglizchaga oʻgiring (10-dars):", options: [
+      { t: "Hello! Nice to meet you. Where are you from?", c: true, w: null },
+      { t: "Hello! Nice to meet you. Where you are from?", c: false, w: "Savol tartibi: Where + are + you + from?" },
+      { t: "Hello! Nice to meet you. Where are you?", c: false, w: "«from» tushib qolgan — bu «Qayerdasiz?» degani, «Qayerdansiz?» emas." },
+      { t: "Hello! Nice meet you. From where are you?", c: false, w: "Iboraning toʻgʻrisi: «Nice to meet you» va «Where are you from?»." }
+    ]},
+    { prompt: "Bu olmalar qancha? — Ular ikki dollar.", task: "Inglizchaga oʻgiring (10-dars):", options: [
+      { t: "How much are these apples? — They are two dollars.", c: true, w: null },
+      { t: "How much is these apples? — They are two dollars.", c: false, w: "«these apples» koʻplik boʻlgani uchun «is» emas, «are» kerak." },
+      { t: "How much are this apples? — It is two dollars.", c: false, w: "«apples» koʻplik — «this» emas «these», «it is» emas «they are»." },
+      { t: "How many are these apples? — They are two dollar.", c: false, w: "Narx soʻraganda «How much», va ikkitadan ortiq boʻlsa «dollars» deyiladi." }
     ]}
   ];
 
@@ -3314,6 +3414,370 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
     renderReview();
   }
 
+  /* ----------------------------------------------------------- sentence drills */
+
+  var DRILLS = {
+    1: [
+      { q: "Men shifokorman.", a: "I am a doctor.", words: ["I", "am", "a", "doctor."], hint: "Inglizchada ega (I) + feʼl (am) + artikl (a) + doctor." },
+      { q: "Siz talabasiz.", a: "You are a student.", words: ["You", "are", "a", "student."], hint: "You + are + a student." },
+      { q: "Men Oʻzbekistondanman.", a: "I am from Uzbekistan.", words: ["I", "am", "from", "Uzbekistan."], hint: "I am + from + Uzbekistan." },
+      { q: "Siz oʻqituvchisiz.", a: "You are a teacher.", words: ["You", "are", "a", "teacher."], hint: "You are + a teacher." },
+      { q: "Men bu yerdaman.", a: "I am here.", words: ["I", "am", "here."], hint: "Ingliz gapida «am» tushib qolmaydi: I am here." },
+      { q: "Men talabaman. (qisqartirib)", a: "I'm a student.", words: ["I'm", "a", "student."], hint: "«I am» qisqartmasi: I'm." }
+    ],
+    2: [
+      { q: "U (erkak) bu yerda.", a: "He is here.", words: ["He", "is", "here."], hint: "Erkak kishi uchun «he» va «is»." },
+      { q: "U (ayol) oʻqituvchi.", a: "She is a teacher.", words: ["She", "is", "a", "teacher."], hint: "Ayol kishi uchun «she» va «a teacher»." },
+      { q: "Kitob bu yerda.", a: "It is here.", words: ["It", "is", "here."], hint: "Narsa (kitob) uchun «it» olmoshi." },
+      { q: "Biz talabamiz.", a: "We are students.", words: ["We", "are", "students."], hint: "We are + students (koʻplik)." },
+      { q: "Ular Oʻzbekistondan.", a: "They are from Uzbekistan.", words: ["They", "are", "from", "Uzbekistan."], hint: "They are + from Uzbekistan." },
+      { q: "U (akam) shifokor.", a: "He is a doctor.", words: ["He", "is", "a", "doctor."], hint: "He is + a doctor." }
+    ],
+    3: [
+      { q: "Men oʻqituvchiman.", a: "I am a teacher.", words: ["I", "am", "a", "teacher."], hint: "Undosh tovush oldidan «a»: a teacher." },
+      { q: "Bu olma.", a: "This is an apple.", words: ["This", "is", "an", "apple."], hint: "Unli tovush oldidan «an»: an apple." },
+      { q: "U (ayol) talaba.", a: "She is a student.", words: ["She", "is", "a", "student."], hint: "She is + a student." },
+      { q: "Bu tuxum.", a: "It is an egg.", words: ["It", "is", "an", "egg."], hint: "Unli tovush oldidan «an egg»." },
+      { q: "Bu doʻkon.", a: "This is a shop.", words: ["This", "is", "a", "shop."], hint: "This is + a shop." },
+      { q: "Menda uy bor. Oʻsha uy eski.", a: "I have a house. The house is old.", words: ["I", "have", "a", "house.", "The", "house", "is", "old."], hint: "Birinchi marta «a house», ikkinchi marta «The house»." }
+    ],
+    4: [
+      { q: "Ikkita stul.", a: "Two chairs.", words: ["Two", "chairs."], hint: "Son birdan oshsa otga «-s» qoʻshiladi: chairs." },
+      { q: "Uchta quti.", a: "Three boxes.", words: ["Three", "boxes."], hint: "«-x» dan keyin «-es» qoʻshiladi: boxes." },
+      { q: "Ikkita shahar.", a: "Two cities.", words: ["Two", "cities."], hint: "Undoshdan keyingi «-y» harfi «-ies» boʻladi: cities." },
+      { q: "Ikkita ayol.", a: "Two women.", words: ["Two", "women."], hint: "«woman» koʻpligi: women." },
+      { q: "Uchta olma.", a: "Three apples.", words: ["Three", "apples."], hint: "Son otdan oldin keladi: Three apples." },
+      { q: "Kitoblar bu yerda.", a: "The books are here.", words: ["The", "books", "are", "here."], hint: "Koʻplik ot bilan «is» emas, «are»: The books are here." }
+    ],
+    5: [
+      { q: "Men charchamaganman.", a: "I am not tired.", words: ["I", "am", "not", "tired."], hint: "Inkor: am + not tired." },
+      { q: "U (erkak) uyda emas.", a: "He isn't at home.", words: ["He", "isn't", "at", "home."], hint: "He + isn't + at home." },
+      { q: "Siz oʻqituvchimisiz?", a: "Are you a teacher?", words: ["Are", "you", "a", "teacher?"], hint: "Savolda «Are» oldinga chiqadi: Are you...?" },
+      { q: "U singlingizmi?", a: "Is she your sister?", words: ["Is", "she", "your", "sister?"], hint: "Savolda «Is» birinchi keladi: Is she...?" },
+      { q: "Ular tayyormi? — Ha.", a: "Are they ready? Yes, they are.", words: ["Are", "they", "ready?", "Yes,", "they", "are."], hint: "Qisqa javobda qisqartirilmaydi: Yes, they are." },
+      { q: "Siz ishdamisiz? — Yoʻq.", a: "Are you at work? No, I'm not.", words: ["Are", "you", "at", "work?", "No,", "I'm", "not."], hint: "Qisqa javob: No, I'm not." }
+    ],
+    6: [
+      { q: "Bu eshik.", a: "This is a door.", words: ["This", "is", "a", "door."], hint: "Yaqindagi bitta narsa: This is a door." },
+      { q: "Bular kitoblar.", a: "These are books.", words: ["These", "are", "books."], hint: "Yaqindagi koʻplik narsalar: These are books." },
+      { q: "U (uzoqdagi) stol.", a: "That is a table.", words: ["That", "is", "a", "table."], hint: "Uzoqdagi narsa: That is a table." },
+      { q: "Bu nima? — Bu suv.", a: "What is this? It is water.", words: ["What", "is", "this?", "It", "is", "water."], hint: "Suv sanalmaydi, artikl qoʻyilmaydi." },
+      { q: "Bu kim? — Bu mening erim.", a: "Who is this? This is my husband.", words: ["Who", "is", "this?", "This", "is", "my", "husband."], hint: "Odam haqida soʻralganda «Who»: Who is this?" },
+      { q: "Bular nima? — Bular sabzilar.", a: "What are these? They are carrots.", words: ["What", "are", "these?", "They", "are", "carrots."], hint: "Koʻplikda: What are these? They are carrots." }
+    ],
+    7: [
+      { q: "Katta doʻkon.", a: "A big shop.", words: ["A", "big", "shop."], hint: "Sifat otdan oldin keladi: a big shop." },
+      { q: "Suv issiq.", a: "The water is hot.", words: ["The", "water", "is", "hot."], hint: "The water + is + hot." },
+      { q: "Bu juda qimmat.", a: "This is very expensive.", words: ["This", "is", "very", "expensive."], hint: "«very» sifatdan oldin keladi: very expensive." },
+      { q: "Men xursandman.", a: "I am happy.", words: ["I", "am", "happy."], hint: "Holat «be» bilan aytiladi: I am happy." },
+      { q: "Ikkita eski kitob.", a: "Two old books.", words: ["Two", "old", "books."], hint: "Sifat hech qachon koʻplikka oʻtmaydi: two old books." },
+      { q: "Men 27 yoshdaman.", a: "I am 27 years old.", words: ["I", "am", "27", "years", "old."], hint: "Yosh «have» bilan emas, «be» bilan aytiladi: I am 27 years old." }
+    ],
+    8: [
+      { q: "Menda pul bor.", a: "I have money.", words: ["I", "have", "money."], hint: "«Menda bor» = I have. «money» sanalmaydi." },
+      { q: "Uning ishi bor. (erkak)", a: "He has a job.", words: ["He", "has", "a", "job."], hint: "«he» bilan «has» ishlatiladi." },
+      { q: "Bizning uyimiz bor.", a: "We have a house.", words: ["We", "have", "a", "house."], hint: "We have + a house." },
+      { q: "Menda vaqt yoʻq.", a: "I don't have time.", words: ["I", "don't", "have", "time."], hint: "Inkor shakli: I don't have time." },
+      { q: "Sizda mashina bormi?", a: "Do you have a car?", words: ["Do", "you", "have", "a", "car?"], hint: "Savolda «Do» oldinga chiqadi: Do you have a car?" },
+      { q: "Uning bolalari bormi? (ayol)", a: "Does she have children?", words: ["Does", "she", "have", "children?"], hint: "«does» bor joyda «have» oʻzgarmaydi: Does she have...?" }
+    ],
+    9: [
+      { q: "Mening oilam.", a: "My family.", words: ["My", "family."], hint: "Egalik soʻzi otdan oldin: my family." },
+      { q: "Bu uning onasi. (erkakning)", a: "This is his mother.", words: ["This", "is", "his", "mother."], hint: "Erkak egasiga nisbatan «his mother»." },
+      { q: "Bu uning eri. (ayolning)", a: "This is her husband.", words: ["This", "is", "her", "husband."], hint: "Ayol egasiga nisbatan «her husband»." },
+      { q: "Sizning ismingiz nima?", a: "What is your name?", words: ["What", "is", "your", "name?"], hint: "Savol: What is your name?" },
+      { q: "Azizaning uyi katta.", a: "Aziza's house is big.", words: ["Aziza's", "house", "is", "big."], hint: "Odam nomiga «'s» qoʻshiladi: Aziza's house." },
+      { q: "Bizning bolalarimiz uyda.", a: "Our children are at home.", words: ["Our", "children", "are", "at", "home."], hint: "Our children + are + at home." }
+    ],
+    10: [
+      { q: "Mening ismim Aziza.", a: "My name is Aziza.", words: ["My", "name", "is", "Aziza."], hint: "Gapda «is» feʼli shart: My name is Aziza." },
+      { q: "Men oʻqituvchiman, shifokor emasman.", a: "I am a teacher, not a doctor.", words: ["I", "am", "a", "teacher,", "not", "a", "doctor."], hint: "I am a teacher, not a doctor." },
+      { q: "U mening erim. U bu yerda emas.", a: "He is my husband. He isn't here.", words: ["He", "is", "my", "husband.", "He", "isn't", "here."], hint: "He is my husband. He isn't here." },
+      { q: "Bular olmalar. Ular arzon.", a: "These are apples. They are cheap.", words: ["These", "are", "apples.", "They", "are", "cheap."], hint: "These are apples. They are cheap." },
+      { q: "Sizda vaqt bormi?", a: "Do you have time?", words: ["Do", "you", "have", "time?"], hint: "Do you have time?" },
+      { q: "Uning ikkita bolasi bor. (ayol)", a: "She has two children.", words: ["She", "has", "two", "children."], hint: "She has two children." }
+    ]
+  };
+
+  function buildDrill(host, lessonId) {
+    var items = DRILLS[lessonId];
+    if (!items || !items.length) return;
+
+    var cur = 0;
+    var completed = [];
+
+    function cleanWord(str) {
+      return String(str || "").trim().toLowerCase().replace(/[^a-z0-9']/g, "");
+    }
+
+    function render(idx) {
+      host.innerHTML = "";
+
+      if (idx >= items.length) {
+        state.drills = state.drills || {};
+        state.drills[lessonId] = true;
+        save(state);
+
+        var doneBox = document.createElement("div");
+        doneBox.className = "drill-summary";
+        doneBox.innerHTML =
+          '<div class="big">🎉</div>' +
+          '<h4>Ajoyib! Barcha mashqlar bajarildi!</h4>' +
+          '<p>Siz bu darsdagi barcha 6 ta gapni muvaffaqiyatli tuzdingiz.</p>' +
+          '<button class="again" type="button" id="drillRestart">Qaytadan mashq qilish</button>';
+        host.appendChild(doneBox);
+        doneBox.querySelector("#drillRestart").addEventListener("click", function () {
+          cur = 0;
+          completed = [];
+          render(0);
+        });
+        return;
+      }
+
+      var item = items[idx];
+      var placed = [];
+
+      // Header with title, step counter, progress dots, and list toggle
+      var header = document.createElement("div");
+      header.className = "drill-header";
+
+      var title = document.createElement("div");
+      title.className = "drill-title";
+      title.innerHTML = '<span>🎯 Gap tuzish mashqi</span> <span style="color:var(--ink-3);font-size:.8rem;">(' + (idx + 1) + '/' + items.length + ')</span>';
+      header.appendChild(title);
+
+      var controls = document.createElement("div");
+      controls.className = "drill-controls";
+
+      var dots = document.createElement("div");
+      dots.className = "drill-progress-dots";
+      for (var d = 0; d < items.length; d++) {
+        var dot = document.createElement("span");
+        dot.className = "drill-dot" + (completed[d] ? " done" : "") + (d === idx ? " active" : "");
+        dots.appendChild(dot);
+      }
+      controls.appendChild(dots);
+
+      var listToggle = document.createElement("button");
+      listToggle.type = "button";
+      listToggle.className = "drill-toggle-btn";
+      listToggle.textContent = "📋 Roʻyxat";
+      listToggle.title = "Mashqlar roʻyxatini ochish/yopish";
+      listToggle.addEventListener("click", function () {
+        var sec = host.closest("section");
+        if (!sec) return;
+        var exList = sec.querySelector("ol.ex");
+        if (!exList) return;
+        var isHidden = exList.style.display === "none" || !exList.style.display;
+        exList.style.display = isHidden ? "block" : "none";
+        listToggle.textContent = isHidden ? "✕ Yopish" : "📋 Roʻyxat";
+      });
+      controls.appendChild(listToggle);
+
+      header.appendChild(controls);
+      host.appendChild(header);
+
+      // Prompt section
+      var promptWrap = document.createElement("div");
+      promptWrap.className = "drill-prompt-wrap";
+
+      var pLabel = document.createElement("div");
+      pLabel.className = "drill-prompt-label";
+      pLabel.textContent = "Oʻzbekcha gapni inglizchada tering:";
+      promptWrap.appendChild(pLabel);
+
+      var pText = document.createElement("div");
+      pText.className = "drill-prompt-text";
+      pText.textContent = item.q;
+      promptWrap.appendChild(pText);
+      host.appendChild(promptWrap);
+
+      // Slots area (where placed words appear)
+      var slots = document.createElement("div");
+      slots.className = "drill-slots-area";
+      host.appendChild(slots);
+
+      // Word bank (shuffled chips)
+      var bank = document.createElement("div");
+      bank.className = "drill-bank";
+      host.appendChild(bank);
+
+      // Feedback area
+      var fb = document.createElement("div");
+      fb.className = "drill-feedback";
+      host.appendChild(fb);
+
+      // Actions row
+      var actions = document.createElement("div");
+      actions.className = "drill-actions";
+
+      var actionBtns = document.createElement("div");
+      actionBtns.className = "drill-action-btns";
+
+      var clearBtn = document.createElement("button");
+      clearBtn.type = "button";
+      clearBtn.className = "drill-btn-clear";
+      clearBtn.textContent = "↺ Tozalash";
+
+      var checkBtn = document.createElement("button");
+      checkBtn.type = "button";
+      checkBtn.className = "drill-btn-check";
+      checkBtn.textContent = "Tekshirish";
+
+      var audioBtn = document.createElement("button");
+      audioBtn.type = "button";
+      audioBtn.className = "drill-btn-audio";
+      audioBtn.innerHTML = '🔊 <span>Tinglash</span>';
+      audioBtn.style.display = "none";
+      audioBtn.addEventListener("click", function () {
+        speak(item.a);
+      });
+
+      actionBtns.appendChild(checkBtn);
+      actionBtns.appendChild(clearBtn);
+      actionBtns.appendChild(audioBtn);
+      actions.appendChild(actionBtns);
+
+      var nextBtn = document.createElement("button");
+      nextBtn.type = "button";
+      nextBtn.className = "drill-btn-next";
+      nextBtn.textContent = (idx + 1 === items.length) ? "Tugatish 🎉" : "Keyingisi →";
+      nextBtn.style.display = "none";
+      nextBtn.addEventListener("click", function () {
+        cur++;
+        render(cur);
+      });
+      actions.appendChild(nextBtn);
+
+      host.appendChild(actions);
+
+      // Token pool
+      var tokens = item.words.map(function (w, i) {
+        return { uid: i + "-" + w, text: w };
+      });
+      var shuffledTokens = shuffled(tokens);
+
+      function updateSlots() {
+        slots.innerHTML = "";
+        if (!placed.length) {
+          slots.innerHTML = '<span class="drill-empty-hint">Pastdagi soʻzlarni toʻgʻri tartibda bosing...</span>';
+          checkBtn.disabled = true;
+          return;
+        }
+        checkBtn.disabled = false;
+
+        placed.forEach(function (tok, pIdx) {
+          var chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "drill-chip placed";
+          chip.textContent = tok.text;
+          chip.addEventListener("click", function () {
+            // Remove from placed, restore in bank
+            placed.splice(pIdx, 1);
+            slots.classList.remove("is-correct", "is-wrong");
+            fb.style.display = "none";
+            updateSlots();
+            updateBank();
+          });
+          slots.appendChild(chip);
+        });
+      }
+
+      function updateBank() {
+        bank.innerHTML = "";
+        shuffledTokens.forEach(function (tok) {
+          var isUsed = placed.some(function (p) { return p.uid === tok.uid; });
+          var chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "drill-chip" + (isUsed ? " used" : "");
+          chip.textContent = tok.text;
+          if (!isUsed) {
+            chip.addEventListener("click", function () {
+              placed.push(tok);
+              slots.classList.remove("is-correct", "is-wrong");
+              fb.style.display = "none";
+              updateSlots();
+              updateBank();
+
+              // Auto-check if all words placed
+              if (placed.length === item.words.length) {
+                checkAnswer();
+              }
+            });
+          }
+          bank.appendChild(chip);
+        });
+      }
+
+      function checkAnswer() {
+        var userStr = placed.map(function (p) { return cleanWord(p.text); }).join(" ");
+        var targetStr = item.words.map(function (w) { return cleanWord(w); }).join(" ");
+
+        if (userStr === targetStr) {
+          slots.classList.remove("is-wrong");
+          slots.classList.add("is-correct");
+          fb.className = "drill-feedback success";
+          fb.textContent = "✓ Barakalla! Toʻgʻri tuzildi.";
+          completed[idx] = true;
+
+          // Play audio pronunciation
+          speak(item.a);
+
+          // Reveal audio replay button and next button
+          audioBtn.style.display = "inline-flex";
+          nextBtn.style.display = "inline-block";
+          checkBtn.style.display = "none";
+          clearBtn.style.display = "none";
+
+          // Disable further clicks on placed chips
+          Array.prototype.forEach.call(slots.children, function (c) {
+            c.style.pointerEvents = "none";
+          });
+        } else {
+          slots.classList.remove("is-correct");
+          slots.classList.add("is-wrong");
+          fb.className = "drill-feedback error";
+          fb.innerHTML = "✗ Soʻz tartibi xato. " + (item.hint ? ("<b>Maslahat:</b> " + item.hint) : "Qaytadan urinib koʻring.");
+        }
+      }
+
+      checkBtn.addEventListener("click", checkAnswer);
+
+      clearBtn.addEventListener("click", function () {
+        placed = [];
+        slots.classList.remove("is-correct", "is-wrong");
+        fb.style.display = "none";
+        updateSlots();
+        updateBank();
+      });
+
+      updateSlots();
+      updateBank();
+    }
+
+    render(0);
+  }
+
+  function mountDrills() {
+    COURSE.forEach(function (lesson) {
+      var section = document.getElementById("d" + lesson.id);
+      if (!section) return;
+      var exhead = section.querySelector(".exhead");
+      var exList = section.querySelector("ol.ex");
+      if (!exhead || !exList) return;
+
+      // Collapse the static list by default to spotlight interactive drilling
+      exList.style.display = "none";
+
+      var drillHost = document.createElement("div");
+      drillHost.className = "drill-box";
+      drillHost.id = "drill-host-" + lesson.id;
+      exList.parentNode.insertBefore(drillHost, exList);
+
+      buildDrill(drillHost, lesson.id);
+    });
+  }
+
   /* --------------------------------------------------------------- quiz */
 
   function mountQuizzes() {
@@ -3400,6 +3864,7 @@ var COURSE = [{"id":1,"flower":"./01_kungaboqar.png","fname":"Kungaboqar","title
 
   ready(function () {
     addSpeakButtons();
+    mountDrills();
     mountQuizzes();
     buildExam();
     renderGarden();
