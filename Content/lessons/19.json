@@ -1,0 +1,251 @@
+{
+  "id": 19,
+  "title": "in · on · at · Soat",
+  "subtitle": "in · on · at · Soat aytish",
+  "flower": "🌿",
+  "words": [
+    {
+      "en": "at",
+      "pron": "ET",
+      "uz": "da (aniq vaqt yoki joyda)"
+    },
+    {
+      "en": "in",
+      "pron": "IN",
+      "uz": "ichida, da (shahar, fasl, oylarda)"
+    },
+    {
+      "en": "on",
+      "pron": "ON",
+      "uz": "ustida, da (kunlar, sanalarda)"
+    },
+    {
+      "en": "o'clock",
+      "pron": "e-KLOK",
+      "uz": "soat (aniq soatda)"
+    },
+    {
+      "en": "half past",
+      "pron": "HAAF past",
+      "uz": "yarimta oʻtdi"
+    },
+    {
+      "en": "quarter past",
+      "pron": "KUOR-ter past",
+      "uz": "oʻn besh daqiqa oʻtdi"
+    },
+    {
+      "en": "quarter to",
+      "pron": "KUOR-ter tu",
+      "uz": "oʻn besh daqiqa kam"
+    },
+    {
+      "en": "Monday",
+      "pron": "MAN-dey",
+      "uz": "dushanba"
+    },
+    {
+      "en": "Friday",
+      "pron": "FRAY-dey",
+      "uz": "juma"
+    },
+    {
+      "en": "tomorrow",
+      "pron": "te-MO-rou",
+      "uz": "ertaga"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Vaqt predloglari:\n• <b>at</b> — aniq soat bilan (at 8 o'clock)\n• <b>on</b> — hafta kunlari bilan (on Monday)\n• <b>in</b> — fasl, oy, shahar bilan (in Tashkent)",
+      "examples": [
+        {
+          "uz": "Dars soat 8 da boshlanadi.",
+          "en": "The lesson starts at 8 o'clock."
+        },
+        {
+          "uz": "Biz juma kuni uchrashamiz.",
+          "en": "We meet on Friday."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "The lesson starts at 8 o'clock.",
+      "uz": "Dars soat 8 da boshlanadi."
+    },
+    {
+      "en": "We meet on Friday.",
+      "uz": "Biz juma kuni uchrashamiz."
+    },
+    {
+      "en": "He is at work now.",
+      "uz": "U (erkak) hozir ishda."
+    },
+    {
+      "en": "I read a book in the morning.",
+      "uz": "Ertalab kitob oʻqiyman."
+    }
+  ],
+  "warning": {
+    "body": "Hafta kunlari katta harf bilan va «on» bilan keladi.",
+    "pairs": [
+      {
+        "bad": "in monday",
+        "good": "on Monday"
+      },
+      {
+        "bad": "at Friday",
+        "good": "on Friday"
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Dars soat 8 da boshlanadi.",
+      "options": [
+        {
+          "text": "The lesson starts at 8 o'clock.",
+          "correct": true
+        },
+        {
+          "text": "The lesson starts in 8 o'clock.",
+          "correct": false,
+          "why": "Aniq soat bilan «at» ishlatiladi, «in» emas."
+        },
+        {
+          "text": "The lesson starts on 8 o'clock.",
+          "correct": false,
+          "why": "«on» kunlar bilan, soat bilan «at»."
+        },
+        {
+          "text": "The lesson start at 8 o'clock.",
+          "correct": false,
+          "why": "«the lesson» birlik — «starts»."
+        }
+      ]
+    },
+    {
+      "prompt": "Biz juma kuni uchrashamiz.",
+      "options": [
+        {
+          "text": "We meet on Friday.",
+          "correct": true
+        },
+        {
+          "text": "We meet in Friday.",
+          "correct": false,
+          "why": "Hafta kunlari bilan «on» ishlatiladi: on Friday."
+        },
+        {
+          "text": "We meet at Friday.",
+          "correct": false,
+          "why": "Hafta kunlari bilan «on»."
+        },
+        {
+          "text": "We meet on friday.",
+          "correct": false,
+          "why": "Hafta kunlari doim katta harf bilan yoziladi: Friday."
+        }
+      ]
+    },
+    {
+      "prompt": "U (erkak) hozir ishda.",
+      "options": [
+        {
+          "text": "He is at work now.",
+          "correct": true
+        },
+        {
+          "text": "He is in work now.",
+          "correct": false,
+          "why": "«ishda» — «at work»."
+        },
+        {
+          "text": "He is on work now.",
+          "correct": false,
+          "why": "Toʻgʻrisi: at work."
+        },
+        {
+          "text": "He at work now.",
+          "correct": false,
+          "why": "«is» tushib qolgan: He is at work now."
+        }
+      ]
+    },
+    {
+      "prompt": "Ertalab kitob oʻqiyman.",
+      "options": [
+        {
+          "text": "I read a book in the morning.",
+          "correct": true
+        },
+        {
+          "text": "I read a book at the morning.",
+          "correct": false,
+          "why": "Kun qismlari bilan «in the morning» ishlatiladi."
+        },
+        {
+          "text": "I read a book on the morning.",
+          "correct": false,
+          "why": "Toʻgʻrisi: in the morning."
+        },
+        {
+          "text": "I read a book in morning.",
+          "correct": false,
+          "why": "«the» tushib qolgan: in the morning."
+        }
+      ]
+    },
+    {
+      "prompt": "Soat yettidan oʻn besh daqiqa oʻtdi.",
+      "options": [
+        {
+          "text": "It is quarter past seven.",
+          "correct": true
+        },
+        {
+          "text": "It is quarter to seven.",
+          "correct": false,
+          "why": "«quarter to» 15 daqiqa kam degani. Oʻtdi — «quarter past»."
+        },
+        {
+          "text": "It is half past seven.",
+          "correct": false,
+          "why": "«half past» yarimta oʻtdi (7:30) degani."
+        },
+        {
+          "text": "It is quarter past seven o'clock.",
+          "correct": false,
+          "why": "«quarter past» bilan «o'clock» qoʻshilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "U (ayol) dushanba kuni keladi.",
+      "options": [
+        {
+          "text": "She comes on Monday.",
+          "correct": true
+        },
+        {
+          "text": "She comes in Monday.",
+          "correct": false,
+          "why": "Kunlar bilan «on»: on Monday."
+        },
+        {
+          "text": "She come on Monday.",
+          "correct": false,
+          "why": "«she» bilan «comes»."
+        },
+        {
+          "text": "She comes at Monday.",
+          "correct": false,
+          "why": "Kunlar bilan «on»."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "id": 14,
+  "title": "He / She / It: -s",
+  "subtitle": "he works · U ishlaydi (-s)",
+  "flower": "🌹",
+  "words": [
+    {
+      "en": "start",
+      "pron": "START",
+      "uz": "boshlamoq"
+    },
+    {
+      "en": "finish",
+      "pron": "FI-nish",
+      "uz": "tugatmoq"
+    },
+    {
+      "en": "sleep",
+      "pron": "SLIIP",
+      "uz": "uxlamoq"
+    },
+    {
+      "en": "wake up",
+      "pron": "ueyk AP",
+      "uz": "uygʻonmoq"
+    },
+    {
+      "en": "get up",
+      "pron": "get AP",
+      "uz": "oʻrindan turmoq"
+    },
+    {
+      "en": "cook",
+      "pron": "KUK",
+      "uz": "ovqat pishirmoq"
+    },
+    {
+      "en": "teach",
+      "pron": "TIICH",
+      "uz": "dars bermoq, oʻrgatmoq"
+    },
+    {
+      "en": "write",
+      "pron": "RAYT",
+      "uz": "yozmoq"
+    },
+    {
+      "en": "early",
+      "pron": "OO-li",
+      "uz": "erta, vaqtli"
+    },
+    {
+      "en": "late",
+      "pron": "LEYT",
+      "uz": "kech"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Agar ega <b>he, she, it</b> boʻlsa, feʼl oxiriga <b>-s</b> qoʻshiladi:",
+      "examples": [
+        {
+          "uz": "Men ishlayman.",
+          "en": "I work."
+        },
+        {
+          "uz": "U ishlaydi. (erkak)",
+          "en": "He works."
+        },
+        {
+          "uz": "U yashaydi. (ayol)",
+          "en": "She lives."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "He works in an office.",
+      "uz": "U (erkak) idorada ishlaydi."
+    },
+    {
+      "en": "She lives in Tashkent.",
+      "uz": "U (ayol) Toshkentda yashaydi."
+    },
+    {
+      "en": "He wakes up early.",
+      "uz": "U (erkak) erta uygʻonadi."
+    },
+    {
+      "en": "She teaches English.",
+      "uz": "U (ayol) ingliz tilini oʻrgatadi."
+    }
+  ],
+  "warning": {
+    "body": "«-s» faqat uchinchi shaxs (he, she, it)da qoʻshiladi.",
+    "pairs": [
+      {
+        "bad": "I works.",
+        "good": "I work."
+      },
+      {
+        "bad": "She work.",
+        "good": "She works."
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "U (erkak) idorada ishlaydi.",
+      "options": [
+        {
+          "text": "He works in an office.",
+          "correct": true
+        },
+        {
+          "text": "He work in an office.",
+          "correct": false,
+          "why": "«he» bilan feʼlga «-s» qoʻshiladi: works."
+        },
+        {
+          "text": "He is work in an office.",
+          "correct": false,
+          "why": "Oddiy harakatda «is» kerak emas: He works."
+        },
+        {
+          "text": "He works in a office.",
+          "correct": false,
+          "why": "«office» unli bilan boshlanadi — «an office»."
+        }
+      ]
+    },
+    {
+      "prompt": "U (ayol) Toshkentda yashaydi.",
+      "options": [
+        {
+          "text": "She lives in Tashkent.",
+          "correct": true
+        },
+        {
+          "text": "She live in Tashkent.",
+          "correct": false,
+          "why": "«she» bilan «-s» shart: lives."
+        },
+        {
+          "text": "She is live in Tashkent.",
+          "correct": false,
+          "why": "«is» ortiqcha: She lives in Tashkent."
+        },
+        {
+          "text": "She lives at Tashkent.",
+          "correct": false,
+          "why": "Shaharlar bilan «in» ishlatiladi: in Tashkent."
+        }
+      ]
+    },
+    {
+      "prompt": "U (erkak) erta uygʻonadi.",
+      "options": [
+        {
+          "text": "He wakes up early.",
+          "correct": true
+        },
+        {
+          "text": "He wake up early.",
+          "correct": false,
+          "why": "«he» bilan «wakes up»."
+        },
+        {
+          "text": "He is wake up early.",
+          "correct": false,
+          "why": "«is» qoʻyilmaydi: He wakes up early."
+        },
+        {
+          "text": "He wakes up late.",
+          "correct": false,
+          "why": "«early» — erta. «late» — bu kech."
+        }
+      ]
+    },
+    {
+      "prompt": "U (ayol) ingliz tilini oʻrgatadi.",
+      "options": [
+        {
+          "text": "She teaches English.",
+          "correct": true
+        },
+        {
+          "text": "She teachs English.",
+          "correct": false,
+          "why": "«-ch» dan keyin «-es» qoʻshiladi: teaches."
+        },
+        {
+          "text": "She teach English.",
+          "correct": false,
+          "why": "«she» bilan «-es» kerak: teaches."
+        },
+        {
+          "text": "She is teach English.",
+          "correct": false,
+          "why": "«is» kerak emas."
+        }
+      ]
+    },
+    {
+      "prompt": "Akam juda yaxshi pishiradi.",
+      "options": [
+        {
+          "text": "My brother cooks very well.",
+          "correct": true
+        },
+        {
+          "text": "My brother cook very well.",
+          "correct": false,
+          "why": "«my brother» bu «he» — feʼlga «-s» qoʻshiladi: cooks."
+        },
+        {
+          "text": "My brother is cook very well.",
+          "correct": false,
+          "why": "«is» kerak emas: My brother cooks."
+        },
+        {
+          "text": "My brother cooks very good.",
+          "correct": false,
+          "why": "Harakat sifatlanganda «well» ishlatiladi."
+        }
+      ]
+    },
+    {
+      "prompt": "Dars soat beshda tugaydi.",
+      "options": [
+        {
+          "text": "The lesson finishes at five.",
+          "correct": true
+        },
+        {
+          "text": "The lesson finish at five.",
+          "correct": false,
+          "why": "«the lesson» bu «it» — «finishes» boʻladi."
+        },
+        {
+          "text": "The lesson finishs at five.",
+          "correct": false,
+          "why": "«-sh» dan keyin «-es» qoʻshiladi: finishes."
+        },
+        {
+          "text": "The lesson is finish at five.",
+          "correct": false,
+          "why": "«is» ortiqcha."
+        }
+      ]
+    }
+  ]
+}

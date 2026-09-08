@@ -1,0 +1,251 @@
+{
+  "id": 13,
+  "title": "Savol: Do you ...?",
+  "subtitle": "Do you ...? · Siz ishlaysizmi?",
+  "flower": "🌼",
+  "words": [
+    {
+      "en": "play",
+      "pron": "PLEY",
+      "uz": "oʻynamoq"
+    },
+    {
+      "en": "listen",
+      "pron": "LIS-n",
+      "uz": "tinglamoq"
+    },
+    {
+      "en": "watch",
+      "pron": "UOCH",
+      "uz": "koʻrmoq, tomosha qilmoq"
+    },
+    {
+      "en": "football",
+      "pron": "FUT-bool",
+      "uz": "futbol"
+    },
+    {
+      "en": "music",
+      "pron": "MYU-zik",
+      "uz": "musiqa"
+    },
+    {
+      "en": "movie",
+      "pron": "MU-vi",
+      "uz": "film, kino"
+    },
+    {
+      "en": "weekend",
+      "pron": "UIK-end",
+      "uz": "dam olish kunlari"
+    },
+    {
+      "en": "in the evening",
+      "pron": "in dhi IIV-ning",
+      "uz": "kechqurun"
+    },
+    {
+      "en": "often",
+      "pron": "OF-n",
+      "uz": "tez-tez"
+    },
+    {
+      "en": "usually",
+      "pron": "YU-zhu-e-li",
+      "uz": "odatda"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Oddiy harakatlar haqida savol berish uchun gap boshiga <b>Do</b> soʻzi qoʻyiladi:",
+      "examples": [
+        {
+          "uz": "Siz inglizcha gapirasizmi?",
+          "en": "Do you speak English?"
+        },
+        {
+          "uz": "Ular bu yerda yashashadimi?",
+          "en": "Do they live here?"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "Do you speak English?",
+      "uz": "Siz inglizcha gapirasizmi?"
+    },
+    {
+      "en": "Do you live here?",
+      "uz": "Siz bu yerda yashaysizmi?"
+    },
+    {
+      "en": "Do they play football?",
+      "uz": "Ular futbol oʻynashadimi?"
+    },
+    {
+      "en": "Yes, I do.",
+      "uz": "Do you listen to music? — Ha."
+    }
+  ],
+  "warning": {
+    "body": "«listen» soʻzidan keyin har doim «to» shart.",
+    "pairs": [
+      {
+        "bad": "listen music",
+        "good": "listen to music"
+      },
+      {
+        "bad": "Are you work?",
+        "good": "Do you work?"
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Siz inglizcha gapirasizmi?",
+      "options": [
+        {
+          "text": "Do you speak English?",
+          "correct": true
+        },
+        {
+          "text": "Are you speak English?",
+          "correct": false,
+          "why": "Oddiy feʼl bilan savolda «Are» emas, «Do» ishlatiladi."
+        },
+        {
+          "text": "You speak English?",
+          "correct": false,
+          "why": "Savolda «Do» gap boshiga chiqishi kerak: Do you speak...?"
+        },
+        {
+          "text": "Do you speaks English?",
+          "correct": false,
+          "why": "Savolda feʼlga «-s» qoʻshilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Siz bu yerda yashaysizmi?",
+      "options": [
+        {
+          "text": "Do you live here?",
+          "correct": true
+        },
+        {
+          "text": "Are you live here?",
+          "correct": false,
+          "why": "«live» harakat feʼli — «Do you live here?»"
+        },
+        {
+          "text": "Do you lives here?",
+          "correct": false,
+          "why": "«you» bilan «live» oʻzgarmaydi."
+        },
+        {
+          "text": "Live you here?",
+          "correct": false,
+          "why": "Inglizchada «Do» yordamchisi shart."
+        }
+      ]
+    },
+    {
+      "prompt": "Ular futbol oʻynashadimi?",
+      "options": [
+        {
+          "text": "Do they play football?",
+          "correct": true
+        },
+        {
+          "text": "Are they play football?",
+          "correct": false,
+          "why": "«play» bilan «Do» ishlatiladi."
+        },
+        {
+          "text": "Does they play football?",
+          "correct": false,
+          "why": "«they» bilan «Do», «Does» emas."
+        },
+        {
+          "text": "Do they play a football?",
+          "correct": false,
+          "why": "Sport turlari oldida artikl qoʻyilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Do you listen to music? — Ha.",
+      "options": [
+        {
+          "text": "Yes, I do.",
+          "correct": true
+        },
+        {
+          "text": "Yes, I am.",
+          "correct": false,
+          "why": "«Do» bilan berilgan savolga «am» bilan emas, «do» bilan javob beriladi."
+        },
+        {
+          "text": "Yes, I listen.",
+          "correct": false,
+          "why": "Qisqa javobda yordamchi feʼl ishlatiladi: Yes, I do."
+        },
+        {
+          "text": "Yes, I does.",
+          "correct": false,
+          "why": "«I» bilan «do»."
+        }
+      ]
+    },
+    {
+      "prompt": "Do you drink coffee? — Yoʻq.",
+      "options": [
+        {
+          "text": "No, I don't.",
+          "correct": true
+        },
+        {
+          "text": "No, I'm not.",
+          "correct": false,
+          "why": "«Do» savoliga inkor: No, I don't."
+        },
+        {
+          "text": "No, I doesn't.",
+          "correct": false,
+          "why": "«I» bilan «don't»."
+        },
+        {
+          "text": "No, I not.",
+          "correct": false,
+          "why": "Toʻgʻrisi: No, I don't."
+        }
+      ]
+    },
+    {
+      "prompt": "Siz musiqa tinglaysizmi?",
+      "options": [
+        {
+          "text": "Do you listen to music?",
+          "correct": true
+        },
+        {
+          "text": "Do you listen music?",
+          "correct": false,
+          "why": "«listen» dan keyin har doim «to» shart: listen to music."
+        },
+        {
+          "text": "Are you listen to music?",
+          "correct": false,
+          "why": "Oddiy savolda «Do you» ishlatiladi."
+        },
+        {
+          "text": "Do you listens to music?",
+          "correct": false,
+          "why": "«you» bilan feʼlga «-s» qoʻshilmaydi."
+        }
+      ]
+    }
+  ]
+}

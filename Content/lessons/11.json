@@ -1,0 +1,255 @@
+{
+  "id": 11,
+  "title": "Present Simple",
+  "subtitle": "I work · we live",
+  "flower": "🌾",
+  "words": [
+    {
+      "en": "work",
+      "pron": "UOOK",
+      "uz": "ishlamoq"
+    },
+    {
+      "en": "live",
+      "pron": "LIV",
+      "uz": "yashamoq"
+    },
+    {
+      "en": "study",
+      "pron": "STA-di",
+      "uz": "oʻqimoq, tahsil olmoq"
+    },
+    {
+      "en": "like",
+      "pron": "LAYK",
+      "uz": "yoqtirmoq"
+    },
+    {
+      "en": "eat",
+      "pron": "IIT",
+      "uz": "yemoq"
+    },
+    {
+      "en": "drink",
+      "pron": "DRINK",
+      "uz": "ichmoq"
+    },
+    {
+      "en": "speak",
+      "pron": "SPIIK",
+      "uz": "gapirmoq"
+    },
+    {
+      "en": "read",
+      "pron": "RIID",
+      "uz": "oʻqimoq (kitob)"
+    },
+    {
+      "en": "every day",
+      "pron": "EV-ri dey",
+      "uz": "har kuni"
+    },
+    {
+      "en": "English",
+      "pron": "ING-glish",
+      "uz": "ingliz tili"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Odatiy, har kuni takrorlanadigan ish-harakatlar uchun feʼlning asl shakli ishlatiladi.\n\n<b>I, you, we, they</b> bilan feʼlga hech qanday qoʻshimcha qoʻshilmaydi:",
+      "examples": [
+        {
+          "uz": "Men ishlayman.",
+          "en": "I work."
+        },
+        {
+          "uz": "Biz Toshkentda yashaymiz.",
+          "en": "We live in Tashkent."
+        },
+        {
+          "uz": "Ular inglizcha gapirishadi.",
+          "en": "They speak English."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "I work every day.",
+      "uz": "Men har kuni ishlayman."
+    },
+    {
+      "en": "We live in Tashkent.",
+      "uz": "Biz Toshkentda yashaymiz."
+    },
+    {
+      "en": "They speak English.",
+      "uz": "Ular inglizcha gapirishadi."
+    },
+    {
+      "en": "I read a book.",
+      "uz": "Men kitob oʻqiyman."
+    }
+  ],
+  "warning": {
+    "body": "Oddiy feʼl bor gapda «be» (am, is, are) ishlatilmaydi.",
+    "pairs": [
+      {
+        "bad": "I am work.",
+        "good": "I work."
+      },
+      {
+        "bad": "We are live in Tashkent.",
+        "good": "We live in Tashkent."
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Men har kuni ishlayman.",
+      "options": [
+        {
+          "text": "I work every day.",
+          "correct": true
+        },
+        {
+          "text": "I am work every day.",
+          "correct": false,
+          "why": "Oddiy feʼl bor gapda «am» ishlatilmaydi: I work."
+        },
+        {
+          "text": "I works every day.",
+          "correct": false,
+          "why": "«-s» faqat he/she/it bilan qoʻshiladi. «I» bilan feʼl oʻzgarmaydi."
+        },
+        {
+          "text": "Work I every day.",
+          "correct": false,
+          "why": "Inglizchada ega (I) feʼldan oldin keladi."
+        }
+      ]
+    },
+    {
+      "prompt": "Biz Toshkentda yashaymiz.",
+      "options": [
+        {
+          "text": "We live in Tashkent.",
+          "correct": true
+        },
+        {
+          "text": "We are live in Tashkent.",
+          "correct": false,
+          "why": "«are» kerak emas: We live in Tashkent."
+        },
+        {
+          "text": "We lives in Tashkent.",
+          "correct": false,
+          "why": "«we» bilan «-s» qoʻshilmaydi."
+        },
+        {
+          "text": "We in Tashkent live.",
+          "correct": false,
+          "why": "Feʼl egadan keyin darrov kelishi kerak."
+        }
+      ]
+    },
+    {
+      "prompt": "Ular inglizcha gapirishadi.",
+      "options": [
+        {
+          "text": "They speak English.",
+          "correct": true
+        },
+        {
+          "text": "They speaks English.",
+          "correct": false,
+          "why": "«they» bilan «-s» qoʻyilmaydi: They speak."
+        },
+        {
+          "text": "They are speak English.",
+          "correct": false,
+          "why": "«are» ortiqcha: They speak English."
+        },
+        {
+          "text": "They speak the English.",
+          "correct": false,
+          "why": "Tillar nomi oldida «the» qoʻyilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Men kitob oʻqiyman.",
+      "options": [
+        {
+          "text": "I read a book.",
+          "correct": true
+        },
+        {
+          "text": "I read book.",
+          "correct": false,
+          "why": "Sanaladigan birlik ot oldida artikl shart: a book."
+        },
+        {
+          "text": "I am read a book.",
+          "correct": false,
+          "why": "«am» kerak emas: I read a book."
+        },
+        {
+          "text": "I reads a book.",
+          "correct": false,
+          "why": "«I» bilan feʼlga «-s» qoʻshilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Biz mevalar yeymiz.",
+      "options": [
+        {
+          "text": "We eat fruit.",
+          "correct": true
+        },
+        {
+          "text": "We eats fruit.",
+          "correct": false,
+          "why": "«we» bilan «eat», «eats» emas."
+        },
+        {
+          "text": "We are eat fruit.",
+          "correct": false,
+          "why": "Feʼl bor gapda «are» qoʻyilmaydi."
+        },
+        {
+          "text": "We fruit eat.",
+          "correct": false,
+          "why": "Oʻzbekcha soʻz tartibi. Inglizchada feʼl ikkinchi oʻrinda: We eat fruit."
+        }
+      ]
+    },
+    {
+      "prompt": "Siz suv ichasiz.",
+      "options": [
+        {
+          "text": "You drink water.",
+          "correct": true
+        },
+        {
+          "text": "You drinks water.",
+          "correct": false,
+          "why": "«you» bilan feʼlga «-s» qoʻshilmaydi."
+        },
+        {
+          "text": "You are drink water.",
+          "correct": false,
+          "why": "«are» ortiqcha."
+        },
+        {
+          "text": "You drink a water.",
+          "correct": false,
+          "why": "«water» sanalmaydi — artikl kerak emas."
+        }
+      ]
+    }
+  ]
+}

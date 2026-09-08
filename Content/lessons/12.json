@@ -1,0 +1,255 @@
+{
+  "id": 12,
+  "title": "Inkor: don't",
+  "subtitle": "don't · Men ishlamayman",
+  "flower": "🌻",
+  "words": [
+    {
+      "en": "know",
+      "pron": "NOU",
+      "uz": "bilmoq"
+    },
+    {
+      "en": "understand",
+      "pron": "an-der-STEND",
+      "uz": "tushunmoq"
+    },
+    {
+      "en": "want",
+      "pron": "UONT",
+      "uz": "xohlamoq, istamoq"
+    },
+    {
+      "en": "buy",
+      "pron": "BAY",
+      "uz": "sotib olmoq"
+    },
+    {
+      "en": "need",
+      "pron": "NIID",
+      "uz": "kerak boʻlmoq"
+    },
+    {
+      "en": "meat",
+      "pron": "MIIT",
+      "uz": "goʻsht"
+    },
+    {
+      "en": "coffee",
+      "pron": "KO-fi",
+      "uz": "qahva"
+    },
+    {
+      "en": "tea",
+      "pron": "TII",
+      "uz": "choy"
+    },
+    {
+      "en": "fast food",
+      "pron": "FAST fud",
+      "uz": "tez tayyor taom"
+    },
+    {
+      "en": "at all",
+      "pron": "et OOL",
+      "uz": "umuman"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Oʻzbekchada «bil<b>mayman</b>» — inkor qoʻshimchasi soʻz oxiriga yopishadi.\n\nInglizchada esa <b>don't</b> feʼlning oldiga qoʻyiladi:",
+      "examples": [
+        {
+          "uz": "Men bilaman.",
+          "en": "I know."
+        },
+        {
+          "uz": "Men bilmayman.",
+          "en": "I don't know."
+        },
+        {
+          "uz": "Biz goʻsht yemaymiz.",
+          "en": "We don't eat meat."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "I don't know.",
+      "uz": "Men bilmayman."
+    },
+    {
+      "en": "We don't eat meat.",
+      "uz": "Biz goʻsht yemaymiz."
+    },
+    {
+      "en": "I don't drink coffee.",
+      "uz": "Men qahva ichmayman."
+    },
+    {
+      "en": "They don't understand.",
+      "uz": "Ular tushunishmaydi."
+    }
+  ],
+  "warning": {
+    "body": "Shunchaki «not» emas, albatta «don't» ishlatiladi.",
+    "pairs": [
+      {
+        "bad": "I not know.",
+        "good": "I don't know."
+      },
+      {
+        "bad": "We not eat meat.",
+        "good": "We don't eat meat."
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Men bilmayman.",
+      "options": [
+        {
+          "text": "I don't know.",
+          "correct": true
+        },
+        {
+          "text": "I not know.",
+          "correct": false,
+          "why": "Shunchaki «not» emas, «don't» ishlatiladi: I don't know."
+        },
+        {
+          "text": "I am not know.",
+          "correct": false,
+          "why": "Oddiy feʼl inkorida «am not» emas, «don't» boʻladi."
+        },
+        {
+          "text": "I doesn't know.",
+          "correct": false,
+          "why": "«doesn't» faqat he/she/it bilan. «I» bilan «don't»."
+        }
+      ]
+    },
+    {
+      "prompt": "Biz goʻsht yemaymiz.",
+      "options": [
+        {
+          "text": "We don't eat meat.",
+          "correct": true
+        },
+        {
+          "text": "We not eat meat.",
+          "correct": false,
+          "why": "«don't» tushib qolgan: We don't eat meat."
+        },
+        {
+          "text": "We don't eat a meat.",
+          "correct": false,
+          "why": "«meat» sanalmaydi — artikl kerak emas."
+        },
+        {
+          "text": "We aren't eat meat.",
+          "correct": false,
+          "why": "Feʼl inkorida «aren't» emas, «don't» ishlatiladi."
+        }
+      ]
+    },
+    {
+      "prompt": "Men qahva ichmayman.",
+      "options": [
+        {
+          "text": "I don't drink coffee.",
+          "correct": true
+        },
+        {
+          "text": "I doesn't drink coffee.",
+          "correct": false,
+          "why": "«I» bilan «don't»."
+        },
+        {
+          "text": "I not drink coffee.",
+          "correct": false,
+          "why": "«don't» qoʻyilishi kerak."
+        },
+        {
+          "text": "I don't drink a coffee.",
+          "correct": false,
+          "why": "«coffee» oldida artikl qoʻyilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Ular tushunishmaydi.",
+      "options": [
+        {
+          "text": "They don't understand.",
+          "correct": true
+        },
+        {
+          "text": "They not understand.",
+          "correct": false,
+          "why": "«don't» kerak: They don't understand."
+        },
+        {
+          "text": "They doesn't understand.",
+          "correct": false,
+          "why": "«they» bilan «don't»."
+        },
+        {
+          "text": "They don't understands.",
+          "correct": false,
+          "why": "«don't» dan keyin feʼlga hech qanday qoʻshimcha qoʻshilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Men buni xohlamayman.",
+      "options": [
+        {
+          "text": "I don't want this.",
+          "correct": true
+        },
+        {
+          "text": "I not want this.",
+          "correct": false,
+          "why": "«don't» kerak: I don't want this."
+        },
+        {
+          "text": "I don't want these.",
+          "correct": false,
+          "why": "«this» birlik (buni), «these» esa koʻplik."
+        },
+        {
+          "text": "I am not want this.",
+          "correct": false,
+          "why": "Oddiy feʼl inkorida «don't» ishlatiladi."
+        }
+      ]
+    },
+    {
+      "prompt": "Bizga mashina kerak emas.",
+      "options": [
+        {
+          "text": "We don't need a car.",
+          "correct": true
+        },
+        {
+          "text": "We don't need car.",
+          "correct": false,
+          "why": "Artikl tushib qolgan: a car."
+        },
+        {
+          "text": "We not need a car.",
+          "correct": false,
+          "why": "«don't» ishlatiladi: We don't need a car."
+        },
+        {
+          "text": "We doesn't need a car.",
+          "correct": false,
+          "why": "«we» bilan «don't»."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "id": 15,
+  "title": "doesn't · Does he ...?",
+  "subtitle": "doesn't · Does he ...?",
+  "flower": "🌺",
+  "words": [
+    {
+      "en": "come",
+      "pron": "KAM",
+      "uz": "kelmoq"
+    },
+    {
+      "en": "go home",
+      "pron": "gou HOUM",
+      "uz": "uyga bormoq / qaytmoq"
+    },
+    {
+      "en": "drive",
+      "pron": "DRAYV",
+      "uz": "mashina haydamoq"
+    },
+    {
+      "en": "walk",
+      "pron": "UOOK",
+      "uz": "piyoda yurmoq"
+    },
+    {
+      "en": "help",
+      "pron": "HELP",
+      "uz": "yordam bermoq"
+    },
+    {
+      "en": "hospital",
+      "pron": "HOS-pi-tl",
+      "uz": "shifoxona"
+    },
+    {
+      "en": "office",
+      "pron": "O-fis",
+      "uz": "idora, ofis"
+    },
+    {
+      "en": "school",
+      "pron": "SKUUL",
+      "uz": "maktab"
+    },
+    {
+      "en": "bus",
+      "pron": "BAS",
+      "uz": "avtobus"
+    },
+    {
+      "en": "train",
+      "pron": "TREYN",
+      "uz": "poyezd"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "He, she, it bilan inkor uchun <b>doesn't</b>, savol uchun <b>Does</b> ishlatiladi. Feʼldan «-s» tushib qoladi:",
+      "examples": [
+        {
+          "uz": "U ishlaydi.",
+          "en": "He works."
+        },
+        {
+          "uz": "U ishlamaydi.",
+          "en": "He doesn't work."
+        },
+        {
+          "uz": "U ishlaydimi?",
+          "en": "Does he work?"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "He doesn't drive a car.",
+      "uz": "U (erkak) mashina haydamaydi."
+    },
+    {
+      "en": "She doesn't work in a hospital.",
+      "uz": "U (ayol) shifoxonada ishlamaydi."
+    },
+    {
+      "en": "Does he live in Tashkent?",
+      "uz": "U (erkak) Toshkentda yashaydimi?"
+    },
+    {
+      "en": "Yes, she does.",
+      "uz": "Does she speak English? — Ha."
+    }
+  ],
+  "warning": {
+    "body": "«doesn't» yoki «Does» bor joyda feʼlga yana «-s» qoʻshilmaydi.",
+    "pairs": [
+      {
+        "bad": "He doesn't works.",
+        "good": "He doesn't work."
+      },
+      {
+        "bad": "Does she lives?",
+        "good": "Does she live?"
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "U (erkak) mashina haydamaydi.",
+      "options": [
+        {
+          "text": "He doesn't drive a car.",
+          "correct": true
+        },
+        {
+          "text": "He doesn't drives a car.",
+          "correct": false,
+          "why": "«doesn't» bor gapda feʼldagi «-s» tushib qoladi: drive."
+        },
+        {
+          "text": "He don't drive a car.",
+          "correct": false,
+          "why": "«he» bilan «doesn't» ishlatiladi, «don't» emas."
+        },
+        {
+          "text": "He not drive a car.",
+          "correct": false,
+          "why": "«doesn't» kerak: He doesn't drive."
+        }
+      ]
+    },
+    {
+      "prompt": "U (ayol) shifoxonada ishlamaydi.",
+      "options": [
+        {
+          "text": "She doesn't work in a hospital.",
+          "correct": true
+        },
+        {
+          "text": "She doesn't works in a hospital.",
+          "correct": false,
+          "why": "«doesn't» kelganda feʼlga «-s» qoʻshilmaydi: work."
+        },
+        {
+          "text": "She don't work in a hospital.",
+          "correct": false,
+          "why": "«she» bilan «doesn't»."
+        },
+        {
+          "text": "She isn't work in a hospital.",
+          "correct": false,
+          "why": "Feʼl inkorida «doesn't» boʻladi."
+        }
+      ]
+    },
+    {
+      "prompt": "U (erkak) Toshkentda yashaydimi?",
+      "options": [
+        {
+          "text": "Does he live in Tashkent?",
+          "correct": true
+        },
+        {
+          "text": "Does he lives in Tashkent?",
+          "correct": false,
+          "why": "«Does» bor savolda feʼl «-s»siz keladi: live."
+        },
+        {
+          "text": "Do he live in Tashkent?",
+          "correct": false,
+          "why": "«he» bilan «Does», «Do» emas."
+        },
+        {
+          "text": "Is he live in Tashkent?",
+          "correct": false,
+          "why": "Oddiy feʼl savolida «Does» ishlatiladi."
+        }
+      ]
+    },
+    {
+      "prompt": "Does she speak English? — Ha.",
+      "options": [
+        {
+          "text": "Yes, she does.",
+          "correct": true
+        },
+        {
+          "text": "Yes, she is.",
+          "correct": false,
+          "why": "«Does» bilan berilgan savolga «does» bilan javob beriladi."
+        },
+        {
+          "text": "Yes, she speaks.",
+          "correct": false,
+          "why": "Qisqa javob: Yes, she does."
+        },
+        {
+          "text": "Yes, she do.",
+          "correct": false,
+          "why": "«she» bilan «does»."
+        }
+      ]
+    },
+    {
+      "prompt": "Does he walk? — Yoʻq.",
+      "options": [
+        {
+          "text": "No, he doesn't.",
+          "correct": true
+        },
+        {
+          "text": "No, he don't.",
+          "correct": false,
+          "why": "«he» bilan «doesn't»."
+        },
+        {
+          "text": "No, he isn't.",
+          "correct": false,
+          "why": "«Does» savoliga javob «doesn't» bilan."
+        },
+        {
+          "text": "No, he not.",
+          "correct": false,
+          "why": "Toʻgʻrisi: No, he doesn't."
+        }
+      ]
+    },
+    {
+      "prompt": "U (ayol) uyga kech keladi.",
+      "options": [
+        {
+          "text": "She comes home late.",
+          "correct": true
+        },
+        {
+          "text": "She come home late.",
+          "correct": false,
+          "why": "Tasdiq gapda «she» bilan «-s» kerak: comes."
+        },
+        {
+          "text": "She comes to home late.",
+          "correct": false,
+          "why": "«home» oldidan «to» qoʻyilmaydi: comes home."
+        },
+        {
+          "text": "She is come home late.",
+          "correct": false,
+          "why": "«is» ortiqcha."
+        }
+      ]
+    }
+  ]
+}

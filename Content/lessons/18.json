@@ -1,0 +1,251 @@
+{
+  "id": 18,
+  "title": "can / can't",
+  "subtitle": "can · can't · Qila olmoq",
+  "flower": "🍀",
+  "words": [
+    {
+      "en": "can",
+      "pron": "KEN",
+      "uz": "-a olmoq (qila olish)"
+    },
+    {
+      "en": "can't",
+      "pron": "KANT",
+      "uz": "-olmaslik"
+    },
+    {
+      "en": "swim",
+      "pron": "SUIM",
+      "uz": "suzmoq"
+    },
+    {
+      "en": "drive",
+      "pron": "DRAYV",
+      "uz": "mashina haydamoq"
+    },
+    {
+      "en": "sing",
+      "pron": "SING",
+      "uz": "qoʻshiq aytmoq"
+    },
+    {
+      "en": "dance",
+      "pron": "DANS",
+      "uz": "raqsga tushmoq"
+    },
+    {
+      "en": "run",
+      "pron": "RAN",
+      "uz": "yugurmoq"
+    },
+    {
+      "en": "paint",
+      "pron": "PEYNT",
+      "uz": "rasm chizmoq (boʻyoqda)"
+    },
+    {
+      "en": "fix",
+      "pron": "FIKS",
+      "uz": "tuzatmoq, taʼmirlamoq"
+    },
+    {
+      "en": "fast",
+      "pron": "FAST",
+      "uz": "tez"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "<b>can</b> — biror ishni bajara olishni bildiradi. Barcha shaxslar uchun bir xil va keyin «to» qoʻyilmaydi:",
+      "examples": [
+        {
+          "uz": "Men suza olaman.",
+          "en": "I can swim."
+        },
+        {
+          "uz": "U mashina hayday oladi.",
+          "en": "He can drive a car."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "I can swim.",
+      "uz": "Men suza olaman."
+    },
+    {
+      "en": "He can drive a car.",
+      "uz": "U (erkak) mashina hayday oladi."
+    },
+    {
+      "en": "I can't dance.",
+      "uz": "Men raqsga tusha olmayman."
+    },
+    {
+      "en": "Can you speak English?",
+      "uz": "Siz inglizcha gapira olasizmi?"
+    }
+  ],
+  "warning": {
+    "body": "«can» dan keyin «to» qoʻyilmaydi va «-s» qoʻshilmaydi.",
+    "pairs": [
+      {
+        "bad": "I can to swim.",
+        "good": "I can swim."
+      },
+      {
+        "bad": "He cans cook.",
+        "good": "He can cook."
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Men suza olaman.",
+      "options": [
+        {
+          "text": "I can swim.",
+          "correct": true
+        },
+        {
+          "text": "I can to swim.",
+          "correct": false,
+          "why": "«can» dan keyin «to» qoʻyilmaydi: I can swim."
+        },
+        {
+          "text": "I am can swim.",
+          "correct": false,
+          "why": "«am» kerak emas: I can swim."
+        },
+        {
+          "text": "I can swimming.",
+          "correct": false,
+          "why": "«can» dan keyin feʼl asl holida keladi: swim."
+        }
+      ]
+    },
+    {
+      "prompt": "U (erkak) mashina hayday oladi.",
+      "options": [
+        {
+          "text": "He can drive a car.",
+          "correct": true
+        },
+        {
+          "text": "He cans drive a car.",
+          "correct": false,
+          "why": "«can» ga hech qachon «-s» qoʻshilmaydi."
+        },
+        {
+          "text": "He can to drive a car.",
+          "correct": false,
+          "why": "«to» qoʻyilmaydi."
+        },
+        {
+          "text": "He can drives a car.",
+          "correct": false,
+          "why": "«can» dan keyingi feʼlga ham «-s» qoʻshilmaydi: drive."
+        }
+      ]
+    },
+    {
+      "prompt": "Men raqsga tusha olmayman.",
+      "options": [
+        {
+          "text": "I can't dance.",
+          "correct": true
+        },
+        {
+          "text": "I don't can dance.",
+          "correct": false,
+          "why": "«can» ning inkori «can't»: I can't dance."
+        },
+        {
+          "text": "I can not to dance.",
+          "correct": false,
+          "why": "«to» qoʻyilmaydi: I can't dance."
+        },
+        {
+          "text": "I amn't can dance.",
+          "correct": false,
+          "why": "«be» ishlatilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Siz inglizcha gapira olasizmi?",
+      "options": [
+        {
+          "text": "Can you speak English?",
+          "correct": true
+        },
+        {
+          "text": "Do you can speak English?",
+          "correct": false,
+          "why": "«can» bilan savolda «Do» kerak emas, «Can» oldinga chiqadi."
+        },
+        {
+          "text": "Can you to speak English?",
+          "correct": false,
+          "why": "«to» qoʻyilmaydi."
+        },
+        {
+          "text": "Are you can speak English?",
+          "correct": false,
+          "why": "«Are» ishlatilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Can she cook? — Ha.",
+      "options": [
+        {
+          "text": "Yes, she can.",
+          "correct": true
+        },
+        {
+          "text": "Yes, she does.",
+          "correct": false,
+          "why": "«Can» bilan berilgan savolga «can» bilan javob beriladi: Yes, she can."
+        },
+        {
+          "text": "Yes, she is.",
+          "correct": false,
+          "why": "«can» bilan javob berilishi kerak."
+        },
+        {
+          "text": "Yes, she cans.",
+          "correct": false,
+          "why": "«can» ga «-s» qoʻshilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Ular tez yugura olishadi.",
+      "options": [
+        {
+          "text": "They can run fast.",
+          "correct": true
+        },
+        {
+          "text": "They can to run fast.",
+          "correct": false,
+          "why": "«to» qoʻyilmaydi: They can run fast."
+        },
+        {
+          "text": "They are can run fast.",
+          "correct": false,
+          "why": "«are» ortiqcha."
+        },
+        {
+          "text": "They can running fast.",
+          "correct": false,
+          "why": "Feʼl asl holida: run."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "id": 17,
+  "title": "There is / There are",
+  "subtitle": "There is · There are · Bor",
+  "flower": "🏵️",
+  "words": [
+    {
+      "en": "room",
+      "pron": "RUUM",
+      "uz": "xona"
+    },
+    {
+      "en": "bedroom",
+      "pron": "BED-ruum",
+      "uz": "yotoqxona"
+    },
+    {
+      "en": "kitchen",
+      "pron": "KI-chin",
+      "uz": "oshxona"
+    },
+    {
+      "en": "bathroom",
+      "pron": "BATH-ruum",
+      "uz": "yuvinish xonasi, vanna"
+    },
+    {
+      "en": "living room",
+      "pron": "LI-ving ruum",
+      "uz": "mehmonxona"
+    },
+    {
+      "en": "park",
+      "pron": "PARK",
+      "uz": "istirohat bogʻi"
+    },
+    {
+      "en": "bank",
+      "pron": "BENK",
+      "uz": "bank"
+    },
+    {
+      "en": "restaurant",
+      "pron": "RES-tre-nt",
+      "uz": "restoran"
+    },
+    {
+      "en": "lift",
+      "pron": "LIFT",
+      "uz": "lift"
+    },
+    {
+      "en": "garden",
+      "pron": "GAR-dn",
+      "uz": "bogʻ, hovli"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Biror joyda biror narsa borligini bildirish uchun:\n\nBitta narsaga: <b>There is</b>\nKoʻp narsalarga: <b>There are</b>",
+      "examples": [
+        {
+          "uz": "Katta mehmonxona bor.",
+          "en": "There is a big living room."
+        },
+        {
+          "uz": "Uchta yotoqxona bor.",
+          "en": "There are three bedrooms."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "There are three bedrooms.",
+      "uz": "Uchta yotoqxona bor."
+    },
+    {
+      "en": "There is a big living room.",
+      "uz": "Katta mehmonxona bor."
+    },
+    {
+      "en": "There isn't a lift here.",
+      "uz": "Bu yerda lift yoʻq."
+    },
+    {
+      "en": "Is there a park near here?",
+      "uz": "Yaqin atrofda bogʻ bormi?"
+    }
+  ],
+  "warning": {
+    "body": "«have» va «there is» ni adashtirmang.",
+    "pairs": [
+      {
+        "bad": "In my flat have three rooms.",
+        "good": "There are three rooms in my flat."
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Uchta yotoqxona bor.",
+      "options": [
+        {
+          "text": "There are three bedrooms.",
+          "correct": true
+        },
+        {
+          "text": "There is three bedrooms.",
+          "correct": false,
+          "why": "Koʻplik (three bedrooms) bilan «There are» ishlatiladi."
+        },
+        {
+          "text": "They are three bedrooms.",
+          "correct": false,
+          "why": "Mavjudlikni bildirish uchun «There are» kerak."
+        },
+        {
+          "text": "There are three bedroom.",
+          "correct": false,
+          "why": "Ot koʻplikda boʻlishi kerak: bedrooms."
+        }
+      ]
+    },
+    {
+      "prompt": "Katta mehmonxona bor.",
+      "options": [
+        {
+          "text": "There is a big living room.",
+          "correct": true
+        },
+        {
+          "text": "There are a big living room.",
+          "correct": false,
+          "why": "Bitta xona — «There is»."
+        },
+        {
+          "text": "There is big living room.",
+          "correct": false,
+          "why": "Artikl tushib qolgan: a big living room."
+        },
+        {
+          "text": "It is a big living room.",
+          "correct": false,
+          "why": "Borligini koʻrsatish uchun «There is» afzal."
+        }
+      ]
+    },
+    {
+      "prompt": "Bu yerda lift yoʻq.",
+      "options": [
+        {
+          "text": "There isn't a lift here.",
+          "correct": true
+        },
+        {
+          "text": "There not a lift here.",
+          "correct": false,
+          "why": "«is» tushib qolgan: There isn't."
+        },
+        {
+          "text": "There aren't a lift here.",
+          "correct": false,
+          "why": "Bitta lift — «There isn't»."
+        },
+        {
+          "text": "No have a lift here.",
+          "correct": false,
+          "why": "Inglizchada «There isn't a lift» deyiladi."
+        }
+      ]
+    },
+    {
+      "prompt": "Yaqin atrofda bogʻ bormi?",
+      "options": [
+        {
+          "text": "Is there a park near here?",
+          "correct": true
+        },
+        {
+          "text": "Are there a park near here?",
+          "correct": false,
+          "why": "Bitta bogʻ — «Is there»."
+        },
+        {
+          "text": "There is a park near here?",
+          "correct": false,
+          "why": "Savolda «Is» oldinga chiqadi: Is there...?"
+        },
+        {
+          "text": "Is there park near here?",
+          "correct": false,
+          "why": "Artikl kerak: a park."
+        }
+      ]
+    },
+    {
+      "prompt": "Is there a bank here? — Ha.",
+      "options": [
+        {
+          "text": "Yes, there is.",
+          "correct": true
+        },
+        {
+          "text": "Yes, it is.",
+          "correct": false,
+          "why": "«There is» bilan soʻralganda javob: Yes, there is."
+        },
+        {
+          "text": "Yes, there are.",
+          "correct": false,
+          "why": "Birlik savolga «there is» bilan javob beriladi."
+        },
+        {
+          "text": "Yes, is.",
+          "correct": false,
+          "why": "Toʻgʻrisi: Yes, there is."
+        }
+      ]
+    },
+    {
+      "prompt": "Uyda ikkita oshxona bormi?",
+      "options": [
+        {
+          "text": "Are there two kitchens in the house?",
+          "correct": true
+        },
+        {
+          "text": "Is there two kitchens in the house?",
+          "correct": false,
+          "why": "Koʻplik (two kitchens) bilan «Are there» boʻladi."
+        },
+        {
+          "text": "There are two kitchens in the house?",
+          "correct": false,
+          "why": "Savolda «Are» oldinga chiqadi: Are there...?"
+        },
+        {
+          "text": "Are there two kitchen in the house?",
+          "correct": false,
+          "why": "Koʻplik shakli: kitchens."
+        }
+      ]
+    }
+  ]
+}

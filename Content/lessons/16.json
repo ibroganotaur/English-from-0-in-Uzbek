@@ -1,0 +1,251 @@
+{
+  "id": 16,
+  "title": "Maxsus savollar: Wh-",
+  "subtitle": "Where · When · What time",
+  "flower": "💐",
+  "words": [
+    {
+      "en": "where",
+      "pron": "UEER",
+      "uz": "qayerda, qayerga"
+    },
+    {
+      "en": "when",
+      "pron": "UEN",
+      "uz": "qachon"
+    },
+    {
+      "en": "what time",
+      "pron": "uot TAYM",
+      "uz": "soat nechada"
+    },
+    {
+      "en": "why",
+      "pron": "UAY",
+      "uz": "nega, nima uchun"
+    },
+    {
+      "en": "how",
+      "pron": "HAU",
+      "uz": "qanday, qanday qilib"
+    },
+    {
+      "en": "because",
+      "pron": "bi-KOZ",
+      "uz": "chunki"
+    },
+    {
+      "en": "morning",
+      "pron": "MOR-ning",
+      "uz": "ertalab, tong"
+    },
+    {
+      "en": "afternoon",
+      "pron": "af-ter-NUUN",
+      "uz": "tushdan keyin"
+    },
+    {
+      "en": "evening",
+      "pron": "IIV-ning",
+      "uz": "kechqurun"
+    },
+    {
+      "en": "night",
+      "pron": "NAYT",
+      "uz": "kecha, tun"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Maxsus savollarda soʻroq soʻzi gapning eng boshiga qoʻyiladi:\n\n<b>Soʻroq soʻzi + do/does + ega + feʼl</b>",
+      "examples": [
+        {
+          "uz": "Qayerda yashaysiz?",
+          "en": "Where do you live?"
+        },
+        {
+          "uz": "U qayerda ishlaydi?",
+          "en": "Where does he work?"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "Where do you live?",
+      "uz": "Siz qayerda yashaysiz?"
+    },
+    {
+      "en": "Where does he work?",
+      "uz": "U (erkak) qayerda ishlaydi?"
+    },
+    {
+      "en": "What time do you get up?",
+      "uz": "Siz soat nechada turasiz?"
+    },
+    {
+      "en": "When do they come?",
+      "uz": "Ular qachon kelishadi?"
+    }
+  ],
+  "warning": {
+    "body": "Savolda «do» yoki «does»ni tushirib qoldirmang.",
+    "pairs": [
+      {
+        "bad": "Where you live?",
+        "good": "Where do you live?"
+      },
+      {
+        "bad": "What time he starts?",
+        "good": "What time does he start?"
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Siz qayerda yashaysiz?",
+      "options": [
+        {
+          "text": "Where do you live?",
+          "correct": true
+        },
+        {
+          "text": "Where you live?",
+          "correct": false,
+          "why": "«do» tushib qolgan: Where do you live?"
+        },
+        {
+          "text": "Where are you live?",
+          "correct": false,
+          "why": "Oddiy feʼl savolida «do» ishlatiladi, «are» emas."
+        },
+        {
+          "text": "Where do you lives?",
+          "correct": false,
+          "why": "«you» bilan feʼlga «-s» qoʻshilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "U (erkak) qayerda ishlaydi?",
+      "options": [
+        {
+          "text": "Where does he work?",
+          "correct": true
+        },
+        {
+          "text": "Where does he works?",
+          "correct": false,
+          "why": "«does» bor savolda feʼldan «-s» tushadi: work."
+        },
+        {
+          "text": "Where do he work?",
+          "correct": false,
+          "why": "«he» bilan «does» ishlatiladi."
+        },
+        {
+          "text": "Where he works?",
+          "correct": false,
+          "why": "Savol yordamchisi «does» tushib qolgan."
+        }
+      ]
+    },
+    {
+      "prompt": "Siz soat nechada turasiz?",
+      "options": [
+        {
+          "text": "What time do you get up?",
+          "correct": true
+        },
+        {
+          "text": "What time you get up?",
+          "correct": false,
+          "why": "«do» tushib qolgan: What time do you...?"
+        },
+        {
+          "text": "What time are you get up?",
+          "correct": false,
+          "why": "«are» emas, «do» kerak."
+        },
+        {
+          "text": "What time do you gets up?",
+          "correct": false,
+          "why": "«you» bilan «get up»."
+        }
+      ]
+    },
+    {
+      "prompt": "Ular qachon kelishadi?",
+      "options": [
+        {
+          "text": "When do they come?",
+          "correct": true
+        },
+        {
+          "text": "When does they come?",
+          "correct": false,
+          "why": "«they» bilan «do» ishlatiladi."
+        },
+        {
+          "text": "When they come?",
+          "correct": false,
+          "why": "«do» yordamchi soʻzi shart."
+        },
+        {
+          "text": "When do they comes?",
+          "correct": false,
+          "why": "Feʼlga «-s» qoʻshilmaydi."
+        }
+      ]
+    },
+    {
+      "prompt": "Siz nonushtaga nima yeysiz?",
+      "options": [
+        {
+          "text": "What do you eat for breakfast?",
+          "correct": true
+        },
+        {
+          "text": "What you eat for breakfast?",
+          "correct": false,
+          "why": "«do» tushib qolgan: What do you eat...?"
+        },
+        {
+          "text": "What are you eat for breakfast?",
+          "correct": false,
+          "why": "«are» emas, «do» ishlatiladi."
+        },
+        {
+          "text": "What do you eats for breakfast?",
+          "correct": false,
+          "why": "«you» bilan «eat»."
+        }
+      ]
+    },
+    {
+      "prompt": "U (ayol) ishga qanday boradi?",
+      "options": [
+        {
+          "text": "How does she go to work?",
+          "correct": true
+        },
+        {
+          "text": "How does she goes to work?",
+          "correct": false,
+          "why": "«does» bor joyda «go», «goes» emas."
+        },
+        {
+          "text": "How do she go to work?",
+          "correct": false,
+          "why": "«she» bilan «does»."
+        },
+        {
+          "text": "How she goes to work?",
+          "correct": false,
+          "why": "Savolda «does» shart: How does she go...?"
+        }
+      ]
+    }
+  ]
+}

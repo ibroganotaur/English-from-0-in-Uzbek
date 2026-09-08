@@ -1,0 +1,251 @@
+{
+  "id": 20,
+  "title": "Present Continuous",
+  "subtitle": "I am working · Hozir boʻlayotgan ishlar",
+  "flower": "🌳",
+  "words": [
+    {
+      "en": "now",
+      "pron": "NAU",
+      "uz": "hozir"
+    },
+    {
+      "en": "at the moment",
+      "pron": "et dhe MOU-ment",
+      "uz": "ayni damda"
+    },
+    {
+      "en": "doing",
+      "pron": "DU-ing",
+      "uz": "qilayotgan"
+    },
+    {
+      "en": "working",
+      "pron": "UOOK-ing",
+      "uz": "ishlayotgan"
+    },
+    {
+      "en": "reading",
+      "pron": "RIID-ing",
+      "uz": "oʻqiyotgan"
+    },
+    {
+      "en": "eating",
+      "pron": "IIT-ing",
+      "uz": "yeyotgan"
+    },
+    {
+      "en": "drinking",
+      "pron": "DRINK-ing",
+      "uz": "ichayotgan"
+    },
+    {
+      "en": "waiting",
+      "pron": "UEYT-ing",
+      "uz": "kutayotgan"
+    },
+    {
+      "en": "sitting",
+      "pron": "SI-ting",
+      "uz": "oʻtirgan"
+    },
+    {
+      "en": "going",
+      "pron": "GOU-ing",
+      "uz": "borayotgan"
+    }
+  ],
+  "rules": [
+    {
+      "label": "Qoida",
+      "body": "Ayni damda boʻlayotgan harakat uchun: <b>am / is / are + feʼl + -ing</b>",
+      "examples": [
+        {
+          "uz": "Men hozir ishlayapman.",
+          "en": "I am working now."
+        },
+        {
+          "uz": "U kitob oʻqiyapti.",
+          "en": "She is reading a book."
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "en": "I am working now.",
+      "uz": "Men hozir ishlayapman."
+    },
+    {
+      "en": "She is reading a book.",
+      "uz": "U (ayol) kitob oʻqiyapti."
+    },
+    {
+      "en": "We are drinking tea.",
+      "uz": "Biz choy ichyapmiz."
+    },
+    {
+      "en": "What are you doing?",
+      "uz": "Siz nima qilyapsiz?"
+    }
+  ],
+  "warning": {
+    "body": "«be» ham, «-ing» ham birga kelishi shart.",
+    "pairs": [
+      {
+        "bad": "I working now.",
+        "good": "I am working now."
+      },
+      {
+        "bad": "She is read a book.",
+        "good": "She is reading a book."
+      }
+    ]
+  },
+  "quiz": [
+    {
+      "prompt": "Men hozir ishlayapman.",
+      "options": [
+        {
+          "text": "I am working now.",
+          "correct": true
+        },
+        {
+          "text": "I working now.",
+          "correct": false,
+          "why": "«am» tushib qolgan: I am working now."
+        },
+        {
+          "text": "I am work now.",
+          "correct": false,
+          "why": "Hozir davom etayotgan harakatda «-ing» shart: working."
+        },
+        {
+          "text": "I is working now.",
+          "correct": false,
+          "why": "«I» bilan «am» ishlatiladi."
+        }
+      ]
+    },
+    {
+      "prompt": "U (ayol) kitob oʻqiyapti.",
+      "options": [
+        {
+          "text": "She is reading a book.",
+          "correct": true
+        },
+        {
+          "text": "She reading a book.",
+          "correct": false,
+          "why": "«is» tushib qolgan: She is reading."
+        },
+        {
+          "text": "She is read a book.",
+          "correct": false,
+          "why": "«-ing» qoʻyilishi shart: reading."
+        },
+        {
+          "text": "She are reading a book.",
+          "correct": false,
+          "why": "«she» bilan «is»."
+        }
+      ]
+    },
+    {
+      "prompt": "Biz choy ichyapmiz.",
+      "options": [
+        {
+          "text": "We are drinking tea.",
+          "correct": true
+        },
+        {
+          "text": "We drinking tea.",
+          "correct": false,
+          "why": "«are» tushib qolgan: We are drinking."
+        },
+        {
+          "text": "We are drink tea.",
+          "correct": false,
+          "why": "«-ing» kerak: drinking."
+        },
+        {
+          "text": "We is drinking tea.",
+          "correct": false,
+          "why": "«we» bilan «are»."
+        }
+      ]
+    },
+    {
+      "prompt": "Siz nima qilyapsiz?",
+      "options": [
+        {
+          "text": "What are you doing?",
+          "correct": true
+        },
+        {
+          "text": "What you doing?",
+          "correct": false,
+          "why": "«are» tushib qolgan: What are you doing?"
+        },
+        {
+          "text": "What do you doing?",
+          "correct": false,
+          "why": "Continuous da «do» emas, «are» ishlatiladi."
+        },
+        {
+          "text": "What are you do?",
+          "correct": false,
+          "why": "«-ing» kerak: doing."
+        }
+      ]
+    },
+    {
+      "prompt": "Ular avtobus kutishyapti.",
+      "options": [
+        {
+          "text": "They are waiting for the bus.",
+          "correct": true
+        },
+        {
+          "text": "They waiting for the bus.",
+          "correct": false,
+          "why": "«are» tushib qolgan: They are waiting."
+        },
+        {
+          "text": "They are wait for the bus.",
+          "correct": false,
+          "why": "«-ing» kerak: waiting."
+        },
+        {
+          "text": "They is waiting for the bus.",
+          "correct": false,
+          "why": "«they» bilan «are»."
+        }
+      ]
+    },
+    {
+      "prompt": "U (erkak) hozir uxlayapti.",
+      "options": [
+        {
+          "text": "He is sleeping now.",
+          "correct": true
+        },
+        {
+          "text": "He sleeps now.",
+          "correct": false,
+          "why": "Ayni damda boʻlayotgan harakat uchun «is sleeping» ishlatiladi."
+        },
+        {
+          "text": "He sleeping now.",
+          "correct": false,
+          "why": "«is» tushib qolgan."
+        },
+        {
+          "text": "He are sleeping now.",
+          "correct": false,
+          "why": "«he» bilan «is»."
+        }
+      ]
+    }
+  ]
+}
